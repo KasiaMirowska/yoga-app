@@ -1,15 +1,49 @@
 import React from 'react';
 import './App.css';
+import { Link, Route } from 'react-router-dom';
+import Nav from './Nav/Nav';
+import PoseList from './PoseList/PoseList';
+import STORE from './store';
+import Context from './Context';
+import PoseFullCard from './PoseFullCard/PoseFullCard';
 
-function App() {
-  return (
-    <div className="App">
-     
-          Learn React
-    
-    
-    </div>
-  );
+
+export default class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+        poses: STORE.poses
+    }
 }
 
-export default App;
+
+  render() {
+    const contextValue = {
+      poses: this.state.poses,
+  }
+  console.log(this.state.poses)
+
+    return (
+      <div className="App">
+        <Context.Provider value={contextValue}>
+        <Nav />
+        <header>
+          <Link to={'/'}>
+            <h1>YOGA TRACK</h1>
+          </Link>
+        </header>
+        <main>
+         
+         <Route exact path='/' component={PoseList} />
+         <Route exact path='/pose/:pose_id' component={PoseFullCard} />
+        </main>
+
+        </Context.Provider>
+
+      </div>
+    );
+  }
+
+}
+
+
