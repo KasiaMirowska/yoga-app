@@ -1,6 +1,6 @@
 import React from 'react';
 import Context from '../Context';
-import SmallCard from '../SmallCard/SmallCard';
+import PoseListItem from '../PoseListItem/PoseListItem';
 
 
 
@@ -10,7 +10,7 @@ export default class PoseList extends React.Component {
     
     render() {
         const poses = this.context.poses.map(pose => {
-            return <SmallCard 
+            return <PoseListItem 
                     key={pose.id}
                     id={pose.id}
                     name={pose.nameEng}

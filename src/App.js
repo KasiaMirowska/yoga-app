@@ -12,7 +12,8 @@ export default class App extends React.Component {
   constructor() {
     super()
     this.state = {
-        poses: STORE.poses
+        poses: STORE.poses,
+        flows: STORE.flows
     }
 }
 
@@ -20,6 +21,7 @@ export default class App extends React.Component {
   render() {
     const contextValue = {
       poses: this.state.poses,
+      flows: this.state.flows
   }
   console.log(this.state.poses)
 
