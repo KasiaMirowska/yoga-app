@@ -4,14 +4,18 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import YogaContextProvider from './Context';
+import YogaContext from './Context';
 
 ReactDOM.render(
     // <Errors>
     <BrowserRouter>
-        <YogaContextProvider>
-            <App />
-        </YogaContextProvider>
+         <YogaContext.Consumer>
+             {(value) => {
+                 return (
+                    <App props={value}/> 
+                 )
+             }}
+            </YogaContext.Consumer>
     </BrowserRouter>,
     // </Errors>  
     document.getElementById('root')
