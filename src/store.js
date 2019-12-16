@@ -20,6 +20,12 @@ const STORE = {
         //     notes: ''
         // },
     ],
+
+
+
+
+
+    
     attributes: [
         {
             poseId: null,

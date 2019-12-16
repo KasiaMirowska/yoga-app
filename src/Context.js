@@ -2,6 +2,9 @@ import React from 'react';
 
 
 
+
+
+
 const yogaContext = React.createContext({
   
     currentFlow: '',
@@ -10,9 +13,9 @@ const yogaContext = React.createContext({
     addFlow: () => {},
     enterFlow: () => {},
     updateFlow: () => {},
+    setPoseInFlowSection: () => {},
     updateAttributes: () => {},
     poseAttributes: [],
 })
 
 export default yogaContext;
-

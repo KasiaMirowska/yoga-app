@@ -8,83 +8,77 @@ export default class PoseFullCard extends React.Component {
         'grounding-pose': false,
         'cooling-pose': false,
         'heat-rising-pose': false,
-        'energizing-pose':false,
+        'energizing-pose': false,
         'strengthening-pose': false,
         'relaxing-pose': false,
-        'releasing pressure pose':false,
-        'stabilizing pose': false,
+        'releasing-pressure pose': false,
+        'stabilizing-pose': false,
         'increasing-flexibility': false,
     }
-  
+
 
     handleSubmit = (e) => {
         e.preventDefault();
         const { pose_id } = this.props.match.params;
-        
+
         const updatedFlow = {
             id: this.context.currentFlow.id,
             name: this.context.currentFlow.name,
             savedPosesIds: [...pose_id],
-        
+            
         }
-        console.log(pose_id)
+         
         const updatedAttributes = {
             poseId: pose_id,
             assignedFlowId: this.context.currentFlow.id,
-            attributesList:  this.makeAttributesList()
-            
+            attributesList: this.makeAttributesList()
+
         }
-       
+        
         this.context.updateFlow(updatedFlow)
         this.context.updateAttributes(updatedAttributes)
         this.props.history.push('/flow')
     }
-    
-    savePoseAs = (e) => {
-        const { pose_id } = this.props.match.params;
-        const arrayName= e.target.value;
-        const currentFlowId = this.context.currentFlow.id
-        const currentFlow = this.context.flows.find(flow => flow.id === currentFlowId)
-        console.log(currentFlow,'LLLLLLLLLL', pose_id)
-        console.log(arrayName);
-        currentFlow.midFlow.push(pose_id)
 
-       console.log(currentFlow)
-            
-        }
-        
-    
-    
-    addAttribute = (e) => {
+    handleSavePoseAs = (e) => {
+        const { pose_id } = this.props.match.params;
+        const{currentFlow} = this.context;
+        console.log(currentFlow, 'HHHHHHHHH')
+        const flowSectionName = e.target.value;
+        console.log(flowSectionName)
+        this.context.setPoseInFlowSection(pose_id, currentFlow, flowSectionName)
+    };
+
+
+
+    handleAddAttribute = (e) => {
         const attribute = e.target.name;
-        const currentAttribute = this.state[attribute]
+        const clickedAttribute = this.state[attribute]
         this.setState({
-            [attribute]: !currentAttribute,
+            [attribute]: !clickedAttribute,
         });
     }
-    
+
     makeAttributesList = () => {
         const attributesList = [];
         console.log(this.state)
-       for(let [key, value] of Object.entries(this.state)){
-        console.log(value);
-           if(value) {
-             
-            attributesList.push(key)
-           }
-       }
-       console.log(attributesList,'HERE? LOVE', )
-       return attributesList;
-    } 
-    
-    
-    
-    
+        for (let [key, value] of Object.entries(this.state)) {
+            if (value) {
+                attributesList.push(key)
+            }
+        }
+        return attributesList;
+    }
+
+
+
+
     render() {
         const { pose_id } = this.props.match.params;
         const pose = this.context.poses.find(pose => {
-            return pose.id === Number(pose_id)}) 
-            console.log(this.state)
+            return pose.id === Number(pose_id)
+        })
+        console.log(this.state)
         return (
             <div>
                 <h3>{pose.nameEng}</h3>
@@ -127,7 +121,7 @@ export default class PoseFullCard extends React.Component {
                     <input type='checkbox' name='flexibility-pose' onClick={this.addAttribute} />
                     <br />
                     <br />
-                    <select name='flow-menu'onChange={this.savePoseAs}>
+                    <select name='flow-menu' onChange={this.handleSavePoseAs}>
                         <option value='none'>Save to my flow as:</option>
                         <option value='warmUp'>warm up pose</option>
                         <option value='breakPoses'>break pose</option>
