@@ -1,14 +1,15 @@
 import React from 'react';
-import yogaContext from '../Context';
+import YogaContext from '../Context';
 import PoseListItem from '../PoseListItem/PoseListItem';
 
 
 
 export default class PoseList extends React.Component {
-   static contextType = yogaContext;
+   static contextType = YogaContext;
     
     
     render() {
+        console.log(this.context)
         const poses = this.context.poses.map(pose => {
             return <PoseListItem 
                     key={pose.id}

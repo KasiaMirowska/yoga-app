@@ -1,9 +1,9 @@
 import React from 'react';
-import yogaContext from '../Context';
+import YogaContext from '../Context';
 import cuid from 'cuid';
 
 export default class PoseFullCard extends React.Component {
-    static contextType = yogaContext;
+    static contextType = YogaContext;
     state = {
         notes: null,
         'grounding-pose': false,

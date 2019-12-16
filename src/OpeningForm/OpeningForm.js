@@ -1,10 +1,10 @@
 import React from 'react';
-import yogaContext from '../Context';
+import YogaContext from '../Context';
 import cuid from 'cuid';
 import { Link } from 'react-router-dom';
 
 export default class OpeningForm extends React.Component {
-    static contextType = yogaContext;
+    static contextType = YogaContext;
     state = {
         selection: null,
         redirectToNewPath: false,

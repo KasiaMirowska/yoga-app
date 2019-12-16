@@ -1,10 +1,10 @@
 import React from 'react';
-import yogaContext from '../Context';
+import YogaContext from '../Context';
 
 export default function CurrentFlow() {
    
     return (
-        <yogaContext.Consumer>
+        <YogaContext.Consumer>
             {(value) => {
                 return(
                     <div>
@@ -16,6 +16,6 @@ export default function CurrentFlow() {
                 
         
     
-        </yogaContext.Consumer>
+        </YogaContext.Consumer>
     )
 }
