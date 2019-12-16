@@ -32,6 +32,15 @@ export default class App extends React.Component {
     })
   }
 
+
+  
+  updateFlow = (updatedFlow) => {
+    console.log(updatedFlow)
+    this.setState({
+      currentFlow: updatedFlow,
+    })
+  }
+  
   setPoseInFlowSection(pose, flow, sectionName){
     const flowSection = flow[sectionName];
     const newFlowSection = [...flowSection, pose];
@@ -41,14 +50,6 @@ export default class App extends React.Component {
       currentFlow: updatedFlow
     });
 }
-  
-  updateFlow = (updatedFlow) => {
-    console.log(updatedFlow)
-    this.setState({
-      currentFlow: updatedFlow,
-    })
-  }
-
   
 
   updateAttributes = (updatedAttributes) => {

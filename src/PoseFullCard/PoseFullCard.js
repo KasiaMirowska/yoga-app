@@ -5,6 +5,7 @@ import cuid from 'cuid';
 export default class PoseFullCard extends React.Component {
     static contextType = yogaContext;
     state = {
+        notes: null,
         'grounding-pose': false,
         'cooling-pose': false,
         'heat-rising-pose': false,
@@ -20,12 +21,13 @@ export default class PoseFullCard extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const { pose_id } = this.props.match.params;
-
+        
         const updatedFlow = {
             id: this.context.currentFlow.id,
             name: this.context.currentFlow.name,
             savedPosesIds: [...pose_id],
-            
+    
+            notes: this.state.notes,
         }
          
         const updatedAttributes = {
@@ -70,6 +72,12 @@ export default class PoseFullCard extends React.Component {
         return attributesList;
     }
 
+    handleNotes = (e) => {
+        console.log(e.target.value)
+       this.setState({
+           notes: e.target.value
+       })
+    }
 
 
 
@@ -131,7 +139,7 @@ export default class PoseFullCard extends React.Component {
                     </select>
                     <br />
                     <h3>Notes</h3>
-                    <textarea rows="10" cols='50'></textarea>
+                    <textarea rows="10" cols='50' onChange={this.handleNotes} value={this.state.notes}></textarea>
                     <br />
 
                     <button type='submit'>Submit</button>
