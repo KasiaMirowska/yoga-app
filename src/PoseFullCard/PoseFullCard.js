@@ -1,13 +1,90 @@
 import React from 'react';
-import Context from '../Context';
+import yogaContext from '../Context';
+import cuid from 'cuid';
 
 export default class PoseFullCard extends React.Component {
-    static contextType = Context;
+    static contextType = yogaContext;
+    state = {
+        'grounding-pose': false,
+        'cooling-pose': false,
+        'heat-rising-pose': false,
+        'energizing-pose':false,
+        'strengthening-pose': false,
+        'relaxing-pose': false,
+        'releasing pressure pose':false,
+        'stabilizing pose': false,
+        'increasing-flexibility': false,
+    }
+  
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const { pose_id } = this.props.match.params;
+        
+        const updatedFlow = {
+            id: this.context.currentFlow.id,
+            name: this.context.currentFlow.name,
+            savedPosesIds: [...pose_id],
+        
+        }
+        console.log(pose_id)
+        const updatedAttributes = {
+            poseId: pose_id,
+            assignedFlowId: this.context.currentFlow.id,
+            attributesList:  this.makeAttributesList()
+            
+        }
+       
+        this.context.updateFlow(updatedFlow)
+        this.context.updateAttributes(updatedAttributes)
+        this.props.history.push('/flow')
+    }
+    
+    savePoseAs = (e) => {
+        const { pose_id } = this.props.match.params;
+        const arrayName= e.target.value;
+        const currentFlowId = this.context.currentFlow.id
+        const currentFlow = this.context.flows.find(flow => flow.id === currentFlowId)
+        console.log(currentFlow,'LLLLLLLLLL', pose_id)
+        console.log(arrayName);
+        currentFlow.midFlow.push(pose_id)
+
+       console.log(currentFlow)
+            
+        }
+        
+    
+    
+    addAttribute = (e) => {
+        const attribute = e.target.name;
+        const currentAttribute = this.state[attribute]
+        this.setState({
+            [attribute]: !currentAttribute,
+        });
+    }
+    
+    makeAttributesList = () => {
+        const attributesList = [];
+        console.log(this.state)
+       for(let [key, value] of Object.entries(this.state)){
+        console.log(value);
+           if(value) {
+             
+            attributesList.push(key)
+           }
+       }
+       console.log(attributesList,'HERE? LOVE', )
+       return attributesList;
+    } 
+    
+    
+    
+    
     render() {
         const { pose_id } = this.props.match.params;
-        const pose = this.context.poses.find(pose => pose.id == pose_id)
-
+        const pose = this.context.poses.find(pose => {
+            return pose.id === Number(pose_id)}) 
+            console.log(this.state)
         return (
             <div>
                 <h3>{pose.nameEng}</h3>
@@ -20,55 +97,50 @@ export default class PoseFullCard extends React.Component {
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen>
                 </iframe>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <h3>Pick attributes:</h3>
                     <label>Grounding pose</label>
-                    <input type='checkbox' value='grounding pose'/>
-                    <br/>
+                    <input type='checkbox' name='grounding-pose' value={this.state['grounding-pose']} onClick={this.addAttribute} />
+                    <br />
                     <label>Cooling pose</label>
-                    <input type='checkbox' value='cooling-pose'/>
-                    <br/>
+                    <input type='checkbox' name='cooling-pose' onClick={this.addAttribute} />
+                    <br />
                     <label>Heat rising pose</label>
-                    <input type='checkbox' value='heat-pose'/>
-                    <br/>
+                    <input type='checkbox' name='heat-rising-pose' onClick={this.addAttribute} />
+                    <br />
                     <label>Energizing pose</label>
-                    <input type='checkbox' value='energizing-pose'/>
-                    <br/>
+                    <input type='checkbox' name='energizing-pose' onClick={this.addAttribute} />
+                    <br />
                     <label>Strengthening pose</label>
-                    <input type='checkbox' value='strengthening-pose'/>
-                    <br/>
+                    <input type='checkbox' name='strengthening-pose' onClick={this.addAttribute} />
+                    <br />
                     <label>Relaxing pose</label>
-                    <input type='checkbox' value='relaxing-pose'/>
-                    <br/>
+                    <input type='checkbox' name='relaxing-pose' onClick={this.addAttribute} />
+                    <br />
                     <label>Releasing preassure pose</label>
-                    <input type='checkbox' value='releasing-pose'/>
-                    <br/>
+                    <input type='checkbox' name='releasing-pose' onClick={this.addAttribute} />
+                    <br />
                     <label>Stabilizing pose</label>
-                    <input type='checkbox' value='stabilizing-pose'/>
-                    <br/>
+                    <input type='checkbox' name='stabilizing-pose' onClick={this.addAttribute} />
+                    <br />
                     <label>Flexcibility building pose</label>
-                    <input type='checkbox' value='flexibility-pose'/>
-                    
-                    <br/>
+                    <input type='checkbox' name='flexibility-pose' onClick={this.addAttribute} />
+                    <br />
+                    <br />
+                    <select name='flow-menu'onChange={this.savePoseAs}>
+                        <option value='none'>Save to my flow as:</option>
+                        <option value='warmUp'>warm up pose</option>
+                        <option value='breakPoses'>break pose</option>
+                        <option value='peakPose'>peak pose</option>
+                        <option value='midFlow'> mid-flow pose</option>
+                        <option value='afterPeak'> after-peak stabilizing pose</option>
+                    </select>
+                    <br />
                     <h3>Notes</h3>
                     <textarea rows="10" cols='50'></textarea>
                     <br />
-                    <select name='flow-menu'>
-                        <option value='none'>Save to my flow as:</option>
-                        <option value='warm-up'>warm up pose</option>
-                        <option value='break'>break pose</option>
-                        <option value='peak'>peak pose</option>
-                        <option value='mid-flow'> mid-flow pose</option>
-                        <option value='after-peak'> after-peak stabilizing pose</option>
-                    </select>
-                    <p>Name of the flow:</p>
-                    <select name='flow-record'>
-                        <option value='new'>Create a new flow</option>
-                    </select>
-                    <input type='text' placeholder="new flow name"></input>
-                    <button type='submit'>
-                        <a href='flow.html'>SAVE</a>
-                    </button>
+
+                    <button type='submit'>Submit</button>
                 </form>
 
 

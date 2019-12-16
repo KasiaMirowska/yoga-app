@@ -1,16 +1,33 @@
 const STORE = {
     flows: [
         {
-            id: null,
-            flowName: '',
-            savedPosesIds: [],
-            peakPose: null,
-            warmUpPoses: [],
-            midFlowPoses: [],
-            breakPoses: [],
-            afterPeakStabilizingPoses: [], 
+            id: 1,
+            name: 'kasia',
         },
+        {
+            id: 2,
+            name: 'sasia',
+        }
+        // {
+        //     id: null,
+        //     flowName: '',
+        //     savedPosesIds: [],
+        //     peakPose: null,
+        //     warmUp: [],
+        //     midFlow: [],
+        //     breakPoses: [],
+        //     afterPeak: [], 
+        //     notes: ''
+        // },
     ],
+    attributes: [
+        {
+            poseId: null,
+            assignedFlowId: [],
+            attributesList: [] //should be array or string?
+        }
+    ],
+
     poses: [
         {
             id: 1,
@@ -35,7 +52,7 @@ const STORE = {
             poseType: 'seated, twist',
         },
         {
-            id: 4,
+            id: 3,
             nameEng: 'Revolving Side Angle Pose',
             alias: '',
             nameSan: 'Parivrtta Parsvakonasana',
@@ -46,7 +63,7 @@ const STORE = {
             poseType: 'balansing, twist, standing',
         },
         {
-            id: 5,
+            id: 4,
             nameEng: 'Side Angle Pose',
             alias: '',
             nameSan: 'Parsvakonasana',
@@ -57,7 +74,7 @@ const STORE = {
             poseType: 'balansing, standing',
         },
         {
-            id: 6,
+            id: 5,
             nameEng: 'Reverse Tabletop Pose',
             alias: '',
             nameSan: 'Ardha Purvottanasana',
@@ -68,7 +85,7 @@ const STORE = {
             poseType: 'strengthening, seated, backbend',
         },
         {
-            id: 7,
+            id: 6,
             nameEng: 'Tabletop Pose',
             alias: '',
             nameSan: 'Bharmanasana',
@@ -79,7 +96,7 @@ const STORE = {
             poseType: 'seated',
         },
         {
-            id: 8,
+            id: 7,
             nameEng: 'Tree pose',
             alias: '',
             nameSan: 'Vrksasana',
@@ -90,7 +107,7 @@ const STORE = {
             poseType: 'standing, balancing',
         },
         {
-            id: 9,
+            id: 8,
             nameEng: 'Warrior 3',
             alias: '',
             nameSan: 'Virabhadrasana III',
@@ -101,7 +118,7 @@ const STORE = {
             poseType: 'standing, balancing',
         },
         {
-            id: 10,
+            id: 9,
             nameEng: 'Warrior 2',
             alias: '',
             nameSan: 'Virabhadrasana II',
@@ -112,7 +129,7 @@ const STORE = {
             poseType: 'standing, balancing',
         },
         {
-            id: 11,
+            id: 10,
             nameEng: 'Warrior 1',
             alias: '',
             nameSan: 'Virabhadrasana I',
@@ -123,7 +140,7 @@ const STORE = {
             poseType: 'standing, balancing',
         },
         {
-            id: 12,
+            id: 11,
             nameEng: 'Rested Half Pigeon Pose',
             alias: 'Pigeon',
             nameSan: 'Ardha Kapotasana',
@@ -134,7 +151,7 @@ const STORE = {
             poseType: 'forward fold, Hip Opener, Seated',
         },
         {
-            id: 13,
+            id: 12,
             nameEng: 'Cobra',
             alias: '',
             nameSan: 'Bhujangasana',
@@ -145,7 +162,7 @@ const STORE = {
             poseType: 'backbend, heart opener',
         },
         {
-            id: 14,
+            id: 13,
             nameEng: "Bharadvaja's Twist",
             alias: '',
             nameSan: 'Bharadvajasana',
@@ -156,7 +173,7 @@ const STORE = {
             poseType: 'Hip Opener,  Seated, Twist',
         },
         {
-            id: 15,
+            id: 14,
             nameEng: 'Boat',
             alias: '',
             nameSan: 'Paripurna Navasana',
@@ -167,7 +184,7 @@ const STORE = {
             poseType: 'Balance, Seated, Strenghening',
         },
         {
-            id: 16,
+            id: 15,
             nameEng: 'Bound Angle Pose',
             alias: '',
             nameSan: 'Baddha Konasana',
@@ -178,7 +195,7 @@ const STORE = {
             poseType: 'Forward Fold, Hip Opener, Seated',
         },
         {
-            id: 17,
+            id: 16,
             nameEng: 'Bow pose',
             alias: '',
             nameSan: 'Dhanurasana',
@@ -189,7 +206,7 @@ const STORE = {
             poseType: 'Backbend, Heart Opener',
         },
         {
-            id: 18,
+            id: 17,
             nameEng: 'Bridge pose',
             alias: '',
             nameSan: 'Setu Bandha Sarvangasana',
@@ -200,7 +217,7 @@ const STORE = {
             poseType: 'Backbend, Heart Opener',
         },
         {
-            id: 19,
+            id: 18,
             nameEng: 'Camel pose',
             alias: '',
             nameSan: 'Ustrasana',
@@ -211,7 +228,7 @@ const STORE = {
             poseType: 'Backbend, Heart Opener',
         },
         {
-            id: 20,
+            id: 19,
             nameEng: 'Cat',
             alias: '',
             nameSan: 'Marjaryasana',
@@ -222,7 +239,7 @@ const STORE = {
             poseType: 'Backbend, Core',
         },
         {
-            id: 21,
+            id: 20,
             nameEng: 'Low lundge with backbend B',
             alias: '',
             nameSan: 'Anjaneyasana',
@@ -234,7 +251,7 @@ const STORE = {
         },
         
         {
-            id: 22,
+            id: 21,
             nameEng: 'Sun salutation A & B',
             alias: '',
             nameSan: 'Surya Nmaskar A & B',
@@ -245,7 +262,7 @@ const STORE = {
             poseType: 'Seated, Forward Bend',
         },
         {
-            id: 23,
+            id: 22,
             nameEng: 'Forearm wheel',
             alias: '',
             nameSan: 'Dwi Pada Viparita Dandasana',

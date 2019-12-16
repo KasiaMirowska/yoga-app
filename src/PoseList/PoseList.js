@@ -1,11 +1,11 @@
 import React from 'react';
-import Context from '../Context';
+import yogaContext from '../Context';
 import PoseListItem from '../PoseListItem/PoseListItem';
 
 
 
 export default class PoseList extends React.Component {
-   static contextType = Context;
+   static contextType = yogaContext;
     
     
     render() {

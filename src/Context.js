@@ -2,10 +2,17 @@ import React from 'react';
 
 
 
-const Context = React.createContext({
+const yogaContext = React.createContext({
+  
+    currentFlow: '',
     poses: [],
     flows: [],
+    addFlow: () => {},
+    enterFlow: () => {},
+    updateFlow: () => {},
+    updateAttributes: () => {},
+    poseAttributes: [],
 })
 
-export default Context;
+export default yogaContext;
 
