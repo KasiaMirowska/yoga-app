@@ -9,8 +9,7 @@ const YogaContext = React.createContext({
     flows: [],
     addFlow: () => { },
     enterFlow: () => { },
-    updateFlow: () => { },
-    setPoseInFlowSection: () => { },
+    updateFullFlow: () => { },
     updateAttributes: () => { },
     poseAttributes: [],
 })
@@ -42,48 +41,41 @@ export class YogaContextProvider extends React.Component {
         })
     }
 
-    updateFlow = (updatedFlow) => {
-        console.log(updatedFlow)
-        this.setState({
-            currentFlow: updatedFlow,
-        })
-    }
-
-    setPoseInFlowSection(pose, flow, sectionName) {
+    updateFullFlow = (pose, flow, sectionName) => {
         const flowSection = flow[sectionName];
+        console.log(flow.id, sectionName, flow)
         const newFlowSection = [...flowSection, pose];
         const updatedFlow = { ...flow, [sectionName]: newFlowSection };
-        console.log(updatedFlow)
+       
         this.setState({
-            currentFlow: updatedFlow
+            currentFlow: {...updatedFlow}
         });
     }
 
-    updateAttributes = (updatedAttributes) => {
-        console.log(updatedAttributes)
+    updateAttributes = (newAttributes) => {
         this.setState({
-            poseAttributes: updatedAttributes,
+            poseAttributes: [...newAttributes],
         })
     }
 
 
     render() {
+        console.log(this.state.currentFlow, this.state.flows, this.state.poseAttributes)
         const contextValue = {
             currentFlow: this.state.currentFlow,
             poses: this.state.poses,
             flows: this.state.flows,
             addFlow: this.addFlow,
             enterFlow: this.enterFlow,
-            updateFlow: this.updateFlow,
             updateAttributes: this.updateAttributes,
-            setPoseInFlowSection: this.setPoseInFlowSection,
+            updateFullFlow: this.updateFullFlow,
             poseAttributes: this.state.poseAttributes,
-          }
+        }
 
-          return (
-              <YogaContext.Provider value ={contextValue}>
-                  {this.props.children}
-              </YogaContext.Provider>
-          )
+        return (
+            <YogaContext.Provider value={contextValue}>
+                {this.props.children}
+            </YogaContext.Provider>
+        )
     }
 }

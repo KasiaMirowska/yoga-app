@@ -7,14 +7,11 @@ export default class OpeningForm extends React.Component {
     static contextType = YogaContext;
     state = {
         selection: null,
-        redirectToNewPath: false,
     }
 
     handleSubmit = (e) => {
-        console.log('here')
         e.preventDefault();
         const { newFlowName } = e.target
-        console.log(e.target)
         const newFlow = {
             id: cuid(),
             name: newFlowName.value,
@@ -41,7 +38,6 @@ export default class OpeningForm extends React.Component {
     }
     enterFlow = () => {
         const flow = this.context.flows.find(flow => flow.name === this.state.selection)
-        console.log(flow, 'HERE METHOD')
         this.context.enterFlow(flow)
         this.props.history.push(`/flow`)
     }

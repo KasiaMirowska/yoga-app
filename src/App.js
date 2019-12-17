@@ -3,8 +3,6 @@ import './App.css';
 import { Link, Route } from 'react-router-dom';
 import Nav from './Nav/Nav';
 import PoseList from './PoseList/PoseList';
-import STORE from './store';
-import Context from './Context';
 import PoseFullCard from './PoseFullCard/PoseFullCard';
 import OpeningForm from './OpeningForm/OpeningForm';
 import CurrentFlow from './CurrentFlow/CurrentFlow';

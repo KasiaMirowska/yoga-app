@@ -2,10 +2,12 @@ import React from 'react';
 import YogaContext from '../Context';
 import cuid from 'cuid';
 
+
 export default class PoseFullCard extends React.Component {
     static contextType = YogaContext;
     state = {
-        notes: null,
+        flowSection: '',
+        notes: '',
         'grounding-pose': false,
         'cooling-pose': false,
         'heat-rising-pose': false,
@@ -15,65 +17,67 @@ export default class PoseFullCard extends React.Component {
         'releasing-pressure pose': false,
         'stabilizing-pose': false,
         'increasing-flexibility': false,
+    
     }
 
 
     handleSubmit = (e) => {
         e.preventDefault();
         const { pose_id } = this.props.match.params;
-        
+        console.log(this.state.flowSection)
         const updatedFlow = {
             id: this.context.currentFlow.id,
             name: this.context.currentFlow.name,
             savedPosesIds: [...pose_id],
-    
+            peakPose: '',
+            warmUp: [],
+            midFlow: [],
+            breakPoses: [],
+            afterPeak: [], 
             notes: this.state.notes,
         }
          
-        const updatedAttributes = {
+        const newPoseAttributes = {
+            id: cuid(),
             poseId: pose_id,
             assignedFlowId: this.context.currentFlow.id,
             attributesList: this.makeAttributesList()
 
         }
         
-        this.context.updateFlow(updatedFlow)
-        this.context.updateAttributes(updatedAttributes)
+        this.context.updateFullFlow(pose_id,
+            updatedFlow, this.state.flowSection)
+        this.context.updateAttributes(newPoseAttributes)
         this.props.history.push('/flow')
     }
 
     handleSavePoseAs = (e) => {
-        const { pose_id } = this.props.match.params;
-        const{currentFlow} = this.context;
-        console.log(currentFlow, 'HHHHHHHHH')
         const flowSectionName = e.target.value;
-        console.log(flowSectionName)
-        this.context.setPoseInFlowSection(pose_id, currentFlow, flowSectionName)
+        this.setState({
+            flowSection: flowSectionName,
+        })
     };
-
-
 
     handleAddAttribute = (e) => {
         const attribute = e.target.name;
         const clickedAttribute = this.state[attribute]
         this.setState({
-            [attribute]: !clickedAttribute,
+                [attribute]: !clickedAttribute,
         });
     }
 
     makeAttributesList = () => {
-        const attributesList = [];
-        console.log(this.state)
+        let attributesList = [];
         for (let [key, value] of Object.entries(this.state)) {
             if (value) {
-                attributesList.push(key)
+                attributesList= [...attributesList, key]
             }
         }
+        console.log(attributesList)
         return attributesList;
     }
 
     handleNotes = (e) => {
-        console.log(e.target.value)
        this.setState({
            notes: e.target.value
        })
@@ -86,7 +90,6 @@ export default class PoseFullCard extends React.Component {
         const pose = this.context.poses.find(pose => {
             return pose.id === Number(pose_id)
         })
-        console.log(this.state)
         return (
             <div>
                 <h3>{pose.nameEng}</h3>
@@ -102,31 +105,31 @@ export default class PoseFullCard extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <h3>Pick attributes:</h3>
                     <label>Grounding pose</label>
-                    <input type='checkbox' name='grounding-pose' value={this.state['grounding-pose']} onClick={this.addAttribute} />
+                    <input type='checkbox' name='grounding-pose' onClick={this.handleAddAttribute} />
                     <br />
                     <label>Cooling pose</label>
-                    <input type='checkbox' name='cooling-pose' onClick={this.addAttribute} />
+                    <input type='checkbox' name='cooling-pose' onClick={this.handleAddAttribute} />
                     <br />
                     <label>Heat rising pose</label>
-                    <input type='checkbox' name='heat-rising-pose' onClick={this.addAttribute} />
+                    <input type='checkbox' name='heat-rising-pose' onClick={this.handleAddAttribute} />
                     <br />
                     <label>Energizing pose</label>
-                    <input type='checkbox' name='energizing-pose' onClick={this.addAttribute} />
+                    <input type='checkbox' name='energizing-pose' onClick={this.handleAddAttribute} />
                     <br />
                     <label>Strengthening pose</label>
-                    <input type='checkbox' name='strengthening-pose' onClick={this.addAttribute} />
+                    <input type='checkbox' name='strengthening-pose' onClick={this.handleAddAttribute} />
                     <br />
                     <label>Relaxing pose</label>
-                    <input type='checkbox' name='relaxing-pose' onClick={this.addAttribute} />
+                    <input type='checkbox' name='relaxing-pose' onClick={this.handleAddAttribute} />
                     <br />
                     <label>Releasing preassure pose</label>
-                    <input type='checkbox' name='releasing-pose' onClick={this.addAttribute} />
+                    <input type='checkbox' name='releasing-pose' onClick={this.handleAddAttribute} />
                     <br />
                     <label>Stabilizing pose</label>
-                    <input type='checkbox' name='stabilizing-pose' onClick={this.addAttribute} />
+                    <input type='checkbox' name='stabilizing-pose' onClick={this.handleAddAttribute} />
                     <br />
                     <label>Flexcibility building pose</label>
-                    <input type='checkbox' name='flexibility-pose' onClick={this.addAttribute} />
+                    <input type='checkbox' name='flexibility-pose' onClick={this.handleAddAttribute} />
                     <br />
                     <br />
                     <select name='flow-menu' onChange={this.handleSavePoseAs}>
