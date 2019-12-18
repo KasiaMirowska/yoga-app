@@ -24,28 +24,30 @@ export default class PoseFullCard extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const { pose_id } = this.props.match.params;
-        console.log(this.state.flowSection)
+        const poseId = Number(pose_id);
+        const {currentFlow} = this.context;
+        const { savedPosesIds, peakPose, warmUp, midFlow,breakPoses, afterPeak } = currentFlow
+        console.log(savedPosesIds)
         const updatedFlow = {
-            id: this.context.currentFlow.id,
-            name: this.context.currentFlow.name,
-            savedPosesIds: [...pose_id],
-            peakPose: '',
-            warmUp: [],
-            midFlow: [],
-            breakPoses: [],
-            afterPeak: [], 
-            notes: this.state.notes,
+            id: currentFlow.id,
+            name: currentFlow.name,
+            savedPosesIds: [...savedPosesIds, poseId],
+            peakPose: [...peakPose],
+            warmUp: [...warmUp],
+            midFlow: [...midFlow],
+            breakPoses: [...breakPoses],
+            afterPeak: [...afterPeak],  
         }
          
         const newPoseAttributes = {
             id: cuid(),
-            poseId: pose_id,
+            poseId,
             assignedFlowId: this.context.currentFlow.id,
-            attributesList: this.makeAttributesList()
-
+            attributesList: this.makeAttributesList(),
+            notes: this.state.notes,
         }
         
-        this.context.updateFullFlow(pose_id,
+        this.context.updateFullFlow(poseId,
             updatedFlow, this.state.flowSection)
         this.context.updateAttributes(newPoseAttributes)
         this.props.history.push('/flow')
@@ -69,11 +71,10 @@ export default class PoseFullCard extends React.Component {
     makeAttributesList = () => {
         let attributesList = [];
         for (let [key, value] of Object.entries(this.state)) {
-            if (value) {
+            if (value === true ) {
                 attributesList= [...attributesList, key]
             }
         }
-        console.log(attributesList)
         return attributesList;
     }
 

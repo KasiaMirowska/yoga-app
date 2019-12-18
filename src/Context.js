@@ -41,26 +41,34 @@ export class YogaContextProvider extends React.Component {
         })
     }
 
-    updateFullFlow = (pose, flow, sectionName) => {
-        const flowSection = flow[sectionName];
-        console.log(flow.id, sectionName, flow)
+    updateFullFlow = (pose, currentFlow, sectionName) => {
+        const flowSection = currentFlow[sectionName];
         const newFlowSection = [...flowSection, pose];
-        const updatedFlow = { ...flow, [sectionName]: newFlowSection };
-       
+        const updatedFlow = { ...currentFlow, [sectionName]: newFlowSection };
+        console.log('CURRENTFLOW', currentFlow, this.state.flows)
+        const updatedFlows = this.state.flows.map(flow => {
+            if(flow.id === currentFlow.id) {
+                return currentFlow;
+            } else {
+                return flow;
+            }
+        })
+        
         this.setState({
-            currentFlow: {...updatedFlow}
+            currentFlow: {...updatedFlow},
+            flows: updatedFlows,
         });
     }
 
     updateAttributes = (newAttributes) => {
         this.setState({
-            poseAttributes: [...newAttributes],
+            poseAttributes: [...this.state.poseAttributes, newAttributes],
         })
     }
 
 
     render() {
-        console.log(this.state.currentFlow, this.state.flows, this.state.poseAttributes)
+        console.log(this.state.poseAttributes)
         const contextValue = {
             currentFlow: this.state.currentFlow,
             poses: this.state.poses,

@@ -6,15 +6,13 @@ import PoseList from './PoseList/PoseList';
 import PoseFullCard from './PoseFullCard/PoseFullCard';
 import OpeningForm from './OpeningForm/OpeningForm';
 import CurrentFlow from './CurrentFlow/CurrentFlow';
+import FlowPosesList from './FlowPosesList/FlowPosesList';
 
 export default class App extends React.Component {
   
   
 
   render() {
-  
-   
-    
     return (
       <div className="App">
           <Nav />
@@ -28,6 +26,7 @@ export default class App extends React.Component {
             <Route exact path='/' component={PoseList} />
             
             <Route exact path='/flow' component={CurrentFlow} />
+            <Route exact path ='/flow' component={FlowPosesList} />
             <Route exact path='/flow' component={PoseList} />
            
             <Route exact path='/flow/:pose_id' component={CurrentFlow} />

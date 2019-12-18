@@ -21,7 +21,6 @@ export default class OpeningForm extends React.Component {
             midFlow: [],
             breakPoses: [],
             afterPeak: [], 
-            notes: ''
         }
         this.setState({
             selection: newFlowName,

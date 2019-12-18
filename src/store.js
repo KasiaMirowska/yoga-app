@@ -3,7 +3,7 @@ const STORE = {
         {
             id: 1,
             name: 'kasia',
-            savedPosesIds: [2,5,7,8,3,0,12,14],
+            savedPosesIds: [2,5,7,8,3,12,14],
             peakPose: '',
             warmUp: [2,5],
             midFlow: [],
@@ -14,13 +14,21 @@ const STORE = {
         {
             id: 2,
             name: 'sasia',
-            savedPosesIds: [2,5,7,8,3,0,12,14],
+            savedPosesIds: [2,5,7,8,3,12,14],
+            /* savedPoses: [
+            {
+                poseId: 2,
+                attributes: [1,3,4],
+                notes: 'i like this thing'
+            }
+            ]
+            */
             peakPose: '',
             warmUp: [2,5],
             midFlow: [],
             breakPoses: [],
             afterPeak: [5,6,7,2], 
-            notes: 'ewargxthfcjghvbkn.l'
+            
         }
     
     ],
@@ -30,7 +38,8 @@ const STORE = {
             id: 1,
             poseId: 2,
             assignedFlowId: [1],
-            attributesList: [] //should be array or string?
+            attributesList: [],
+            notes: 'ewargxthfcjghvbkn.l'
         }
     ],
 

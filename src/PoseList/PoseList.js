@@ -21,6 +21,7 @@ export default class PoseList extends React.Component {
         })
         return (
             <div>
+                <h2>ALL POSES: </h2>
                {poses}
             </div>
         )
