@@ -18,11 +18,12 @@ export default class FlowPosesList extends React.Component {
             })
         })
         console.log(array)
-        const flowPoses = array.map(pose => {
+        const flowPoses = array.map((pose, key) => {
             return < FlowItem
-                id={pose.id}
                 key={pose.key}
+                id={pose.id}
                 img={pose.img}
+                flowId={this.context.currentFlow.id}
             />
         })
 

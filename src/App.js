@@ -7,6 +7,7 @@ import PoseFullCard from './PoseFullCard/PoseFullCard';
 import OpeningForm from './OpeningForm/OpeningForm';
 import CurrentFlow from './CurrentFlow/CurrentFlow';
 import FlowPosesList from './FlowPosesList/FlowPosesList';
+import FlowFullYogaCard from './FlowFullYogaCard/FlowFullYogaCard';
 
 export default class App extends React.Component {
   
@@ -31,6 +32,10 @@ export default class App extends React.Component {
            
             <Route exact path='/flow/:pose_id' component={CurrentFlow} />
             <Route exact path='/flow/:pose_id' component={PoseFullCard} />
+
+            <Route exact path='/flow/flowId/pose_id' component={CurrentFlow} />
+            <Route exact path ='/flow/flowId/pose_id' component={FlowPosesList} />
+            <Route exact path='/flow/flowId/pose_id' component={FlowFullYogaCard} />
           </main>
 
       </div>
