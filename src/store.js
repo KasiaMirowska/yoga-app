@@ -3,18 +3,18 @@ const STORE = {
         {
             id: 1,
             name: 'kasia',
-            savedPosesIds: [2,5,7,8,3,12,14],
+            savedPosesIds: [2, 5, 7, 8, 3, 12, 14],
             peakPose: '',
-            warmUp: [2,5],
+            warmUp: [2, 5],
             midFlow: [],
             breakPoses: [],
-            afterPeak: [5,6,7,2], 
+            afterPeak: [5, 6, 7, 2],
             notes: 'ewargxthfcjghvbkn.l'
         },
         {
             id: 2,
             name: 'sasia',
-            savedPosesIds: [2,5,7,8,3,12,14],
+            savedPosesIds: [2, 5, 7, 8, 3, 12, 14],
             /* savedPoses: [
             {
                 poseId: 2,
@@ -24,13 +24,13 @@ const STORE = {
             ]
             */
             peakPose: '',
-            warmUp: [2,5],
+            warmUp: [2, 5],
             midFlow: [],
             breakPoses: [],
-            afterPeak: [5,6,7,2], 
-            
+            afterPeak: [5, 6, 7, 2],
+
         }
-    
+
     ],
 
     attributes: [
@@ -40,6 +40,13 @@ const STORE = {
             assignedFlowId: [1],
             attributesList: [],
             notes: 'ewargxthfcjghvbkn.l'
+        },
+        {
+            id: "ck4brfoeh00003g5q82dd4719",
+            poseId: 7,
+            assignedFlowId: 1,
+            attributesList: ["grounding-pose", "energizing-pose", "strengthening-pose"],
+            notes: "",
         }
     ],
 
@@ -63,7 +70,7 @@ const STORE = {
             benefits: 'Strengthens and lengthens the spine, cleanses internal organs, activates digestive tract, opens the chest and heart space',
             img: 'https://www.dropbox.com/s/u9joi8lbntxumyh/seatedspinaltwist.svg?raw=1',
             utube: 'https://www.youtube.com/embed/OMGUMuUbK4Q',
-            level: 'intermiate',
+            level: 'intermediate',
             poseType: 'seated, twist',
         },
         {
@@ -74,7 +81,7 @@ const STORE = {
             benefits: 'Improves flexibility, strengthens legs and core, opens the hips, chest, and shoulders, massages internal organs, improves digestion',
             img: 'https://previews.dropbox.com/p/thumb/AAqilzBSzq1bsZh0ckFwihgOXHNsBPGuQw3lrKycf8zMuwzRnV-34xM-CB1ceu4lDOxe_R2tRl1XJWQhwEgIi5EwSf9kj0cGFKkVLuw7BvTixWEWjc5Qet6Fz1rGo-Q2m5BYHxKE_gMpeKZevhKgfEFpHg3Ae6c6__jxwFhmM72Am7f23Wt4tu0XznVX3tIgewNisARi5ni_lvef63w90xF4NldCqc2UoJYMmNd-y4Y0afBHPq8GBhkWdPiFMEidrz4x7yxQk9FzEa_ab5wm3oJPsPwEDgzcMN5H-O0L_TmbmyePrR63ZyRLPGnaIMzCBrLEqN6Zh07bmXkMCDd4ak8Wpl1Z2adHqOfJ8GB56FT5fg/p.png?fv_content=true&size_mode=5',
             utube: 'https://www.youtube.com/embed/XRfxkioaG-Q',
-            level: 'intermidate',
+            level: 'intermediate',
             poseType: 'balansing, twist, standing',
         },
         {
@@ -162,7 +169,7 @@ const STORE = {
             benefits: 'Cleanses the liver, restorative energy, opens the hips deeply, releases stored emotions',
             img: 'https://www.dropbox.com/s/77peru289zm446u/pigeon.svg?raw=1',
             utube: 'https://www.youtube.com/embed/jkJwvzt12dA',
-            level: 'intermidiate',
+            level: 'intermediate',
             poseType: 'forward fold, Hip Opener, Seated',
         },
         {
@@ -184,7 +191,7 @@ const STORE = {
             benefits: 'Massages the abdominal organs Improves digestion Stretches the spine and shoulders Increases spinal flexibility Relieves stress',
             img: 'https://previews.dropbox.com/p/thumb/AAoqu7C529GGUJmgjfnQPWf9fkpTVCcSI1aQFGmQHLfKmFJqs4WMsETgJ1ssuB3EkxFgcQrrZ0BcAYYwk0cnol4qMpFBPbcn5d7MDV-eqp6G8YTCgOIVgmPoEqiqNuLPHzCntXd2GBgkPMyMs6_FK8opkMyVFLu1AtqNfsa4WVfo315oXUoxeiwSSg4FqewNXXqse04TpMD-ZJRDtwQ3j5zeyfM_JaDbgcjJazXLO1vOEdTUc1D0GdtevHfandmMEeHee6L0-jSDecPjuTMlyer5aUxlISelrWtrI_bygqMh3fZIT1-2pKvqnaM50JmDZYBFgFm6vZeOD_UHa8lJrHuq1XSJV-qjwJCpngx-Lky_tQ/p.png?fv_content=true&size_mode=5',
             utube: 'https://www.youtube.com/embed/Z43c1aeAMeM',
-            level: 'intermidiate',
+            level: 'intermediate',
             poseType: 'Hip Opener,  Seated, Twist',
         },
         {
@@ -264,7 +271,7 @@ const STORE = {
             level: 'intermediate',
             poseType: 'Backbend, Core, standing, balancing',
         },
-        
+
         {
             id: 21,
             nameEng: 'Sun salutation A & B',
@@ -293,4 +300,4 @@ const STORE = {
 
 
 
-export default STORE ;
+export default STORE;

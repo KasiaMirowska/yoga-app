@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 
 
 export default function FlowItem(props) {
-    console.log(props)
     const {flowId, id} = props
     return (
         <div>

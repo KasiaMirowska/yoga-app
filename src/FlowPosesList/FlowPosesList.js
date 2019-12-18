@@ -17,7 +17,7 @@ export default class FlowPosesList extends React.Component {
                 }
             })
         })
-        console.log(array)
+        
         const flowPoses = array.map((pose, key) => {
             return < FlowItem
                 key={pose.key}
@@ -30,7 +30,6 @@ export default class FlowPosesList extends React.Component {
 
         return (
             <div>
-                HELLO
                 {flowPoses}
             </div >
         )
