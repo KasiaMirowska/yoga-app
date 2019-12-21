@@ -26,7 +26,7 @@ export default class OpeningForm extends React.Component {
             selection: newFlowName,
         })
         this.context.addFlow(newFlow);
-        this.props.history.push(`/flow`)
+        this.props.history.push(`/login`)
     };
     
     onSelectFlow = (e) => {
@@ -38,7 +38,7 @@ export default class OpeningForm extends React.Component {
     enterFlow = () => {
         const flow = this.context.flows.find(flow => flow.name === this.state.selection)
         this.context.enterFlow(flow)
-        this.props.history.push(`/flow`)
+        this.props.history.push(`/login`)
     }
 
     render() {

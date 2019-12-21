@@ -22,12 +22,27 @@ export class YogaContextProvider extends React.Component {
         super()
         this.state = {
             currentFlow: null,
-            poses: STORE.poses,
+            poses: [],
             flows: STORE.flows,
-            poseAttributes: STORE.attributes
+            poseAttributes: STORE.attributes,
+            error: null,
         }
     }
+    
+    
+    setError = (err) => {
+        this.setState({
+            error: err,
+        })
+    }
+    
+    setPosesList = (data) => {
+        this.setState({
+            poses: data,
+        })
+    }
 
+    
     enterFlow = (flow) => {
         this.setState({
             currentFlow: flow,
@@ -68,8 +83,9 @@ export class YogaContextProvider extends React.Component {
 
 
     render() {
-        console.log(this.state.poseAttributes)
         const contextValue = {
+            setError: this.setError,
+            setPosesList: this.setPosesList,
             currentFlow: this.state.currentFlow,
             poses: this.state.poses,
             flows: this.state.flows,

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 export default function PoseListItem(props) {
+  
     const pose_id = props.id
     return (
 

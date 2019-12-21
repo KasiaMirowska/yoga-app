@@ -8,7 +8,7 @@ import OpeningForm from './OpeningForm/OpeningForm';
 import CurrentFlow from './CurrentFlow/CurrentFlow';
 import FlowPosesList from './FlowPosesList/FlowPosesList';
 import FlowFullYogaCard from './FlowFullYogaCard/FlowFullYogaCard';
-
+import LoginPage from './Login/LoginPage';
 export default class App extends React.Component {
   
   
@@ -16,7 +16,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-          <Nav />
+          {/* <Nav /> */}
           <header>
             <Link to={'/'}>
               <h1>YOGA TRACK</h1>
@@ -26,9 +26,10 @@ export default class App extends React.Component {
             <Route exact path='/' component={OpeningForm} />
             <Route exact path='/' component={PoseList} />
             
-            <Route exact path='/flow' component={CurrentFlow} />
-            <Route exact path ='/flow' component={FlowPosesList} />
-            <Route exact path='/flow' component={PoseList} />
+            <Route exact path='/login' component={LoginPage} />
+            {/* <Route exact path='/login' component={CurrentFlow} /> 
+            <Route exact path ='/login' component={FlowPosesList} />
+            <Route exact path='/login' component={PoseList} /> */}
            
             <Route exact path='/flow/:pose_id' component={CurrentFlow} />
             <Route exact path='/flow/:pose_id' component={PoseFullCard} />
