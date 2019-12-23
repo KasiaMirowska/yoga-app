@@ -8,7 +8,7 @@ export default function CurrentFlow() {
             {(value) => {
                 return(
                     <div>
-                        <h2>Current Flow: {`${value.currentFlow.name}`}</h2>
+                        <h2>Current Flow: {`${value.currentFlow.title}`}</h2>
                     </div>
                 )
             }}    

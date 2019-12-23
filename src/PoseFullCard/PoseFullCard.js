@@ -1,6 +1,8 @@
 import React from 'react';
 import YogaContext from '../Context';
 import cuid from 'cuid';
+// import TokenService from '../services/token-service';
+// import config from '../config';
 
 
 export default class PoseFullCard extends React.Component {
@@ -20,6 +22,19 @@ export default class PoseFullCard extends React.Component {
     
     }
 
+    //have to make a call to get/id endpoint
+    
+    
+    // componentDidMount = (authToken) => {
+    //     const token = TokenService.hasAuthToken(config.TOKEN_KEY)
+    //     if (!token) {
+    //         console.log('NO TOKEN')
+    //         this.props.history.push(`/login`)
+    //     } else {
+    //         console.log('will see full card')
+    //     }
+
+    // }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -27,7 +42,7 @@ export default class PoseFullCard extends React.Component {
         const poseId = Number(pose_id);
         const {currentFlow} = this.context;
         const { savedPosesIds, peakPose, warmUp, midFlow,breakPoses, afterPeak } = currentFlow
-        console.log(savedPosesIds)
+       
         const updatedFlow = {
             id: currentFlow.id,
             name: currentFlow.name,
@@ -88,7 +103,10 @@ export default class PoseFullCard extends React.Component {
 
     render() {
         const { pose_id } = this.props.match.params;
+        console.log(this.context)
         const pose = this.context.poses.find(pose => {
+
+            console.log(pose.id, 'LLLLL', pose_id)
             return pose.id === Number(pose_id)
         })
         return (
@@ -99,7 +117,7 @@ export default class PoseFullCard extends React.Component {
                 <p>{pose.level}</p>
                 <p>{pose.poseType}</p>
                 <img src={pose.img} />
-                <iframe width="560" height="315" src={pose.utube} frameBorder="0"
+                <iframe width="560" height="315" src={pose.video} frameBorder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen>
                 </iframe>

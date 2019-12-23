@@ -2,32 +2,47 @@ import React from 'react';
 import YogaContext from '../Context';
 import cuid from 'cuid';
 import { Link } from 'react-router-dom';
+import TokenService from '../services/token-service';
+import config from '../config';
+import APIcalls from '../services/API_Flow_service';
+
 
 export default class OpeningForm extends React.Component {
     static contextType = YogaContext;
     state = {
         selection: null,
     }
-
+    
+    componentDidMount = () => {
+        APIcalls.getAllUserFlows()
+            .then(data => {
+                console.log(data)
+                this.context.setFlowsList(data)
+            })
+            .catch(err => {
+                this.context.setError(err)
+            })
+    }
+    
     handleSubmit = (e) => {
         e.preventDefault();
-        const { newFlowName } = e.target
-        const newFlow = {
-            id: cuid(),
-            name: newFlowName.value,
-            savedPosesIds: [],
-            peakPose: '',
-            warmUp: [],
-            midFlow: [],
-            breakPoses: [],
-            afterPeak: [], 
-        }
-        this.setState({
-            selection: newFlowName,
-        })
-        this.context.addFlow(newFlow);
-        this.props.history.push(`/login`)
-    };
+    //     const { newFlowName } = e.target
+    //     const newFlow = {
+    //         id: cuid(),
+    //         name: newFlowName.value,
+    //         savedPosesIds: [],
+    //         peakPose: '',
+    //         warmUp: [],
+    //         midFlow: [],
+    //         breakPoses: [],
+    //         afterPeak: [], 
+    //     }
+    //     this.setState({
+    //         selection: newFlowName,
+    //     })
+    //     this.context.addFlow(newFlow);
+    //     this.props.history.push(`/flow`)
+     };
     
     onSelectFlow = (e) => {
         e.preventDefault();
@@ -36,15 +51,15 @@ export default class OpeningForm extends React.Component {
         })
     }
     enterFlow = () => {
-        const flow = this.context.flows.find(flow => flow.name === this.state.selection)
+        const flow = this.context.flows.find(flow => flow.title === this.state.selection)
         this.context.enterFlow(flow)
-        this.props.history.push(`/login`)
+        this.props.history.push(`/flow`)
     }
 
     render() {
         const flowListName = this.context.flows.map((flow, key) => {
             return ( 
-                <option key={key} value={flow.name}>{flow.name}</option>
+                <option key={key} value={flow.title}>{flow.title}</option>
             )
         })
         

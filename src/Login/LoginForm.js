@@ -13,13 +13,15 @@ export default class LoginForm extends React.Component {
             userName: userName.value,
             password: password.value,
         }
-        console.log(credentials)
         
         
         AuthCalls.postLogin(credentials)
         .then(res => {
             userName.value = ''
             password.value = ''
+            TokenService.saveAuthToken(res.authToken)
+            console.log(res.authToken)
+            this.props.onLoginSuccess()
         })
     }
 

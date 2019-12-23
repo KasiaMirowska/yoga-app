@@ -23,14 +23,17 @@ export default class App extends React.Component {
             </Link>
           </header>
           <main>
-            <Route exact path='/' component={OpeningForm} />
+           
             <Route exact path='/' component={PoseList} />
             
             <Route exact path='/login' component={LoginPage} />
-            {/* <Route exact path='/login' component={CurrentFlow} /> 
-            <Route exact path ='/login' component={FlowPosesList} />
-            <Route exact path='/login' component={PoseList} /> */}
+            <Route exact path='/flowForm' component={OpeningForm} />
+            
+            <Route exact path='/flow' component={CurrentFlow} /> 
+            <Route exact path ='/flow' component={FlowPosesList} />
+            <Route exact path='/flow' component={PoseList} />
            
+            
             <Route exact path='/flow/:pose_id' component={CurrentFlow} />
             <Route exact path='/flow/:pose_id' component={PoseFullCard} />
 
