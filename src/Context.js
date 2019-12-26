@@ -7,8 +7,11 @@ const YogaContext = React.createContext({
     currentFlow: {},
     poses: [],
     flows: [],
+    openPoseCard: {},
     setPosesList: () => { },
     setFlowsList: () => { },
+    setOpenPoseCard: () => { },
+    setCurrentNewFlow: () => {},
     addFlow: () => { },
     enterFlow: () => { },
     updateFullFlow: () => { },
@@ -33,9 +36,22 @@ export class YogaContextProvider extends React.Component {
                 breakPoses: [],
                 afterPeak: [],
             },
+            openPoseCard: {
+                id:null,
+                name_eng: '',
+                name_san: '',
+                benefits: '',
+                pose_type: '',
+                pose_level: '',
+                img: '',
+                video: '',
+                attributesList: '',
+                notes: '',
+
+            },
             poses: [],
             flows: [],
-            poseAttributes: STORE.attributes,
+            poseAttributes: [],
             error: null,
         }
     }
@@ -77,7 +93,17 @@ export class YogaContextProvider extends React.Component {
             })
         })
     }
-        
+     setCurrentNewFlow = (newFlow) => {
+         console.log(newFlow, 'CURRENT NEW FLOW')
+         this.setState({
+             currentFlowId: newFlow.id,
+             currentFlow : {
+                 ...this.state.currentFlow,
+                 id: newFlow.id,
+                 title: newFlow.title,
+             }
+         })
+     }   
     setPosesList = (data) => {
                 this.setState({
                     poses: data,
@@ -90,7 +116,25 @@ export class YogaContextProvider extends React.Component {
                 })
             }
 
+    setOpenPoseCard = (data) => {
     
+        this.setState({
+            openPoseCard: {
+                id: data.id,
+                name_eng: data.name_eng,
+                name_san: data.name_san,
+                benefits: data.benefits,
+                pose_type: data.pose_type,
+                pose_level: data.pose_level,
+                img: data.img,
+                video: data.video,
+                attributesList: '',
+                notes: '',
+            }
+                
+
+        })
+    }
 
     addFlow = (newFlow) => {
                 this.setState({
@@ -99,24 +143,24 @@ export class YogaContextProvider extends React.Component {
                 })
             }
 
-    updateFullFlow = (pose, currentFlow, sectionName) => {
-                const flowSection = currentFlow[sectionName];
-                const newFlowSection = [...flowSection, pose];
-                const updatedFlow = { ...currentFlow, [sectionName]: newFlowSection };
-                console.log('CURRENTFLOW', currentFlow, this.state.flows)
-                const updatedFlows = this.state.flows.map(flow => {
-                    if (flow.id === currentFlow.id) {
-                        return currentFlow;
-                    } else {
-                        return flow;
-                    }
-                })
+    // updateFullFlow = (pose, currentFlow, sectionName) => {
+    //             const flowSection = currentFlow[sectionName];
+    //             const newFlowSection = [...flowSection, pose];
+    //             const updatedFlow = { ...currentFlow, [sectionName]: newFlowSection };
+    //             console.log('CURRENTFLOW', currentFlow, this.state.flows)
+    //             const updatedFlows = this.state.flows.map(flow => {
+    //                 if (flow.id === currentFlow.id) {
+    //                     return currentFlow;
+    //                 } else {
+    //                     return flow;
+    //                 }
+    //             })
 
-                this.setState({
-                    currentFlow: { ...updatedFlow },
-                    flows: updatedFlows,
-                });
-            }
+    //             this.setState({
+    //                 currentFlow: { ...updatedFlow },
+    //                 flows: updatedFlows,
+    //             });
+    //         }
 
     updateAttributes = (newAttributes) => {
                 this.setState({
@@ -126,22 +170,28 @@ export class YogaContextProvider extends React.Component {
 
 
     render() {
+            console.log(this.state.currentFlow, 'CURRENT FLOWLFLOW FLOW')
             const contextValue = {
-                setError: this.setError,
-                setCurrentFlow: this.setCurrentFlow,
-                setPosesList: this.setPosesList,
-                setFlowsList: this.setFlowsList,
+             
+                openPoseCard: this.state.openPoseCard,
                 currentFlowId: this.state.currentFlowId,
                 currentFlow: this.state.currentFlow,
                 poses: this.state.poses,
                 flows: this.state.flows,
+
+                setError: this.setError,
+                setCurrentFlow: this.setCurrentFlow,
+                setPosesList: this.setPosesList,
+                setFlowsList: this.setFlowsList,
+                setOpenPoseCard: this.setOpenPoseCard,
+                setCurrentNewFlow: this.setCurrentNewFlow,
                 addFlow: this.addFlow,
                 enterFlow: this.enterFlow,
                 updateAttributes: this.updateAttributes,
                 updateFullFlow: this.updateFullFlow,
                 poseAttributes: this.state.poseAttributes,
             }
-            console.log(this.state.currentFlow, 'KKKKKKKKKKKK')
+            
         return(
             <YogaContext.Provider value={ contextValue } >
             { this.props.children }

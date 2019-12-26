@@ -16,7 +16,6 @@ export default class OpeningForm extends React.Component {
     componentDidMount = () => {
         APIcalls.getAllUserFlows()
             .then(data => {
-                console.log(data)
                 this.context.setFlowsList(data)
             })
             .catch(err => {
@@ -26,22 +25,28 @@ export default class OpeningForm extends React.Component {
     
     handleSubmit = (e) => {
         e.preventDefault();
-    //     const { newFlowName } = e.target
-    //     const newFlow = {
-    //         id: cuid(),
-    //         name: newFlowName.value,
-    //         savedPosesIds: [],
-    //         peakPose: '',
-    //         warmUp: [],
-    //         midFlow: [],
-    //         breakPoses: [],
-    //         afterPeak: [], 
-    //     }
-    //     this.setState({
-    //         selection: newFlowName,
-    //     })
-    //     this.context.addFlow(newFlow);
-    //     this.props.history.push(`/flow`)
+        const { newFlowName } = e.target
+        const newFlow = {
+            title: newFlowName.value,
+        }
+        console.log(newFlow)
+        APIcalls.postNewFlow(newFlow)
+        .then(data => {
+            newFlowName.value = ''
+            this.context.setCurrentNewFlow(data);
+            this.props.history.push('/flow')
+        })
+        .catch(err => {
+            this.setState({
+                error: err.message,
+            })
+        })
+        // this.setState({
+        //     selection: newFlowName,
+        // })
+        // this.context.addFlow(newFlow);
+        // this.props.history.push(`/flow`)
+
      };
     
     onSelectFlow = (e) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import YogaContext from '../Context';
 import cuid from 'cuid';
+import APIcalls from '../services/API_Pose_service';
 // import TokenService from '../services/token-service';
 // import config from '../config';
 
@@ -21,38 +22,46 @@ export default class PoseFullCard extends React.Component {
         'increasing-flexibility': false,
     
     }
-
-    //have to make a call to get/id endpoint
     
     
-    // componentDidMount = (authToken) => {
-    //     const token = TokenService.hasAuthToken(config.TOKEN_KEY)
-    //     if (!token) {
-    //         console.log('NO TOKEN')
-    //         this.props.history.push(`/login`)
-    //     } else {
-    //         console.log('will see full card')
-    //     }
+    componentDidMount = () => {
+        const { pose_id } = this.props.match.params;
+        
+        APIcalls.getFullPoseData(pose_id)
+            .then(data => {
+                this.context.setOpenPoseCard(data)
+            })
+            .catch(err => {
+                this.context.setError(err)
+            })
 
-    // }
+        }
 
     handleSubmit = (e) => {
         e.preventDefault();
         const { pose_id } = this.props.match.params;
         const poseId = Number(pose_id);
         const {currentFlow} = this.context;
-        const { savedPosesIds, peakPose, warmUp, midFlow,breakPoses, afterPeak } = currentFlow
-       
-        const updatedFlow = {
-            id: currentFlow.id,
-            name: currentFlow.name,
-            savedPosesIds: [...savedPosesIds, poseId],
-            peakPose: [...peakPose],
-            warmUp: [...warmUp],
-            midFlow: [...midFlow],
-            breakPoses: [...breakPoses],
-            afterPeak: [...afterPeak],  
+        
+        const flowsPose = {
+            main_flow_id: currentFlow.id,
+            pose_id: poseId,
+            section_flow_id: Number(this.state.flowSection),
         }
+        APIcalls.insertPoseIntoFlows(flowsPose)
+            .then(data => {
+                console.log(data, 'Pose Added to flows')
+            })
+        // const updatedFlow = {
+        //     id: currentFlow.id,
+        //     name: currentFlow.name,
+        //     assignedPoses: [...assignedPoses, poseId],
+        //     peakPose: [...peakPose],
+        //     warmUp: [...warmUp],
+        //     midFlow: [...midFlow],
+        //     breakPoses: [...breakPoses],
+        //     afterPeak: [...afterPeak],  
+        // }
          
         const newPoseAttributes = {
             id: cuid(),
@@ -62,16 +71,16 @@ export default class PoseFullCard extends React.Component {
             notes: this.state.notes,
         }
         
-        this.context.updateFullFlow(poseId,
-            updatedFlow, this.state.flowSection)
+        // this.context.updateFullFlow(poseId,
+        //     updatedFlow, this.state.flowSection)
         this.context.updateAttributes(newPoseAttributes)
         this.props.history.push('/flow')
     }
 
     handleSavePoseAs = (e) => {
-        const flowSectionName = e.target.value;
+        const flowSectionid = e.target.value;
         this.setState({
-            flowSection: flowSectionName,
+            flowSection: flowSectionid,
         })
     };
 
@@ -102,22 +111,17 @@ export default class PoseFullCard extends React.Component {
 
 
     render() {
-        const { pose_id } = this.props.match.params;
-        console.log(this.context)
-        const pose = this.context.poses.find(pose => {
-
-            console.log(pose.id, 'LLLLL', pose_id)
-            return pose.id === Number(pose_id)
-        })
-        return (
+       const {name_eng, name_san, benefits,pose_type, pose_level, img, video} = this.context.openPoseCard;
+    
+       return (
             <div>
-                <h3>{pose.nameEng}</h3>
-                <h3>{pose.nameSan}</h3>
-                <p>{pose.benefits}</p>
-                <p>{pose.level}</p>
-                <p>{pose.poseType}</p>
-                <img src={pose.img} />
-                <iframe width="560" height="315" src={pose.video} frameBorder="0"
+                <h3>{name_eng}</h3>
+                <h3>{name_san}</h3>
+                <p>{benefits}</p>
+                <p>{pose_level}</p>
+                <p>{pose_type}</p>
+                <img src={img} />
+                <iframe width="560" height="315" src={video} frameBorder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen>
                 </iframe>
@@ -153,11 +157,11 @@ export default class PoseFullCard extends React.Component {
                     <br />
                     <select name='flow-menu' onChange={this.handleSavePoseAs}>
                         <option value='none'>Save to my flow as:</option>
-                        <option value='warmUp'>warm up pose</option>
-                        <option value='breakPoses'>break pose</option>
+                        <option value='1'>warm up pose</option>
+                        <option value='3' >break pose</option>
                         <option value='peakPose'>peak pose</option>
-                        <option value='midFlow'> mid-flow pose</option>
-                        <option value='afterPeak'> after-peak stabilizing pose</option>
+                        <option value='2'> mid-flow pose</option>
+                        <option value='4' > after-peak stabilizing pose</option>
                     </select>
                     <br />
                     <h3>Notes</h3>
