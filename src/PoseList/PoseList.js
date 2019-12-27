@@ -19,7 +19,6 @@ export default class PoseList extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         const poses = this.context.poses.map(pose => {
             return <PoseListItem
                 key={pose.id}

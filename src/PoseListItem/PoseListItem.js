@@ -14,12 +14,9 @@ function PoseListItem(props) {
                 props.history.push(`/login`)
             } 
             else if(props.location.pathname =='/'){
-                console.log(props.location.pathname)
                 props.history.push('/flowForm')
             }
             else {
-                console.log(token,'will go to full card!!!!!!!!!!!!!!!!!!!!!!')
-                console.log(props.location, 'IMPORTANT')
                 props.history.push(`/flow/${props.id}`)
             }
     } 

@@ -1,9 +1,5 @@
 import React from 'react';
 import YogaContext from '../Context';
-import cuid from 'cuid';
-import { Link } from 'react-router-dom';
-import TokenService from '../services/token-service';
-import config from '../config';
 import APIcalls from '../services/API_Flow_service';
 
 
@@ -29,24 +25,18 @@ export default class OpeningForm extends React.Component {
         const newFlow = {
             title: newFlowName.value,
         }
-        console.log(newFlow)
+       
         APIcalls.postNewFlow(newFlow)
         .then(data => {
-            newFlowName.value = ''
-            this.context.setCurrentNewFlow(data);
-            this.props.history.push('/flow')
+            newFlowName.value = '';
+            this.context.setCurrentFlow(data);
+            this.props.history.push('/flow');
         })
         .catch(err => {
             this.setState({
                 error: err.message,
             })
         })
-        // this.setState({
-        //     selection: newFlowName,
-        // })
-        // this.context.addFlow(newFlow);
-        // this.props.history.push(`/flow`)
-
      };
     
     onSelectFlow = (e) => {

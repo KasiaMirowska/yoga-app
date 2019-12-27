@@ -41,12 +41,13 @@ export default class PoseFullCard extends React.Component {
         e.preventDefault();
         const { pose_id } = this.props.match.params;
         const poseId = Number(pose_id);
-        const {currentFlow} = this.context;
+        const currentFlowId = this.context.currentFlowId;
+        const flowSection =this.state.flowSection;
         
         const flowsPose = {
-            main_flow_id: currentFlow.id,
+            main_flow_id: currentFlowId,
             pose_id: poseId,
-            section_flow_id: Number(this.state.flowSection),
+            section_flow_id: Number(flowSection),
         }
         APIcalls.insertPoseIntoFlows(flowsPose)
             .then(data => {
@@ -159,9 +160,9 @@ export default class PoseFullCard extends React.Component {
                         <option value='none'>Save to my flow as:</option>
                         <option value='1'>warm up pose</option>
                         <option value='3' >break pose</option>
-                        <option value='peakPose'>peak pose</option>
+                        <option value='4'>peak pose</option>
                         <option value='2'> mid-flow pose</option>
-                        <option value='4' > after-peak stabilizing pose</option>
+                        <option value='5' > after-peak stabilizing pose</option>
                     </select>
                     <br />
                     <h3>Notes</h3>

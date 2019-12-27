@@ -12,7 +12,6 @@ const APIcalls = {
             },
         })
             .then(res => {
-                console.log(URL, res)
                 if (!res.ok) {
                     throw new Error('something went wrong')
                 }
@@ -34,7 +33,6 @@ const APIcalls = {
             })
         })
             .then(res => {
-                console.log(URL, res)
                 if (!res.ok) {
                     throw new Error('something went wrong')
                 }
@@ -51,7 +49,6 @@ const APIcalls = {
             },
         })
             .then(res => {
-                console.log(URL, res)
                 if (!res.ok) {
                     throw new Error('something went wrong')
                 }

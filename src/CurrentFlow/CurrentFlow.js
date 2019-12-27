@@ -2,7 +2,7 @@ import React from 'react';
 import YogaContext from '../Context';
 
 export default function CurrentFlow() {
-   
+  
     return (
         <YogaContext.Consumer>
             {(value) => {

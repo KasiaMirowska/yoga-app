@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import YogaContext from '../Context';
 import FlowItem from '../FlowItem/FlowItem';
 import APIcalls from '../services/API_Flow_service';
@@ -11,21 +11,16 @@ export default class FlowPosesList extends React.Component {
         const flowId = this.context.currentFlowId;
         
         APIcalls.getAllPosesInFlow(flowId)
-
             .then(data => {
-                console.log(data, 'KKKKKKKKKKKKKK')
                 this.context.setCurrentFlow(data);
             })
     }
     
     render() {
         let currentFlowPosesIds = this.context.currentFlow.assignedPoses;
-        
         const { poses } = this.context;
-        const {peakPose} = this.context.currentFlow;
-        console.log(this.context.currentFlow.assignedPoses, 'ASSIGNED POSES')
+       
         let array = [];
-        currentFlowPosesIds = [...currentFlowPosesIds, peakPose]
         currentFlowPosesIds.map(id => {
             poses.find(pose => {
                 if (pose.id === id) {
@@ -35,9 +30,9 @@ export default class FlowPosesList extends React.Component {
             return array;
         })
         
-        const flowPoses = array.map((pose, key) => {
+        const flowPoses = array.map((pose, index) => {
             return < FlowItem
-                key={pose.id}
+                key={index}
                 id={pose.id}
                 img={pose.img}
                 flowId={this.context.currentFlow.id}
