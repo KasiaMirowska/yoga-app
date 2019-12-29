@@ -1,6 +1,8 @@
 import React from 'react';
 import YogaContext from '../Context';
-import APIcalls from '../services/API_Flow_service';
+import APIFlowCalls from '../services/API_Flow_service';
+import TokenService from '../services/token-service';
+import config from '../config';
 
 
 export default class OpeningForm extends React.Component {
@@ -10,7 +12,7 @@ export default class OpeningForm extends React.Component {
     }
     
     componentDidMount = () => {
-        APIcalls.getAllUserFlows()
+        APIFlowCalls.getAllUserFlows()
             .then(data => {
                 this.context.setFlowsList(data)
             })
@@ -25,18 +27,26 @@ export default class OpeningForm extends React.Component {
         const newFlow = {
             title: newFlowName.value,
         }
+        
+        const token = TokenService.hasAuthToken(config.TOKEN_KEY)
+            if (!token) {
+                console.log('NO TOKEN')
+                this.props.history.push(`/login`)
+            } 
+            else { 
+                APIFlowCalls.postNewFlow(newFlow)
+                .then(data => {
+                    newFlowName.value = '';
+                    this.context.setCurrentFlow(data);
+                    this.props.history.push('/flow');
+                })
+                .catch(err => {
+                    this.setState({
+                        error: err.message,
+                    })
+                })}
+               
        
-        APIcalls.postNewFlow(newFlow)
-        .then(data => {
-            newFlowName.value = '';
-            this.context.setCurrentFlow(data);
-            this.props.history.push('/flow');
-        })
-        .catch(err => {
-            this.setState({
-                error: err.message,
-            })
-        })
      };
     
     onSelectFlow = (e) => {

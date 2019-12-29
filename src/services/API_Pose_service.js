@@ -2,33 +2,12 @@ import config from '../config';
 import TokenService from './token-service';
 
 
-const APIcalls = {
+const APIPoseCalls = {
 
     getAllPosesData: () => {
         const URL = config.API_ENDPOINT + '/poses'
-        
-        return fetch(URL)
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error('something went wrong')
-                }
-                return res;
-            })
-            .then(res => res.json())
-    },
 
-    insertPoseIntoFlows: (flowsPose) => {
-        const URL = config.API_ENDPOINT + `/flow`;
-        return fetch(URL, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            },
-            body: JSON.stringify({
-                main_flow_id: flowsPose.main_flow_id, pose_id: flowsPose.pose_id, section_flow_id: Number(flowsPose.section_flow_id)
-            }),
-        })
+        return fetch(URL)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('something went wrong')
@@ -43,7 +22,49 @@ const APIcalls = {
         return fetch(URL, {
             headers: {
                 'Authorization': `bearer ${TokenService.getAuthToken()}`
-              },
+            },
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('something went wrong')
+                }
+                return res;
+            })
+            .then(res => res.json())
+    },
+
+
+
+    insertPoseAttributes: (element) => {
+        const { pose_id } = element;
+        const URL = config.API_ENDPOINT + `/flow-att/${pose_id}`;
+        return fetch(URL, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify(element),
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('something went wrong')
+                }
+                return res;
+            })
+            .then(res => res.json())
+    },
+
+    insertPoseNotes: (note) => {
+        const { pose_id } = note;
+        const URL = config.API_ENDPOINT + `/flow-note/${pose_id}`;
+        return fetch(URL, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify(note),
         })
             .then(res => {
                 if (!res.ok) {
@@ -53,5 +74,7 @@ const APIcalls = {
             })
             .then(res => res.json())
     }
+
 }
-export default APIcalls ;
+
+export default APIPoseCalls;

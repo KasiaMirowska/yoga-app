@@ -9,10 +9,10 @@ import CurrentFlow from './CurrentFlow/CurrentFlow';
 import FlowPosesList from './FlowPosesList/FlowPosesList';
 import FlowFullYogaCard from './FlowFullYogaCard/FlowFullYogaCard';
 import LoginPage from './Login/LoginPage';
-export default class App extends React.Component {
-  
-  
+import TokenService from './services/token-service';
+import config from './config';
 
+export default class App extends React.Component {
   render() {
     return (
       <div className="App">
@@ -24,6 +24,8 @@ export default class App extends React.Component {
           </header>
           <main>
            
+            {/* {(TokenService.hasAuthToken(config.TOKEN_KEY))  ?  <Route exact path='/' component={OpeningForm} /> : null } */}
+            <Route exact path='/' component={OpeningForm} />
             <Route exact path='/' component={PoseList} />
             
             <Route exact path='/login' component={LoginPage} />

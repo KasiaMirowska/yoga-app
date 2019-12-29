@@ -1,7 +1,7 @@
 import React from 'react';
 import YogaContext from '../Context';
 import PoseListItem from '../PoseListItem/PoseListItem';
-import APIcalls from '../services/API_Pose_service';
+import APIPoseCalls from '../services/API_Pose_service';
 
 
 export default class PoseList extends React.Component {
@@ -9,7 +9,7 @@ export default class PoseList extends React.Component {
     
     
     componentDidMount = () => {
-        APIcalls.getAllPosesData()
+        APIPoseCalls.getAllPosesData()
             .then(data => {
                 this.context.setPosesList(data);
             })

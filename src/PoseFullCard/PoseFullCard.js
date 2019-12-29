@@ -1,7 +1,8 @@
 import React from 'react';
 import YogaContext from '../Context';
 import cuid from 'cuid';
-import APIcalls from '../services/API_Pose_service';
+import APIPoseCalls from '../services/API_Pose_service';
+import APIFlowCalls from '../services/API_Flow_service';
 // import TokenService from '../services/token-service';
 // import config from '../config';
 
@@ -27,7 +28,7 @@ export default class PoseFullCard extends React.Component {
     componentDidMount = () => {
         const { pose_id } = this.props.match.params;
         
-        APIcalls.getFullPoseData(pose_id)
+        APIPoseCalls.getFullPoseData(pose_id)
             .then(data => {
                 this.context.setOpenPoseCard(data)
             })
@@ -49,32 +50,41 @@ export default class PoseFullCard extends React.Component {
             pose_id: poseId,
             section_flow_id: Number(flowSection),
         }
-        APIcalls.insertPoseIntoFlows(flowsPose)
-            .then(data => {
-                console.log(data, 'Pose Added to flows')
-            })
-        // const updatedFlow = {
-        //     id: currentFlow.id,
-        //     name: currentFlow.name,
-        //     assignedPoses: [...assignedPoses, poseId],
-        //     peakPose: [...peakPose],
-        //     warmUp: [...warmUp],
-        //     midFlow: [...midFlow],
-        //     breakPoses: [...breakPoses],
-        //     afterPeak: [...afterPeak],  
-        // }
-         
-        const newPoseAttributes = {
-            id: cuid(),
-            poseId,
-            assignedFlowId: this.context.currentFlow.id,
-            attributesList: this.makeAttributesList(),
-            notes: this.state.notes,
+        APIFlowCalls.insertPoseIntoFlows(flowsPose)
+        .then(console.log('pose saved into flow'))
+        .catch(err => {
+            this.context.setError(err)
+        })
+
+        let savedPoseAttributes = {
+            assigned_flow_id: currentFlowId,
+            pose_id: poseId, 
+        }
+        const attributesList = this.makeAttributesList();
+        savedPoseAttributes = {
+            assigned_flow_id: currentFlowId,
+            pose_id: poseId, 
+            attributes: attributesList,
         }
         
-        // this.context.updateFullFlow(poseId,
-        //     updatedFlow, this.state.flowSection)
-        this.context.updateAttributes(newPoseAttributes)
+        APIPoseCalls.insertPoseAttributes(savedPoseAttributes)
+        .then(console.log('attributes saved'))
+        .catch(err => {
+            this.context.setError(err)
+        })
+        
+        const note = {
+            assigned_flow_id: currentFlowId,
+            pose_id: poseId,
+            notes: this.state.notes,
+        };
+        
+        APIPoseCalls.insertPoseNotes(note)
+        .then(console.log('note saved'))
+        .catch(err => {
+            this.context.setError(err)
+        })
+
         this.props.history.push('/flow')
     }
 
@@ -102,6 +112,8 @@ export default class PoseFullCard extends React.Component {
         }
         return attributesList;
     }
+    
+   
 
     handleNotes = (e) => {
        this.setState({
