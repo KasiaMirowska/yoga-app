@@ -18,19 +18,18 @@ export default class FlowPosesList extends React.Component {
     
     render() {
         let currentFlowPosesIds = this.context.currentFlow.assignedPoses;
-        console.log(currentFlowPosesIds)
         const { poses } = this.context;
-       
+    
         let orderedIds = currentFlowPosesIds.map(element => element.map(id => {
             return poses.find(pose => pose.id === id)
         }))
-        console.log(orderedIds)
+        
         
         
         const flowPoses = orderedIds.map(element => element.map((pose, index) => {
             return < FlowItem
                 key={index}
-                id={pose.id}
+                poseId={pose.id}
                 img={pose.img}
                 flowId={this.context.currentFlow.id}
             />

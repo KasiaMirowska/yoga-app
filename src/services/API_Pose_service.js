@@ -73,6 +73,23 @@ const APIPoseCalls = {
                 return res;
             })
             .then(res => res.json())
+    },
+
+    getPoseAttributes: (flowId, poseId) => {
+        const URL = config.API_ENDPOINT + `/flow/${flowId}/${poseId}`;
+        return fetch(URL, {
+            method: 'GET',
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+        })
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('something went wrong')
+            }
+            return res;
+        })
+        .then(res => res.json())
     }
 
 }

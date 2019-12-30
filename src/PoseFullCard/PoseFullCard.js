@@ -113,8 +113,6 @@ export default class PoseFullCard extends React.Component {
         return attributesList;
     }
     
-   
-
     handleNotes = (e) => {
        this.setState({
            notes: e.target.value

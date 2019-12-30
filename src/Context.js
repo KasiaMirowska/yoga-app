@@ -11,6 +11,7 @@ const YogaContext = React.createContext({
     setPosesList: () => { },
     setFlowsList: () => { },
     setOpenPoseCard: () => { },
+    setAttributesIntoOpenCard: () => {},
     setCurrentNewFlow: () => { },
     setCurrentFlowId: () => { },
     setCurrentFlow: () => { },
@@ -103,8 +104,7 @@ export class YogaContextProvider extends React.Component {
     }
 
     setOpenPoseCard = (data) => {
-        
-        this.setState({
+         this.setState({
             openPoseCard: {
                 id: data.id,
                 name_eng: data.name_eng,
@@ -120,6 +120,16 @@ export class YogaContextProvider extends React.Component {
         })
     }
 
+    setAttributesIntoOpenCard = (data) => {
+        console.log(data, 'IN CONTEXT')
+        this.setState({
+            openPoseCard: {
+                ...this.state.openPoseCard,
+                attributesList: data.attributesList,
+                notes: data.notes,
+            }
+        })
+    }
     
 
     // updateFullFlow = (pose, currentFlow, sectionName) => {
@@ -163,6 +173,7 @@ export class YogaContextProvider extends React.Component {
             setPosesList: this.setPosesList,
             setFlowsList: this.setFlowsList,
             setOpenPoseCard: this.setOpenPoseCard,
+            setAttributesIntoOpenCard: this.setAttributesIntoOpenCard,
             setCurrentNewFlow: this.setCurrentNewFlow,
             addFlow: this.addFlow,
             enterFlow: this.enterFlow,
