@@ -1,5 +1,4 @@
 import React from 'react';
-import STORE from './store';
 
 
 const YogaContext = React.createContext({

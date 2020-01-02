@@ -1,15 +1,19 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 
-export default function FlowItem(props) {
+function FlowItem(props) {
     const {flowId, poseId} = props
-    
+    const linkTo = () => {
+        console.log('clicking?')
+     props.history.push(`/flow/${flowId}/pose/${poseId}`)
+    }
     return (
-        <div>
-            <Link to={`/flow/${flowId}/${poseId}`}>
+        <div onClick={linkTo}>
+            {/* <Link to={`/flow/${flowId}/${poseId}`}> */}
             <img src={props.img} />
-            </Link>
+           
         </div>
     )
 }
+export default withRouter(FlowItem);
