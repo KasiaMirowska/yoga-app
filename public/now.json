@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "https://kasias-yogi-track",
+    "name": "yogi-track",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+      ]
+  }
