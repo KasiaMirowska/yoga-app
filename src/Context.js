@@ -1,4 +1,5 @@
 import React from 'react';
+import APIFlowCalls from './services/API_Flow_service';
 
 
 const YogaContext = React.createContext({
@@ -17,8 +18,7 @@ const YogaContext = React.createContext({
     truncateCurrentFlow: () => { },
     addFlow: () => { },
     enterFlow: () => { },
-    updateFullFlow: () => { },
-    updateAttributes: () => { },
+    deletePoseFromFlow: () => {},
     poseAttributes: [],
 })
 
@@ -120,7 +120,6 @@ export class YogaContextProvider extends React.Component {
     }
 
     setAttributesIntoOpenCard = (data) => {
-        console.log(data, 'IN CONTEXT')
         this.setState({
             openPoseCard: {
                 ...this.state.openPoseCard,
@@ -131,33 +130,37 @@ export class YogaContextProvider extends React.Component {
     }
     
 
-    // updateFullFlow = (pose, currentFlow, sectionName) => {
-    //             const flowSection = currentFlow[sectionName];
-    //             const newFlowSection = [...flowSection, pose];
-    //             const updatedFlow = { ...currentFlow, [sectionName]: newFlowSection };
-    //             console.log('CURRENTFLOW', currentFlow, this.state.flows)
-    //             const updatedFlows = this.state.flows.map(flow => {
-    //                 if (flow.id === currentFlow.id) {
-    //                     return currentFlow;
-    //                 } else {
-    //                     return flow;
-    //                 }
-    //             })
-
-    //             this.setState({
-    //                 currentFlow: { ...updatedFlow },
-    //                 flows: updatedFlows,
-    //             });
-    //         }
-
-    updateAttributes = (newAttributes) => {
-        this.setState({
-            poseAttributes: [...this.state.poseAttributes, newAttributes],
+    deletePoseFromFlow = (id) => {
+        const newAssignedPoses = this.state.currentFlow.assignedPoses.map(posesArr => {
+            return posesArr.filter(pose => pose !== id)
         })
+        console.log(newAssignedPoses)
+        this.setState({
+            currentFlow: {
+                ...this.state.currentFlow,
+                assignedPoses: newAssignedPoses
+            }
+        })
+
+        const poseToDelete = id;
+        const flowAimed = this.state.currentFlowId;
+        APIFlowCalls.deletePoseFromFlow(poseToDelete, flowAimed)
+            .then((res) => {
+                console.log('deleting POSE FROM FLOW')
+            })
+            .catch(err => {
+                console.log(err)
+                this.setState({
+                    error: err,
+                })
+            })
+       
     }
+  
 
 
     render() {
+        console.log(this.state.currentFlow.assignedPoses)
         const contextValue = {
 
             openPoseCard: this.state.openPoseCard,
@@ -176,8 +179,7 @@ export class YogaContextProvider extends React.Component {
             setCurrentNewFlow: this.setCurrentNewFlow,
             addFlow: this.addFlow,
             enterFlow: this.enterFlow,
-            updateAttributes: this.updateAttributes,
-            updateFullFlow: this.updateFullFlow,
+            deletePoseFromFlow: this.deletePoseFromFlow,
             poseAttributes: this.state.poseAttributes,
         }
 

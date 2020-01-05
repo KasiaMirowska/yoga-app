@@ -6,24 +6,27 @@ import APIPoseCalls from '../services/API_Pose_service';
 
 export default class FlowFullYogaCard extends React.Component {
     static contextType = YogaContext;
+    state = {
+        clickedPose: null,
+    }
 
-
-    componentDidUpdate(prevProps) {
-        console.log(this.props.history, prevProps.history, 'PROPS')
-        if (this.props.history.location.pathname !== prevProps.history.location.pathname) {
-          this.componentDidMount()
+    componentDidUpdate = () => {
+        if (this.props.history.location.pathname !== this.state.clickedPose) {
+            this.getFullPoseInfo()
         }
-      }  
-
-    componentDidMount = () => {
-        console.log('am I RUNNING???????')
+    }
+    getFullPoseInfo = () => {
+        
         const flowId = this.context.currentFlowId;
         const clickedPoseId = Number(this.props.match.params.pose_id);
-        console.log(clickedPoseId, flowId)
+        const clickedPosePath = this.props.location.pathname;
+       
+        this.setState({
+            clickedPose: clickedPosePath,
+        })
 
         APIPoseCalls.getFullPoseData(clickedPoseId)
             .then(data => {
-                console.log(data)
                 this.context.setOpenPoseCard(data)
             })
             .catch(error => {
@@ -32,23 +35,28 @@ export default class FlowFullYogaCard extends React.Component {
 
         APIPoseCalls.getPoseAttributes(flowId, clickedPoseId)
             .then(attributes => {
-                console.log(attributes, 'hEREREHREHREHRHERE')
                 this.context.setAttributesIntoOpenCard(attributes)
             })
             .catch(error => {
                 this.context.setError(error)
             })
     }
+    
+    componentDidMount = () => {
+        this.getFullPoseInfo()
+    }
+    
+    
     render() {
         const { id, name_eng, name_san, benefits, pose_type, pose_level, img, video, attributesList, notes } = this.context.openPoseCard;
-        
-        if (this.context.openPoseCard.attributesList || this.context.openPoseCard.notes) {
-            const list = this.context.openPoseCard.attributesList.map((att, index) => {
+
+        if (attributesList || notes) {
+            const list = attributesList.map((att, index) => {
                 return (
                     <li key={index}>{att}</li>
                 )
             });
-            const notes = this.context.openPoseCard.notes.map((n, index) => {
+            const poseNotes = notes.map((n, index) => {
                 return (
                     <li key={index}>{n}</li>
                 )
@@ -71,16 +79,16 @@ export default class FlowFullYogaCard extends React.Component {
                     </ul>
                     <h3>Notes: </h3>
                     <ul>
-                        {notes}
+                        {poseNotes}
                     </ul>
                     <button>Edit</button>
-                   
+
                 </div>
             )
 
         }
         return null;
-        
+
 
 
     }

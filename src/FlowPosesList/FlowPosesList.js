@@ -8,10 +8,11 @@ export default class FlowPosesList extends React.Component {
 
 
     componentDidMount = () => {
-        const flowId = this.context.currentFlowId;
-
+        let flowId = this.context.currentFlowId;
+        
         APIFlowCalls.getAllPosesInFlow(flowId)
             .then(data => {
+                console.log(data)
                 this.context.setCurrentFlow(data);
             });
     }
@@ -24,12 +25,12 @@ export default class FlowPosesList extends React.Component {
             return poses.find(pose => pose.id === id);
         }));
 
-
-
-        const flowPoses = orderedIds.map(element => element.map((pose, index) => {
+        console.log(this.context.currentFlow)
+        const flowPoses = orderedIds.map(element => element.map(pose => {
             return (
                 < FlowItem
-                    key={index}
+                    key={pose.id}
+                    {...this.props} 
                     poseId={pose.id}
                     img={pose.img}
                     flowId={this.context.currentFlow.id}
@@ -39,7 +40,9 @@ export default class FlowPosesList extends React.Component {
 
         return (
             <div>
+                <ul>
                 {flowPoses}
+                </ul>
             </div >
         );
     }

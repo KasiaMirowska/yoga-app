@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegisterForm component renders UI as expected 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="full_name"
+    >
+      User Full Name:
+    </label>
+    <input
+      name="full_name"
+      onChange={[Function]}
+      type="text"
+    />
+    <label
+      htmlFor="full_name"
+    >
+      User Name:
+    </label>
+    <input
+      name="user_name"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+    <label
+      htmlFor="password"
+    >
+      Password:
+    </label>
+    <input
+      name="password"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+    <button
+      type="reset"
+    >
+      Cancel
+    </button>
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

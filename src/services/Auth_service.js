@@ -28,14 +28,17 @@ const AuthCalls = {
         return fetch(URL, {
             method: 'POST',
             headers: {
-                'content_type':'application/json',
+                'content-type':'application/json',
             },
             body: JSON.stringify(user)
         })
         .then(res => {
             if(!res.ok) {
-                throw new Error(res.error.message)
-            }
+                return res.json()
+                .then(err=> {
+                    console.log(err)
+                    throw new Error(err.error.message)
+            })}
             res.json();
         })
     }

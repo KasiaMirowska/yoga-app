@@ -61,6 +61,25 @@ const APIFlowCalls = {
             })
             .then(res => res.json())
     },
+     deletePoseFromFlow: (poseId, flowId) => {
+        const URL = config.API_ENDPOINT + `/delete/${flowId}/${poseId}`;
+        return fetch(URL, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+        })
+            .then(res => {
+                if(!res.ok) {
+                    return res.json()
+                    .then(err=> {
+                        console.log(err)
+                        throw new Error(err.error.message)
+                })}
+                res.json();
+            })
+            .then(res => res.json()) 
+     },
 
     getAllPosesInFlow: (flowId) => {
         const URL = config.API_ENDPOINT + `/flows/${flowId}`;

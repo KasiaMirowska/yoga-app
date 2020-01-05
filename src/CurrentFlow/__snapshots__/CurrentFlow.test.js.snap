@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrentFlow component renders UI as expected 1`] = `
+<div>
+  <h2>
+    Current Flow: 
+    undefined
+  </h2>
+</div>
+`;

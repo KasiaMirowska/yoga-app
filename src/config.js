@@ -1,4 +1,4 @@
 export default {
-    API_ENDPOINT: 'https://enigmatic-eyrie-84648.herokuapp.com/',
-    API_KEY: process.env.REACT_APP_API_KEY,
+    API_ENDPOINT: 'http://localhost:8000/api',
+    REACT_APP_API_KEY: "d0de434d-bab5-44e8-a8fd-810e58iKf20C"
 }

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PoseListItem component renders UI as expected 1`] = `
+<div
+  onClick={[Function]}
+>
+  <h2>
+    chair
+  </h2>
+  <h2 />
+  <img
+    src=""
+  />
+</div>
+`;
