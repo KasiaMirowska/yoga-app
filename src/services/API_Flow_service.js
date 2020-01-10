@@ -76,7 +76,7 @@ const APIFlowCalls = {
                         console.log(err)
                         throw new Error(err.error.message)
                 })}
-                res.json();
+                return res;
             })
             .then(res => res.json()) 
      },

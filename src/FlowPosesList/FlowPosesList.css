@@ -1,0 +1,22 @@
+
+.flow-poses-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+    /* width: 80%; */
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+
+
+@media (min-width: 600px) {
+    .flow-poses-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; 
+        width: 80%;
+        margin: auto;
+        padding-bottom: 20px;
+    }
+  }  

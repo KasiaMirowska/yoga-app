@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Nav component renders UI as expected 1`] = `
-<div>
+<div
+  className="nav"
+>
   <a
     className="link"
     href="/login"

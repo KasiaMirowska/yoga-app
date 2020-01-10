@@ -1,0 +1,22 @@
+
+.pose-list {
+    background-color: rgb(233, 224, 231); 
+    background-color: rgb(220, 235, 228); 
+    text-align: center; 
+    padding-top: 30px; 
+    padding-bottom: 80px;
+}
+.title {
+    font-size: 1.8em;
+    display: block;
+}
+
+@media (min-width: 600px) {
+    .poses-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; 
+        width: 60%;
+        margin: auto;
+    }
+  }  

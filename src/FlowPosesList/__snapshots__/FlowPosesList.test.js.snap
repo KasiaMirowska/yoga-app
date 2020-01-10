@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlowPosesList component renders UI as expected 1`] = `
+<div>
+  <ul
+    className="flow-poses-container"
+  />
+</div>
+`;

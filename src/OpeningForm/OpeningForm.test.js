@@ -6,24 +6,18 @@ import {BrowserRouter as BR } from 'react-router-dom';
 
 
 describe('OpeningForm component', () => {
-    const home = {match: {params: {path: '/'}}};
-    const loggedIn = {match: {params: {path: '/flowForm'}}};
-    const token = {key: 'abcd'};
-    const choosePath = (token) => {
-        let props;
-        if(!token) {
-            props = home;
-        } else {
-            props = loggedIn
+    const props = {
+        location: {
+            pathname: '/',
         }
     }
     it ('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDom.render(<BR><OpeningForm {...choosePath()}/></BR>, div);
+        ReactDom.render(<BR><OpeningForm {...props}/></BR>, div);
         ReactDom.unmountComponentAtNode(div);
     });
     it('renders UI as expected', () => {
-        const form = renderer.create(<BR><OpeningForm {...choosePath()}/></BR>);
+        const form = renderer.create(<BR><OpeningForm {...props}/></BR>);
         expect(form.toJSON()).toMatchSnapshot();
     })
 })

@@ -7,12 +7,12 @@ exports[`PoseFullCard component renders UI as expected 1`] = `
   <p />
   <p />
   <p />
-  <img />
   <iframe
     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
     allowFullScreen={true}
     frameBorder="0"
     height="315"
+    title="yoga film"
     width="560"
   />
   <form
@@ -102,12 +102,24 @@ exports[`PoseFullCard component renders UI as expected 1`] = `
       type="checkbox"
     />
     <br />
+    <h3>
+      Notes
+    </h3>
+    <textarea
+      cols="50"
+      onChange={[Function]}
+      rows="10"
+      value=""
+    />
+    <br />
     <br />
     <select
       name="flow-menu"
       onChange={[Function]}
+      required={true}
     >
       <option
+        required={true}
         value="none"
       >
         Save to my flow as:
@@ -139,20 +151,11 @@ exports[`PoseFullCard component renders UI as expected 1`] = `
       </option>
     </select>
     <br />
-    <h3>
-      Notes
-    </h3>
-    <textarea
-      cols="50"
-      onChange={[Function]}
-      rows="10"
-      value=""
-    />
-    <br />
     <button
+      disabled={true}
       type="submit"
     >
-      Submit
+      Add to flow
     </button>
   </form>
 </div>

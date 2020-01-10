@@ -25,17 +25,11 @@ export default class FlowFullYogaCard extends React.Component {
             clickedPose: clickedPosePath,
         })
 
-        APIPoseCalls.getFullPoseData(clickedPoseId)
-            .then(data => {
-                this.context.setOpenPoseCard(data)
-            })
-            .catch(error => {
-                this.context.setError(error)
-            })
 
-        APIPoseCalls.getPoseAttributes(flowId, clickedPoseId)
-            .then(attributes => {
-                this.context.setAttributesIntoOpenCard(attributes)
+        APIPoseCalls.getFullPoseData(flowId, clickedPoseId)
+            .then(data => {
+                console.log(data, 'ATTRIBUTES')
+                this.context.setOpenPoseCard(data)
             })
             .catch(error => {
                 this.context.setError(error)
@@ -46,10 +40,13 @@ export default class FlowFullYogaCard extends React.Component {
         this.getFullPoseInfo()
     }
     
+    handleBackButton = () => {
+        this.props.history.goBack()
+    }
     
     render() {
-        const { id, name_eng, name_san, benefits, pose_type, pose_level, img, video, attributesList, notes } = this.context.openPoseCard;
-
+        const { name_eng, name_san, benefits, pose_type, pose_level, img, video, attributesList, notes } = this.context.openPoseCard;
+        
         if (attributesList || notes) {
             const list = attributesList.map((att, index) => {
                 return (
@@ -68,8 +65,8 @@ export default class FlowFullYogaCard extends React.Component {
                     <p>{benefits}</p>
                     <p>{pose_level}</p>
                     <p>{pose_type}</p>
-                    <img src={img} />
-                    <iframe width="560" height="315" src={video} frameBorder="0"
+                    <img src={img} alt='yoga pose'/>
+                    <iframe width="560" height="315" src={video} frameBorder="0" title='yoga pose instructions'
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen>
                     </iframe>
@@ -81,13 +78,34 @@ export default class FlowFullYogaCard extends React.Component {
                     <ul>
                         {poseNotes}
                     </ul>
-                    <button>Edit</button>
+                    <button onClick={this.handleBackButton} >Back</button>
 
                 </div>
             )
 
         }
-        return null;
+        return (
+            <div>
+                    <h3>{name_eng}</h3>
+                    <h3>{name_san}</h3>
+                    <p>{benefits}</p>
+                    <p>{pose_level}</p>
+                    <p>{pose_type}</p>
+                    <img src={img} alt='yoga pose'/>
+                    <iframe width="560" height="315" src={video} frameBorder="0" title='yoga pose instructions'
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen>
+                    </iframe>
+                    <h3>Saved Attributes List : </h3>
+                    <ul>
+                    </ul>
+                    <h3>Notes: </h3>
+                    <ul>
+                    </ul>
+                    <button>Back</button>
+
+                </div>
+        );
 
 
 

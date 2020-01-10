@@ -2,14 +2,20 @@
 
 exports[`PoseListItem component renders UI as expected 1`] = `
 <div
-  onClick={[Function]}
+  className="item"
 >
-  <h2>
-    chair
-  </h2>
-  <h2 />
-  <img
-    src=""
-  />
+  <li
+    className="li"
+    onClick={[Function]}
+  >
+    <h2>
+      chair
+    </h2>
+    <h2 />
+    <img
+      alt="pose, asana"
+      src=""
+    />
+  </li>
 </div>
 `;

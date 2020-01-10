@@ -2,7 +2,7 @@ import React from 'react';
 import YogaContext from '../Context';
 import PoseListItem from '../PoseListItem/PoseListItem';
 import APIPoseCalls from '../services/API_Pose_service';
-
+import './PoseList.css';
 
 export default class PoseList extends React.Component {
     static contextType = YogaContext;
@@ -30,9 +30,12 @@ export default class PoseList extends React.Component {
 
         })
         return (
-            <div>
-                <h2>ALL POSES: </h2>
+            <div className='pose-list'>
+                <h2 className='title' >ALL POSES: </h2>
+                <ul className='poses-container'>
                 {poses}
+                </ul>
+               
             </div>
         )
     }

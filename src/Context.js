@@ -113,22 +113,12 @@ export class YogaContextProvider extends React.Component {
                 pose_level: data.pose_level,
                 img: data.img,
                 video: data.video,
-                attributesList: '',
-                notes: '',
-            }
-        })
-    }
-
-    setAttributesIntoOpenCard = (data) => {
-        this.setState({
-            openPoseCard: {
-                ...this.state.openPoseCard,
                 attributesList: data.attributesList,
                 notes: data.notes,
             }
         })
     }
-    
+
 
     deletePoseFromFlow = (id) => {
         const newAssignedPoses = this.state.currentFlow.assignedPoses.map(posesArr => {
@@ -160,7 +150,6 @@ export class YogaContextProvider extends React.Component {
 
 
     render() {
-        console.log(this.state.currentFlow.assignedPoses)
         const contextValue = {
 
             openPoseCard: this.state.openPoseCard,

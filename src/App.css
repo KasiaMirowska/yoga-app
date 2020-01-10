@@ -1,4 +1,91 @@
 img {
-    width: 100px;
-   
+    max-width: 100%; 
+    display: flex;
+    max-height: 150px;
+    margin: auto;
+    padding: 20px;
 }
+
+
+main { 
+   
+    color: rgb(110, 107, 89);
+    font-size: 1rem;
+    padding-bottom: 200px;
+    /* background-color: rgb(207, 224, 216) ; */
+    background-color: rgb(233, 224, 231);
+    background-color:rgb(243, 240, 239);   
+    text-align: center;
+    margin: 0;
+    height: 100%;
+    padding-bottom: 800px;
+  }
+  h1 {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-shadow: 0 0 1rem rgb(151, 132, 136);
+  }
+   ul, li ,p , h3, h2 {
+    color: rgb(143, 77, 1);  
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    /* display: inline; */
+  }
+  h3, h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+  }
+  a {
+    text-decoration: none;
+    padding: 10px;
+    /* color: rgb(167, 4, 145); */
+    color: rgb(253, 74, 238);
+  
+}
+  
+  
+  .link {
+    text-decoration: none;
+    color:rgb(206, 87, 190);
+  }
+  .link:hover {
+    color: rgb(226, 146, 146);
+    cursor: pointer;
+  }
+  .active {
+    color: rgb(156, 36, 6);
+  }
+  
+  
+  button {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(250, 235, 214);
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+    /* background-color:rgb(238, 114, 145); */
+    background-color:rgb(91, 128, 149);
+    border-radius: 10%;
+    border: none;
+    display: inline;
+    
+  } 
+  
+  @media (min-width: 600px) {
+    /* .main {
+      display: flex;
+      flex-direction: row;
+      width: 80%;
+      margin: 0 auto;
+      padding-bottom: 200px; 
+      height: 100%;
+    } */
+    img {
+        max-width: 80%;
+        margin: auto;
+        max-height: 200px;
+    }
+  }  

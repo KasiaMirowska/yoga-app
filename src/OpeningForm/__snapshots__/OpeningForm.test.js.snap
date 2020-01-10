@@ -1,26 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OpeningForm component renders UI as expected 1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
+<div
+  className="form-container"
+>
+  <div
+    className="opening-form"
   >
-    <h3>
-      Starting new flow?
-    </h3>
-    <label>
-      Name
-    </label>
-    <input
-      id="newFlowName"
-      placeholder="new flow name"
-      type="text"
-    />
-    <button
-      type="submit"
+    <form
+      className="flow-form"
+      onSubmit={[Function]}
     >
-      enter flow
-    </button>
-  </form>
+      <div
+        className="form-small-container"
+      >
+        <h3>
+          Starting new flow?
+        </h3>
+        <input
+          className="form__field"
+          id="newFlowName"
+          name="name"
+          placeholder="new flow name"
+          required={true}
+          type="input"
+        />
+      </div>
+      <div
+        className="button-container"
+      >
+        <button
+          className="enter-button"
+          type="submit"
+        >
+          enter flow
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 `;
