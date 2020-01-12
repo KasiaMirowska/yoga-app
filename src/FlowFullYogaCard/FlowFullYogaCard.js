@@ -1,7 +1,7 @@
 import React from 'react';
-import YogaContext from '../Context';
+import YogaContext, { YogaContextProvider } from '../Context';
 import APIPoseCalls from '../services/API_Pose_service';
-
+import './FlowFullYogaCard.css';
 
 
 export default class FlowFullYogaCard extends React.Component {
@@ -16,11 +16,11 @@ export default class FlowFullYogaCard extends React.Component {
         }
     }
     getFullPoseInfo = () => {
-        
+
         const flowId = this.context.currentFlowId;
         const clickedPoseId = Number(this.props.match.params.pose_id);
         const clickedPosePath = this.props.location.pathname;
-       
+
         this.setState({
             clickedPose: clickedPosePath,
         })
@@ -35,18 +35,18 @@ export default class FlowFullYogaCard extends React.Component {
                 this.context.setError(error)
             })
     }
-    
+
     componentDidMount = () => {
         this.getFullPoseInfo()
     }
-    
+
     handleBackButton = () => {
-        this.props.history.goBack()
+        this.props.history.push('/flow')
     }
-    
+
     render() {
         const { name_eng, name_san, benefits, pose_type, pose_level, img, video, attributesList, notes } = this.context.openPoseCard;
-        
+
         if (attributesList || notes) {
             const list = attributesList.map((att, index) => {
                 return (
@@ -59,52 +59,62 @@ export default class FlowFullYogaCard extends React.Component {
                 )
             })
             return (
-                <div>
-                    <h3>{name_eng}</h3>
-                    <h3>{name_san}</h3>
-                    <p>{benefits}</p>
-                    <p>{pose_level}</p>
-                    <p>{pose_type}</p>
-                    <img src={img} alt='yoga pose'/>
-                    <iframe width="560" height="315" src={video} frameBorder="0" title='yoga pose instructions'
+                <div className='pose-info'>
+                    <h3 className='title' >{name_eng}</h3>
+                    <h3 className='title'>{name_san}</h3>
+                    <div className='text-container2'>
+                        <p>BENEFITS : {benefits}</p>
+                        <br />
+                        <p>LEVEL : {pose_level}</p>
+                        <br />
+                        <p>POSE TYPE : {pose_type}</p>
+                        <br />
+                    </div>
+                    <iframe className='iframe' width="560" height="315" src={video} frameBorder="0" title='yoga pose instructions'
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen>
                     </iframe>
-                    <h3>Saved Attributes List : </h3>
-                    <ul>
-                        {list}
-                    </ul>
-                    <h3>Notes: </h3>
-                    <ul>
-                        {poseNotes}
-                    </ul>
-                    <button onClick={this.handleBackButton} >Back</button>
+                    <h3 className='title' >Saved Attributes List : </h3>
+                    <div className='attributes-container'>
+                        <ul>
+                            {list}
+                        </ul>
+                    </div>
 
-                </div>
+                    <h3 className='title' >Notes: </h3>
+                    <div className='note-container'>
+                        <ul>
+                            {poseNotes}
+                        </ul>
+                    </div>
+                    <button className='bt-container' onClick={this.handleBackButton} >Back</button>
+
+                </div >
             )
 
         }
         return (
-            <div>
-                    <h3>{name_eng}</h3>
-                    <h3>{name_san}</h3>
-                    <p>{benefits}</p>
-                    <p>{pose_level}</p>
-                    <p>{pose_type}</p>
-                    <img src={img} alt='yoga pose'/>
-                    <iframe width="560" height="315" src={video} frameBorder="0" title='yoga pose instructions'
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen>
-                    </iframe>
-                    <h3>Saved Attributes List : </h3>
-                    <ul>
-                    </ul>
-                    <h3>Notes: </h3>
-                    <ul>
-                    </ul>
-                    <button>Back</button>
 
+            <div className='pose-info'>
+                <h3 className='title' >{name_eng}</h3>
+                <h3 className='title'>{name_san}</h3>
+                <div className='text-container'>
+                    <p>BENEFITS : {benefits}</p>
+                    <br />
+                    <p>LEVEL : {pose_level}</p>
+                    <br />
+                    <p>POSE TYPE : {pose_type}</p>
+                    <br />
                 </div>
+                <iframe width="560" height="315" src={video} frameBorder="0" title='yoga pose instructions'
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen>
+                </iframe>
+                <div className='bt-container'>
+                    <button onClick={this.handleBackButton} >Back</button>
+                </div>
+
+            </div>
         );
 
 

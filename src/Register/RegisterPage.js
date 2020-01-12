@@ -10,8 +10,8 @@ export default class RegisterPage extends React.Component {
     
       render() {
         return (
-         <div>
-            <h2>Register</h2>
+         <div className='current-flow'>
+            <h2 className='title' >Register</h2>
             <RegisterForm
               onRegisterSuccess={this.handleRegisterSuccess}
             />

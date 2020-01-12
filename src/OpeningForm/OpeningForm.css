@@ -16,7 +16,7 @@
 }
 
 .form__field {
-  /* width: 90%; */
+  width: 60%;
   font-family: inherit;
   border: 0;
   border-bottom: 2px solid gray;
@@ -24,69 +24,66 @@
   font-size: 1rem;
   color: grey;
   padding: 7px 0;
-  display: inline;
   background: transparent;  
   transition: border-color 0.2s;
-  margin-right: 15px; 
-  /* margin-left: 30px; */
 }
 placeholder {
     color: transparent; 
   }
 
+.flow-form {
+    display:flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-left: 5%;
+}
+.flow-selection {
+    display:flex;
+    justify-content: space-between;
+    margin: auto; 
+    margin-left: 5%;
+}
 .form-small-container {
-    flex:1.5;
+    flex:3;
     display: inline;
 }
 .button-container {
     flex:1;
     display: inline;
-}
-
-.enter-button {
-  padding: 5px;
-  border-radius: 10px;
-  padding-bottom: 5px;
+    vertical-align: bottom;
 }
 
 
-@media (min-width: 700px) {
+
+
+@media (min-width: 800px) {
     .opening-form {
         padding: 20px;
-        padding-left: 0;
-        width: 50%;
+        width: 65%;
         margin: auto;
         justify-content: space-around; 
-       
+        display: flex;
     }
     .flow-form {
+        margin: 10px;
         flex: 1;
         padding: 5px;
         display: flex;
-        justify-content: space-between; 
-        margin-left: 50px; 
-        /* border: 1px solid rgb(91, 128, 149); */
-        /* filter: drop-shadow(0 0 0.75rem rgb(151, 132, 136)); */
+        margin-left: 5%;
     }
     .flow-selection {
+        margin: 10px;
         flex:1;
         padding: 5px;
         display: flex;
-        /* justify-content: space-between;  */
-        margin-left: 50px; 
-        /* border: 1px solid rgb(91, 128, 149); */
-        /* filter: drop-shadow(0 0 0.75rem rgb(151, 132, 136)); */
+        margin-left: 5%;
     }
-    .form__field {
-        margin-left: 50px;
-    }
+   
     .form-small-container {
-        flex:1.5;
-        display: inline;
-        
+        flex:3;
         }
+    
     .button-container {
-        flex:1;
-        display: inline;   
-    } 
+        flex: 1;
+    }
     }

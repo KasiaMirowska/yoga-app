@@ -52,30 +52,26 @@ export default class RegisterForm extends React.Component {
     render() {
         console.log(this.state.error)
         return (
-            <div>
+            <div className='login'>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor='full_name'>
-                        User Full Name:
-                    </label>
-                    <input name='full_name' type='text' onChange={(e) => this.handleFullName(e.target.value)} />
-                    <label htmlFor='full_name'>
-                        User Name:
-                    </label>
-                    <input name='user_name' type='text' onChange={(e) => this.handleUserName(e.target.value)} required />
+                    <div className='section'>
+                        <input name='full_name' type='text' onChange={(e) => this.handleFullName(e.target.value)} placeholder='full name'/>
+                    </div>
 
-                    <label htmlFor='password'>
-                        Password:
-                    </label>
-                    <input name="password" type='text' onChange={(e) => this.handlePassword(e.target.value)} required />
+                    <div className='section'>
+                        <input name='user_name' type='text' onChange={(e) => this.handleUserName(e.target.value)} placeholder='username' required />
+                    </div>
 
-                    <button type="reset" >
+                    <div className='section'>
+                        <input name="password" type='text' onChange={(e) => this.handlePassword(e.target.value)} placeholder='password' required />
+                    </div>
+
+                    <button className='login-button' type="reset" >
                         Cancel
                     </button>
-                    <button
-                        type='submit'
-                    >
+                    <button className='login-button' type='submit'>
                         Submit
-                            </button>
+                    </button>
                 </form>
             </div>
         )

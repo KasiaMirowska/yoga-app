@@ -11,8 +11,8 @@ export default class LoginPage extends React.Component {
   
     render() {
       return (
-       <div>
-          <h2>Login</h2>
+       <div className='current-flow'>
+          <h2 className='title' >LOGIN</h2>
           <LoginForm
             onLoginSuccess={this.handleLoginSuccess}
           />

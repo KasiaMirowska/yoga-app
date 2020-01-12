@@ -1,0 +1,35 @@
+  .login{
+    width: 30%;
+    background-color: rgb(233, 224, 231); 
+    text-align: center; 
+    padding-top: 30px; 
+    padding-bottom: 50px;
+    margin: auto;
+    margin-bottom: 40px;
+    filter: drop-shadow(0 0 0.75rem rgb(151, 132, 136));
+  }
+  input {
+    width: 70%; 
+    font-family: inherit;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1rem;
+    color: grey;
+    padding: 7px 0;
+    /* display: inline; */
+    background: transparent;  
+    transition: border-color 0.2s;
+    /* margin-right: 15px;  */
+  }
+  placeholder {
+    color: transparent; 
+  }
+  .login-button {
+    margin: 20px;
+    border-radius: 5px;
+    
+  } 
+  .section {
+      margin: 20px;
+  }

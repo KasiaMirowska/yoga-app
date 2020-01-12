@@ -77,24 +77,24 @@ export default class OpeningForm extends React.Component {
                     <form onSubmit={this.handleSubmit} className='flow-form'>
 
                         <div className="form__group field" className='form-small-container'>
-                            <h3>Starting new flow?</h3>
-                            <input type="input" className="form__field" placeholder="new flow name" name="name" id='newFlowName' required />
+                            <h3 className='flow-choice'>Starting new flow?</h3>
+                            <input type="input" className="form__field" placeholder="new flow" name="name" id='newFlowName' required />
                         </div>
                         <div className='button-container'>
-                            <button type='submit' className='enter-button' >enter flow</button>
+                            <button type='submit' >enter </button>
                         </div>
                         </form>
                         
                         {this.context.flows.length > 0 ? <div className='flow-selection'>
                             <div className='form-small-container'>
-                                <h3>Enter exisiting flow?</h3>
+                                <h3 className='flow-choice'>Enter exisiting flow?</h3>
                                 <select className="form__field" onChange={this.onSelectFlow}>
                                     <option value=''>Pick a flow</option>
                                     {flowListName}
                                 </select>
                             </div>
                             <div className='button-container'>
-                                <button className='enter-button' onClick={this.enterFlow}> enter flow</button>
+                                <button onClick={this.enterFlow}> enter</button>
                             </div>
                         </div>
                             : null}

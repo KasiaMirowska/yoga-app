@@ -9,6 +9,7 @@
 .title {
     font-size: 1.8em;
     display: block;
+    padding: 5px;
 }
 
 @media (min-width: 600px) {

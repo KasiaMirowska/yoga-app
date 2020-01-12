@@ -1,0 +1,88 @@
+
+.input {
+     width: 10%;
+     margin: 0;
+}
+.attributes-container{
+    width: 75%;
+    text-align: right;
+}
+.text-container{
+    width: 75%;
+    text-align: left;
+    margin: auto;
+    padding: 20px;
+}
+ .resp-iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+ } 
+ .iframe-container {
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative;
+}
+
+.options-container {
+    display: flex;
+    width: 35%;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin: auto;
+}
+.form__field2 {
+  font-family: inherit;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  font-size: 1rem;
+  color: grey;
+  padding: 7px 0;
+  display: inline;
+  background: transparent;  
+  transition: border-color 0.2s;
+}
+textarea {
+    border: none;
+    border-bottom: 2px solid grey;
+    background-color: rgb(237, 252, 253);
+}
+
+@media (min-width: 800px) {
+    .text-container{
+        width: 35%;
+        text-align: left;
+        margin: auto;
+        padding: 20px;
+    }
+    .iframe-container {
+        /* max-width: 50%;
+        max-height: 50%; */
+        overflow: hidden;
+        padding-top: 56.25%;
+        position: relative;
+        display:flex;
+        margin: auto;
+    }
+    .attributes-container {
+        display: flex;
+        width: 40%;
+        margin: auto;
+        text-align: right;
+        justify-content: space-evenly; 
+        
+    }
+    .row1 {
+        min-width: 220px;
+        text-align: right;
+   }
+   .row2 {
+        min-width: 220px;
+        text-align: right; 
+       
+   }
+    
+  }  
