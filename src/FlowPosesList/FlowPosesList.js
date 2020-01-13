@@ -7,7 +7,9 @@ import './FlowPosesList.css';
 
 export default class FlowPosesList extends React.Component {
     static contextType = YogaContext;
-
+    state = {
+        error: null,
+    }
 
     componentDidMount = () => {
         let flowId = this.context.currentFlowId;
@@ -15,7 +17,13 @@ export default class FlowPosesList extends React.Component {
         APIFlowCalls.getAllPosesInFlow(flowId)
             .then(data => {
                 this.context.setCurrentFlow(data);
-            });
+            })
+            .catch(res => {
+                console.log(res)
+                this.setState({
+                    error: res
+                })
+            })
     }
 
     render() {
@@ -44,6 +52,9 @@ export default class FlowPosesList extends React.Component {
 
         return (
             <div >
+                 <div className='error'>
+                    {this.state.error ? this.state.error.message : null}
+                </div>
                 <ul className='flow-poses-container'>
                 {flowPoses}
                 </ul>

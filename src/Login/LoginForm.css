@@ -8,6 +8,7 @@
     margin-bottom: 40px;
     filter: drop-shadow(0 0 0.75rem rgb(151, 132, 136));
   }
+  
   input {
     width: 70%; 
     font-family: inherit;

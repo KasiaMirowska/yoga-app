@@ -1,162 +1,210 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PoseFullCard component renders UI as expected 1`] = `
-<div>
-  <h3 />
-  <h3 />
-  <p />
-  <p />
-  <p />
-  <iframe
-    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen={true}
-    frameBorder="0"
-    height="315"
-    title="yoga film"
-    width="560"
+<div
+  className="pose-list"
+>
+  <div
+    className="error"
   />
+  <h3
+    className="title"
+  />
+  <h3
+    className="title"
+  />
+  <div
+    className="text-container"
+  >
+    <p>
+      BENEFITS : 
+    </p>
+    <br />
+    <p>
+      LEVEL : 
+    </p>
+    <br />
+    <p>
+      POSE TYPE : 
+    </p>
+    <br />
+  </div>
+  <div
+    className="iframe-container"
+  >
+    <iframe
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen={true}
+      className="resp-iframe"
+      frameBorder="0"
+      title="yoga film"
+    />
+  </div>
   <form
     onSubmit={[Function]}
   >
-    <h3>
+    <h3
+      className="title"
+    >
       Pick attributes:
     </h3>
-    <label>
-      Grounding pose
-    </label>
-    <input
-      name="grounding-pose"
-      onClick={[Function]}
-      type="checkbox"
-    />
-    <br />
-    <label>
-      Cooling pose
-    </label>
-    <input
-      name="cooling-pose"
-      onClick={[Function]}
-      type="checkbox"
-    />
-    <br />
-    <label>
-      Heat rising pose
-    </label>
-    <input
-      name="heat-rising-pose"
-      onClick={[Function]}
-      type="checkbox"
-    />
-    <br />
-    <label>
-      Energizing pose
-    </label>
-    <input
-      name="energizing-pose"
-      onClick={[Function]}
-      type="checkbox"
-    />
-    <br />
-    <label>
-      Strengthening pose
-    </label>
-    <input
-      name="strengthening-pose"
-      onClick={[Function]}
-      type="checkbox"
-    />
-    <br />
-    <label>
-      Relaxing pose
-    </label>
-    <input
-      name="relaxing-pose"
-      onClick={[Function]}
-      type="checkbox"
-    />
-    <br />
-    <label>
-      Releasing preassure pose
-    </label>
-    <input
-      name="releasing-pose"
-      onClick={[Function]}
-      type="checkbox"
-    />
-    <br />
-    <label>
-      Stabilizing pose
-    </label>
-    <input
-      name="stabilizing-pose"
-      onClick={[Function]}
-      type="checkbox"
-    />
-    <br />
-    <label>
-      Flexcibility building pose
-    </label>
-    <input
-      name="flexibility-pose"
-      onClick={[Function]}
-      type="checkbox"
-    />
-    <br />
-    <h3>
-      Notes
-    </h3>
-    <textarea
-      cols="50"
-      onChange={[Function]}
-      rows="10"
-      value=""
-    />
-    <br />
-    <br />
-    <select
-      name="flow-menu"
-      onChange={[Function]}
-      required={true}
+    <div
+      className="attributes-container"
     >
-      <option
+      <div
+        className="row1"
+      >
+        <label>
+          Grounding pose
+        </label>
+        <input
+          className="input"
+          name="grounding-pose"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <br />
+        <label>
+          Cooling pose
+        </label>
+        <input
+          className="input"
+          name="cooling-pose"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <br />
+        <label>
+          Heat rising pose
+        </label>
+        <input
+          className="input"
+          name="heat-rising-pose"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <br />
+        <label>
+          Energizing pose
+        </label>
+        <input
+          className="input"
+          name="energizing-pose"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <br />
+        <label>
+          Strengthening pose
+        </label>
+        <input
+          className="input"
+          name="strengthening-pose"
+          onClick={[Function]}
+          type="checkbox"
+        />
+      </div>
+      <div
+        className="row2"
+      >
+        <label>
+          Relaxing pose
+        </label>
+        <input
+          className="input"
+          name="relaxing-pose"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <br />
+        <label>
+          Releasing preassure pose
+        </label>
+        <input
+          className="input"
+          name="releasing-pose"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <br />
+        <label>
+          Stabilizing pose
+        </label>
+        <input
+          className="input"
+          name="stabilizing-pose"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <br />
+        <label>
+          Flexcibility building pose
+        </label>
+        <input
+          className="input"
+          name="flexibility-pose"
+          onClick={[Function]}
+          type="checkbox"
+        />
+      </div>
+    </div>
+    <div
+      className="note-container"
+    >
+      <h3
+        className="title"
+      >
+        Notes
+      </h3>
+      <textarea
+        cols="50"
+        onChange={[Function]}
+        rows="10"
+        value=""
+      />
+    </div>
+    <div
+      className="options-container"
+    >
+      <select
+        className="form__field2"
+        name="flow-menu"
+        onChange={[Function]}
         required={true}
-        value="none"
       >
-        Save to my flow as:
-      </option>
-      <option
-        value="1"
-      >
-        warm up pose
-      </option>
-      <option
-        value="3"
-      >
-        break pose
-      </option>
-      <option
-        value="4"
-      >
-        peak pose
-      </option>
-      <option
-        value="2"
-      >
-         mid-flow pose
-      </option>
-      <option
-        value="5"
-      >
-         after-peak stabilizing pose
-      </option>
-    </select>
-    <br />
-    <button
-      disabled={true}
-      type="submit"
-    >
-      Add to flow
-    </button>
+        <option
+          required={true}
+          value=""
+        >
+          Save to my flow as:
+        </option>
+        <option
+          value="1"
+        >
+          warm up pose
+        </option>
+        <option
+          value="3"
+        >
+          break pose
+        </option>
+        <option
+          value="4"
+        >
+          peak pose
+        </option>
+        <option
+          value="2"
+        >
+           mid-flow pose
+        </option>
+        <option
+          value="5"
+        >
+           after-peak stabilizing pose
+        </option>
+      </select>
+    </div>
   </form>
 </div>
 `;

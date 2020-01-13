@@ -7,6 +7,10 @@ import './LoginForm.css';
 export default class LoginForm extends React.Component {
     static contextType = YogaContext;
 
+    state = {
+        error: null,
+    }
+
     handleLogin = (e) => {
         e.preventDefault();
         const { userName, password } = e.target
@@ -25,27 +29,57 @@ export default class LoginForm extends React.Component {
                 TokenService.saveAuthToken(res.authToken)
                 this.props.onLoginSuccess()
             })
-            .catch(error => {
-                console.log(error,
-                    "ERROR")
-                this.context.setError(error.message)
+            .catch(res => {
+                console.log(res)
+                this.setState({
+                    error: res
+                })
             })
     }
 
-    render() {
+    handleAfterErrorDisplay = ()=> {
+        this.setState({
+            error: null
+        })
+    }
+    handleUsenNameCleanUp = (e) => {
+        e.preventDefault();
+        let userName = e.target;
+        if(userName.value !== null) {
+            userName.value = '';
+            this.setState({
+                error: null
+            })
+        } 
+    }
 
+    handlePasswordCleanUp = (e) => {
+        e.preventDefault();
+        let password = e.target;
+        if(password.value !== null) {
+           password.value = '';
+           this.setState({
+            error: null
+        })
+        }  
+    }
+    render() {
+        console.log(this.state.error)
         return (
             <div className='login'>
+                <div className='error'>
+                { this.state.error ? this.state.error.message : null }
+                </div>
                 <form onSubmit={this.handleLogin}>
                     <div className='section'>
-                        <input className='inp' type='text' id='userName' placeholder='username'>
+                        <input className='inp' type='text' id='userName' placeholder='username' onClick={this.handleUsenNameCleanUp}>
                         </input>
                     </div>
                     <div className='section'>
-                        <input className='inp' type='text' placeholder='password' id='password'>
+                        <input className='inp' type='text' placeholder='password' id='password' onClick={this.handlePasswordCleanUp}>
                         </input>
                     </div>
-                    <button className='login-button' type="reset" >Cancel</button>
+                    <button className='login-button' type="reset" onClick={this.handleAfterErrorDisplay}>Reset</button>
                     <button className='login-button' type='submit'>Login</button>
                 </form>
             </div>

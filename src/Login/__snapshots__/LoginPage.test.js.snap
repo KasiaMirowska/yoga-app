@@ -1,33 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LoginPage component renders UI as expected 1`] = `
-<div>
-  <h2>
-    Login
+<div
+  className="current-flow"
+>
+  <h2
+    className="title"
+  >
+    LOGIN
   </h2>
-  <div>
+  <div
+    className="login"
+  >
+    <div
+      className="error"
+    />
     <form
       onSubmit={[Function]}
     >
-      <label
-        htmlFor="userName"
+      <div
+        className="section"
       >
-        Username
-      </label>
-      <input
-        id="userName"
-        type="text"
-      />
-      <label
-        htmlFor="password"
+        <input
+          className="inp"
+          id="userName"
+          onClick={[Function]}
+          placeholder="username"
+          type="text"
+        />
+      </div>
+      <div
+        className="section"
       >
-        Password
-      </label>
-      <input
-        id="password"
-        type="text"
-      />
+        <input
+          className="inp"
+          id="password"
+          onClick={[Function]}
+          placeholder="password"
+          type="text"
+        />
+      </div>
       <button
+        className="login-button"
+        onClick={[Function]}
+        type="reset"
+      >
+        Reset
+      </button>
+      <button
+        className="login-button"
         type="submit"
       >
         Login

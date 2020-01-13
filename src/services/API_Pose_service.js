@@ -10,7 +10,11 @@ const APIPoseCalls = {
         return fetch(URL)
             .then(res => {
                 if (!res.ok) {
-                    throw new Error('something went wrong')
+                    return res.json()
+                        .then(err => {
+                            console.log(err)
+                            throw new Error(err.error.message)
+                        })
                 }
                 return res;
             })
@@ -30,7 +34,11 @@ const APIPoseCalls = {
         })
             .then(res => {
                 if (!res.ok) {
-                    throw new Error('something went wrong')
+                    return res.json()
+                        .then(err => {
+                            console.log(err)
+                            throw new Error(err.error.message)
+                        })
                 }
                 return res;
             })
@@ -50,7 +58,11 @@ const APIPoseCalls = {
         })
             .then(res => {
                 if (!res.ok) {
-                    throw new Error('something went wrong')
+                    return res.json()
+                        .then(err => {
+                            console.log(err)
+                            throw new Error(err.error.message)
+                        })
                 }
                 return res;
             })
@@ -65,13 +77,17 @@ const APIPoseCalls = {
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             },
         })
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('something went wrong')
-            }
-            return res;
-        })
-        .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    return res.json()
+                        .then(err => {
+                            console.log(err)
+                            throw new Error(err.error.message)
+                        })
+                }
+                return res;
+            })
+            .then(res => res.json())
     }
 
 }

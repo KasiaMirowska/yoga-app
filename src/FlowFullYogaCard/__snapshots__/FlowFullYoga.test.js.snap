@@ -1,15 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FlowFullYogaCard component renders UI as expected 1`] = `
-<div>
-  <h3 />
-  <h3 />
-  <p />
-  <p />
-  <p />
-  <img
-    alt="yoga pose"
+<div
+  className="pose-info"
+>
+  <h3
+    className="title"
   />
+  <h3
+    className="title"
+  />
+  <div
+    className="text-container"
+  >
+    <p>
+      BENEFITS : 
+    </p>
+    <br />
+    <p>
+      LEVEL : 
+    </p>
+    <br />
+    <p>
+      POSE TYPE : 
+    </p>
+    <br />
+  </div>
   <iframe
     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
     allowFullScreen={true}
@@ -18,16 +34,14 @@ exports[`FlowFullYogaCard component renders UI as expected 1`] = `
     title="yoga pose instructions"
     width="560"
   />
-  <h3>
-    Saved Attributes List : 
-  </h3>
-  <ul />
-  <h3>
-    Notes: 
-  </h3>
-  <ul />
-  <button>
-    Back
-  </button>
+  <div
+    className="bt-container"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Back
+    </button>
+  </div>
 </div>
 `;

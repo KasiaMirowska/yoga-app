@@ -6,15 +6,20 @@ import './PoseList.css';
 
 export default class PoseList extends React.Component {
     static contextType = YogaContext;
-    
-    
+    state = {
+        error: null,
+    }
+
     componentDidMount = () => {
         APIPoseCalls.getAllPosesData()
             .then(data => {
                 this.context.setPosesList(data);
             })
-            .catch(err => {
-                this.context.setError(err)
+            .catch(res => {
+                console.log(res)
+                this.setState({
+                    error: res
+                })
             })
     }
 
@@ -31,11 +36,14 @@ export default class PoseList extends React.Component {
         })
         return (
             <div className='pose-list'>
-                <h2 className='title' >ALL POSES: </h2>
+                <div className='error'>
+                    {this.state.error ? this.state.error.message : null}
+                </div>
+                <h2 className='title' >POSES LIBRARY: </h2>
                 <ul className='poses-container'>
-                {poses}
+                    {poses}
                 </ul>
-               
+
             </div>
         )
     }

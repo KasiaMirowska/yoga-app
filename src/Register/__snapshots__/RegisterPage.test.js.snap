@@ -1,52 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RegisterPage component renders UI as expected 1`] = `
-<div>
-  <h2>
+<div
+  className="current-flow"
+>
+  <h2
+    className="title"
+  >
     Register
   </h2>
-  <div>
+  <div
+    className="login"
+  >
+    <div
+      className="error"
+    />
     <form
       onSubmit={[Function]}
     >
-      <label
-        htmlFor="full_name"
+      <div
+        className="section"
       >
-        User Full Name:
-      </label>
-      <input
-        name="full_name"
-        onChange={[Function]}
-        type="text"
-      />
-      <label
-        htmlFor="full_name"
+        <input
+          name="full_name"
+          onClick={[Function]}
+          placeholder="full name"
+          type="text"
+        />
+      </div>
+      <div
+        className="section"
       >
-        User Name:
-      </label>
-      <input
-        name="user_name"
-        onChange={[Function]}
-        required={true}
-        type="text"
-      />
-      <label
-        htmlFor="password"
+        <input
+          name="user_name"
+          onClick={[Function]}
+          placeholder="username"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="section"
       >
-        Password:
-      </label>
-      <input
-        name="password"
-        onChange={[Function]}
-        required={true}
-        type="text"
-      />
+        <input
+          name="password"
+          onClick={[Function]}
+          placeholder="password"
+          required={true}
+          type="text"
+        />
+      </div>
       <button
+        className="login-button"
+        onClick={[Function]}
         type="reset"
       >
         Cancel
       </button>
       <button
+        className="login-button"
         type="submit"
       >
         Submit

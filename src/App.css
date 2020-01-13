@@ -46,7 +46,11 @@ main {
     color: rgb(253, 74, 238);
   
 }
-  
+.error {
+  min-height: 22px;
+  color: red;
+  font-size: larger;
+} 
 .link {
     text-decoration: none;
     color:rgb(206, 87, 190);
@@ -74,7 +78,9 @@ main {
     display: inline;
     
   } 
-  
+  .disabled {
+    background-color:rgb(178, 185, 189);
+  }
   @media (min-width: 600px) {
     
     img {

@@ -5,6 +5,9 @@ exports[`OpeningForm component renders UI as expected 1`] = `
   className="form-container"
 >
   <div
+    className="error"
+  />
+  <div
     className="opening-form"
   >
     <form
@@ -14,15 +17,16 @@ exports[`OpeningForm component renders UI as expected 1`] = `
       <div
         className="form-small-container"
       >
-        <h3>
-          Starting new flow?
+        <h3
+          className="flow-choice"
+        >
+          Create a new flow:
         </h3>
         <input
           className="form__field"
           id="newFlowName"
           name="name"
-          placeholder="new flow name"
-          required={true}
+          placeholder="flow name"
           type="input"
         />
       </div>
@@ -30,10 +34,9 @@ exports[`OpeningForm component renders UI as expected 1`] = `
         className="button-container"
       >
         <button
-          className="enter-button"
           type="submit"
         >
-          enter flow
+          enter 
         </button>
       </div>
     </form>

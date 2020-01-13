@@ -14,7 +14,11 @@ const AuthCalls = {
         })
         .then(res => {
             if (!res.ok) {
-                throw new Error(res.error.message)
+                return res.json()
+                .then(err => {
+                    console.log(err)
+                    throw new Error(err.error.message)
+                })
             }
             return res;
         })

@@ -4,10 +4,13 @@ exports[`PoseList component renders UI as expected 1`] = `
 <div
   className="pose-list"
 >
+  <div
+    className="error"
+  />
   <h2
     className="title"
   >
-    ALL POSES: 
+    POSES LIBRARY: 
   </h2>
   <ul
     className="poses-container"

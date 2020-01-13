@@ -2,6 +2,9 @@
 
 exports[`FlowPosesList component renders UI as expected 1`] = `
 <div>
+  <div
+    className="error"
+  />
   <ul
     className="flow-poses-container"
   />

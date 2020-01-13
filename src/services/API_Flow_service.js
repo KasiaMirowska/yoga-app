@@ -13,7 +13,11 @@ const APIFlowCalls = {
         })
             .then(res => {
                 if (!res.ok) {
-                    throw new Error('something went wrong')
+                   return res.json()
+                   .then(err=> {
+                       console.log(err)
+                       throw new Error(err.error.message)
+                   })
                 }
                 return res;
             })
@@ -34,7 +38,11 @@ const APIFlowCalls = {
         })
             .then(res => {
                 if (!res.ok) {
-                    throw new Error('something went wrong')
+                   res.json()
+                   .then(err => {
+                       console.log(err)
+                       throw new Error(err.error.message)
+                   })
                 }
                 return res;
             })
@@ -55,7 +63,11 @@ const APIFlowCalls = {
         })
             .then(res => {
                 if (!res.ok) {
-                    throw new Error('something went wrong')
+                    return res.json()
+                    .then(err => {
+                        console.log(err)
+                        throw new Error(err.error.message)
+                    })
                 }
                 return res;
             })
@@ -90,7 +102,11 @@ const APIFlowCalls = {
         })
             .then(res => {
                 if (!res.ok) {
-                    throw new Error('something went wrong')
+                    return res.json()
+                    .then(err => {
+                        console.log(err)
+                        throw new Error(err.error.message)
+                    })
                 }
                 return res;
             })

@@ -8,6 +8,7 @@ export default class FlowFullYogaCard extends React.Component {
     static contextType = YogaContext;
     state = {
         clickedPose: null,
+        error: null,
     }
 
     componentDidUpdate = () => {
@@ -28,11 +29,12 @@ export default class FlowFullYogaCard extends React.Component {
 
         APIPoseCalls.getFullPoseData(flowId, clickedPoseId)
             .then(data => {
-                console.log(data, 'ATTRIBUTES')
                 this.context.setOpenPoseCard(data)
             })
-            .catch(error => {
-                this.context.setError(error)
+            .catch(res => {
+                this.setState({
+                    error: res,
+                })
             })
     }
 
@@ -60,6 +62,9 @@ export default class FlowFullYogaCard extends React.Component {
             })
             return (
                 <div className='pose-info'>
+                    <div className='error'>
+                        {this.state.error ? this.state.error.message : null}
+                    </div>
                     <h3 className='title' >{name_eng}</h3>
                     <h3 className='title'>{name_san}</h3>
                     <div className='text-container2'>

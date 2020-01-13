@@ -19,7 +19,6 @@ export default class PoseFullCard extends React.Component {
         'releasing-pressure pose': false,
         'stabilizing-pose': false,
         'increasing-flexibility': false,
-
     }
 
 
@@ -118,13 +117,16 @@ export default class PoseFullCard extends React.Component {
         })
     }
 
-
+    
 
     render() {
         const { name_eng, name_san, benefits, pose_type, pose_level, img, video } = this.context.openPoseCard;
         
         return (
             <div className='pose-list'>
+                 <div className='error'>
+                    {this.context.error ? this.context.error.message : null}
+                </div>
                 <h3 className='title' >{name_eng}</h3>
                 <h3 className='title'>{name_san}</h3>
                 <div className='text-container'>
@@ -190,14 +192,16 @@ export default class PoseFullCard extends React.Component {
                     </div>
                     <div className='options-container'>
                         <select className='form__field2' name='flow-menu' onChange={this.handleSavePoseAs} required >
-                            <option value='none' required >Save to my flow as:</option>
+                            <option value='' required >Save to my flow as:</option>
                             <option value='1'>warm up pose</option>
                             <option value='3' >break pose</option>
                             <option value='4'>peak pose</option>
-                            <option value='2'> mid-flow pose</option>
+                            <option value='2'> mid-flow pose</option> 
                             <option value='5' > after-peak stabilizing pose</option>
                         </select>
-                        <button type='submit' disabled={!this.state.flowSection}>Add to flow</button>
+                        {this.state.flowSection !== '' ?  <button type='submit' >Add to flow</button> : null }
+                        
+                        
                     </div>
 
 

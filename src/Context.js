@@ -61,9 +61,9 @@ export class YogaContextProvider extends React.Component {
     }
 
 
-    setError = (err) => {
+    setError = (res) => {
         this.setState({
-            error: err,
+            error: res,
         })
     }
     enterFlow = (flow) => {
