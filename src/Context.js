@@ -43,6 +43,7 @@ export class YogaContextProvider extends React.Component {
             openPoseCard: {
                 id: null,
                 name_eng: '',
+                alias: '',
                 name_san: '',
                 benefits: '',
                 pose_type: '',
@@ -107,6 +108,7 @@ export class YogaContextProvider extends React.Component {
             openPoseCard: {
                 id: data.id,
                 name_eng: data.name_eng,
+                alias: data.alias,
                 name_san: data.name_san,
                 benefits: data.benefits,
                 pose_type: data.pose_type,

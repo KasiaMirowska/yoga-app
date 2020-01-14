@@ -120,14 +120,15 @@ export default class PoseFullCard extends React.Component {
     
 
     render() {
-        const { name_eng, name_san, benefits, pose_type, pose_level, img, video } = this.context.openPoseCard;
+        const { name_eng, alias, name_san, benefits, pose_type, pose_level, img, video } = this.context.openPoseCard;
         
         return (
-            <div className='pose-list'>
+            <div className='pose-info'>
                  <div className='error'>
                     {this.context.error ? this.context.error.message : null}
                 </div>
                 <h3 className='title' >{name_eng}</h3>
+                <h3 className='title' >{alias}</h3>
                 <h3 className='title'>{name_san}</h3>
                 <div className='text-container'>
                     <p>BENEFITS : {benefits}</p>

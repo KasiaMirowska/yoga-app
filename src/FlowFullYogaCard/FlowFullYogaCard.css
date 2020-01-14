@@ -14,11 +14,14 @@
     width: 80%;
 }
 .text-container2{
-    width: 75%
+    width: 55%;
+    text-align: left;
+    margin: auto;
+    padding: 20px;
 }
-@media (min-width: 800px) {
+@media (min-width: 600px) {
     .pose-info {
-        max-width: 550%;
+        max-width: 65%;
         background-color: rgb(233, 224, 231); 
         padding-top: 30px; 
         padding-bottom: 30px; 

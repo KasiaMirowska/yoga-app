@@ -42,6 +42,7 @@ export default class App extends React.Component {
 
           <Route exact path='/flow/:pose_id' component={CurrentFlow} />
           <Route exact path='/flow/:pose_id' component={PoseFullCard} />
+          <Route exact path='/flow/:pose_id' component={PoseList} />
 
           <Route exact path='/flow/:flowId/:pose_id' component={CurrentFlow} />
           <Route exact path='/flow/:flowId/:pose_id' component={FlowPosesList} />
