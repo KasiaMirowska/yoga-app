@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "alias": "https://kasias-yogi-track",
     "name": "yogi-track",
     "routes": [
         {
