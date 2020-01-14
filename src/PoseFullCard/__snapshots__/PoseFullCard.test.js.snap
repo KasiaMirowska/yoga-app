@@ -2,10 +2,13 @@
 
 exports[`PoseFullCard component renders UI as expected 1`] = `
 <div
-  className="pose-list"
+  className="pose-info"
 >
   <div
     className="error"
+  />
+  <h3
+    className="title"
   />
   <h3
     className="title"
