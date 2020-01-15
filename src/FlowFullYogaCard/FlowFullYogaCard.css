@@ -10,18 +10,16 @@
     margin-bottom: 40px;
     filter: drop-shadow(0 0 0.75rem rgb(151, 132, 136));
 }
-.iframe {
-    width: 80%;
-}
+
 .text-container2{
     width: 55%;
     text-align: left;
     margin: auto;
     padding: 20px;
 }
-@media (min-width: 600px) {
+@media (min-width: 800px) {
     .pose-info {
-        max-width: 65%;
+        max-width: 75%;
         background-color: rgb(233, 224, 231); 
         padding-top: 30px; 
         padding-bottom: 30px; 

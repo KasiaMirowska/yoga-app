@@ -14,16 +14,18 @@
     padding: 20px;
 }
  .resp-iframe {
-    height: 90%;
+    height: 100%;
     left: 0;
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 80%;
  } 
  .iframe-container {
     overflow: hidden;
     padding-top: 56.25%;
     position: relative;
+    display:flex;
+    margin: auto;
 }
 
 .options-container {
@@ -59,7 +61,7 @@ textarea {
         padding: 20px;
     }
     .iframe-container {
-        max-width: 75%; 
+        max-width: 60%; 
         overflow: hidden;
         padding-top: 56.25%;
         position: relative;

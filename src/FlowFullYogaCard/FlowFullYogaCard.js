@@ -113,7 +113,7 @@ export default class FlowFullYogaCard extends React.Component {
                     <p>POSE TYPE : {pose_type}</p>
                     <br />
                 </div>
-                <iframe width="560" height="315" src={video} frameBorder="0" title='yoga pose instructions'
+                <iframe src={video} frameBorder="0" title='yoga pose instructions'
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen>
                 </iframe>
