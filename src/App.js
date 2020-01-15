@@ -11,6 +11,7 @@ import FlowPosesList from './FlowPosesList/FlowPosesList';
 import FlowFullYogaCard from './FlowFullYogaCard/FlowFullYogaCard';
 import LoginPage from './Login/LoginPage';
 import RegisterPage from './Register/RegisterPage';
+import LandingPage from './LandingPage/LandingPage';
 
 
 export default class App extends React.Component {
@@ -22,6 +23,7 @@ export default class App extends React.Component {
         </nav>
         <header>
           <Route path='/' component={Header} />
+          <Route exact path='/landing' component={LandingPage} />
           <Route exact path='/' component={OpeningForm} />
         </header>
 
@@ -42,7 +44,7 @@ export default class App extends React.Component {
 
           <Route exact path='/flow/:pose_id' component={CurrentFlow} />
           <Route exact path='/flow/:pose_id' component={PoseFullCard} />
-          <Route exact path='/flow/:pose_id' component={PoseList} />
+          
 
           <Route exact path='/flow/:flowId/:pose_id' component={CurrentFlow} />
           <Route exact path='/flow/:flowId/:pose_id' component={FlowPosesList} />

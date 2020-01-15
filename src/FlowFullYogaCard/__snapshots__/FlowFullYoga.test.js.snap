@@ -26,12 +26,17 @@ exports[`FlowFullYogaCard component renders UI as expected 1`] = `
     </p>
     <br />
   </div>
-  <iframe
-    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen={true}
-    frameBorder="0"
-    title="yoga pose instructions"
-  />
+  <div
+    className="iframe-container"
+  >
+    <iframe
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen={true}
+      className="resp-iframe"
+      frameBorder="0"
+      title="yoga pose instructions"
+    />
+  </div>
   <div
     className="bt-container"
   >

@@ -64,7 +64,6 @@ export default class LoginForm extends React.Component {
         }  
     }
     render() {
-        console.log(this.state.error)
         return (
             <div className='login'>
                 <div className='error'>
