@@ -113,10 +113,12 @@ export default class FlowFullYogaCard extends React.Component {
                     <p>POSE TYPE : {pose_type}</p>
                     <br />
                 </div>
-                <iframe src={video} frameBorder="0" title='yoga pose instructions'
+                <div className='iframe-container'>
+                <iframe src={video} className='resp-iframe' frameBorder="0" title='yoga pose instructions'
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen>
                 </iframe>
+                </div>
                 <div className='bt-container'>
                     <button onClick={this.handleBackButton} >Back</button>
                 </div>

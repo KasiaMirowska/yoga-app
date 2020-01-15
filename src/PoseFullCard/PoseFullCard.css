@@ -18,14 +18,12 @@
     left: 0;
     position: absolute;
     top: 0;
-    width: 80%;
+    width: 100%;
  } 
  .iframe-container {
     overflow: hidden;
     padding-top: 56.25%;
     position: relative;
-    display:flex;
-    margin: auto;
 }
 
 .options-container {
