@@ -8,7 +8,7 @@ Yogi Track is a Full-Stack mobile first responsive web application for yoga teac
 As a yoga teacher I find myself constatly googling the correct asana's names in sanskrit (there is way over 200 poses in yoga and to learn their complex sanskrit names takes time) and making lists of poses as part of my preperation before teaching a class. This app is meant to be a tool to help memorize sanskrit names and streamline class planning process.
 
 
-|<img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/home.png' width ='300' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/flow-pick.png' width ='300' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/flow-pose.png' width='300 > |
+|<img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/home.png' width ='300' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/flow-pick.png' width ='300' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/flow-pose.png' width='300' > |
 
 ## TECH STACK
 #### FRONT-END
