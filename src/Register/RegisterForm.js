@@ -86,7 +86,7 @@ export default class RegisterForm extends React.Component {
                     </div>
 
                     <div className='section'>
-                        <input name="password" type='text' placeholder='password' onClick={this.handlePasswordCleanUp} required />
+                        <input name="password" type='password' placeholder='password' onClick={this.handlePasswordCleanUp} required />
                     </div>
 
                     <button className='login-button' type="reset" onClick={this.handleAfterErrorDisplay}>
