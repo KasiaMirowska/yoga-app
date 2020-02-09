@@ -4,7 +4,7 @@ import config from '../config';
 const AuthCalls = {
     postLogin: (credentials) => {
         const URL = config.API_ENDPOINT + '/login'
-       
+        console.log(URL,'<== FETCH URL')
         return fetch(URL, {
             method: 'POST',
             headers: {

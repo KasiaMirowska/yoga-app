@@ -37,7 +37,7 @@ exports[`LoginPage component renders UI as expected 1`] = `
           id="password"
           onClick={[Function]}
           placeholder="password"
-          type="text"
+          type="password"
         />
       </div>
       <button

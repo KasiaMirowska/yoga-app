@@ -16,7 +16,6 @@ export default class PoseList extends React.Component {
                 this.context.setPosesList(data);
             })
             .catch(res => {
-                console.log(res)
                 this.setState({
                     error: res
                 })

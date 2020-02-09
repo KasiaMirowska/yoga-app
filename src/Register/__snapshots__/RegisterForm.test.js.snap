@@ -39,7 +39,7 @@ exports[`RegisterForm component renders UI as expected 1`] = `
         onClick={[Function]}
         placeholder="password"
         required={true}
-        type="text"
+        type="password"
       />
     </div>
     <button
