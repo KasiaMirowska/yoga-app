@@ -57,98 +57,98 @@ exports[`PoseFullCard component renders UI as expected 1`] = `
       <div
         className="row1"
       >
-        <label>
-          Grounding pose
-        </label>
         <input
           className="input"
           name="grounding-pose"
           onClick={[Function]}
           type="checkbox"
         />
-        <br />
         <label>
-          Cooling pose
+          Grounding pose
         </label>
+        <br />
         <input
           className="input"
           name="cooling-pose"
           onClick={[Function]}
           type="checkbox"
         />
-        <br />
         <label>
-          Heat rising pose
+          Cooling pose
         </label>
+        <br />
         <input
           className="input"
           name="heat-rising-pose"
           onClick={[Function]}
           type="checkbox"
         />
-        <br />
         <label>
-          Energizing pose
+          Heat rising pose
         </label>
+        <br />
         <input
           className="input"
           name="energizing-pose"
           onClick={[Function]}
           type="checkbox"
         />
-        <br />
         <label>
-          Strengthening pose
+          Energizing pose
         </label>
+        <br />
         <input
           className="input"
           name="strengthening-pose"
           onClick={[Function]}
           type="checkbox"
         />
+        <label>
+          Strengthening pose
+        </label>
       </div>
       <div
         className="row2"
       >
-        <label>
-          Relaxing pose
-        </label>
         <input
           className="input"
           name="relaxing-pose"
           onClick={[Function]}
           type="checkbox"
         />
-        <br />
         <label>
-          Releasing preassure pose
+          Relaxing pose
         </label>
+        <br />
         <input
           className="input"
           name="releasing-pose"
           onClick={[Function]}
           type="checkbox"
         />
-        <br />
         <label>
-          Stabilizing pose
+          Releasing preassure pose
         </label>
+        <br />
         <input
           className="input"
           name="stabilizing-pose"
           onClick={[Function]}
           type="checkbox"
         />
-        <br />
         <label>
-          Flexcibility building pose
+          Stabilizing pose
         </label>
+        <br />
         <input
           className="input"
           name="flexibility-pose"
           onClick={[Function]}
           type="checkbox"
         />
+        <label>
+          Flexcibility building pose
+        </label>
       </div>
     </div>
     <div
@@ -207,6 +207,11 @@ exports[`PoseFullCard component renders UI as expected 1`] = `
            after-peak stabilizing pose
         </option>
       </select>
+      <button
+        onClick={[Function]}
+      >
+        Back
+      </button>
     </div>
   </form>
 </div>

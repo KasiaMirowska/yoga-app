@@ -7,7 +7,7 @@ export default function Header(props) {
     return (
         <header className='header' >
         <Link to={'/'}>
-          <h1>YOGA TRACK</h1>
+          <h1>YOGI TRACK</h1>
         </Link>
       </header>
     )
