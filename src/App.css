@@ -24,7 +24,7 @@ main {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    text-shadow: 0 0 1rem rgb(151, 132, 136);
+    text-shadow: 0 0 1rem rgb(121, 100, 105);
   }
    ul, li ,p , h3, h2 {
     color: rgb(143, 77, 1);  
@@ -43,25 +43,26 @@ main {
     text-decoration: none;
     padding: 10px;
     /* color: rgb(167, 4, 145); */
-    color: rgb(253, 74, 238);
+    color: rgb(129, 4, 112);
   
 }
 .error {
   min-height: 22px;
   color: red;
   font-size: larger;
+  padding: 10px;
 } 
 .link {
     text-decoration: none;
-    color:rgb(206, 87, 190);
+    color:rgb(87, 3, 76);
   }
-.link:hover {
+/* .link:hover {
     color: rgb(226, 146, 146);
     cursor: pointer;
   }
 .active {
     color: rgb(156, 36, 6);
-  }
+  } */
   
   
   button {
@@ -71,12 +72,11 @@ main {
     text-decoration: none;
     padding: 10px;
     cursor: pointer;
-    /* background-color:rgb(238, 114, 145); */
     background-color:rgb(91, 128, 149);
     border-radius: 15%;
     border: none;
     display: inline;
-    
+    margin: 2px;
   } 
   .disabled {
     background-color:rgb(178, 185, 189);

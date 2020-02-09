@@ -3,7 +3,7 @@ import YogaContext from '../Context';
 import APIPoseCalls from '../services/API_Pose_service';
 import APIFlowCalls from '../services/API_Flow_service';
 import './PoseFullCard.css';
-
+import { animateScroll as scroll } from 'react-scroll'
 
 export default class PoseFullCard extends React.Component {
     static contextType = YogaContext;
@@ -117,14 +117,17 @@ export default class PoseFullCard extends React.Component {
         })
     }
 
-    
+    handleBackButton = () => {
+        scroll.scrollToTop();
+        this.props.history.push('/flow')
+    }
 
     render() {
         const { name_eng, alias, name_san, benefits, pose_type, pose_level, img, video } = this.context.openPoseCard;
-        
+
         return (
             <div className='pose-info'>
-                 <div className='error'>
+                <div className='error'>
                     {this.context.error ? this.context.error.message : null}
                 </div>
                 <h3 className='title' >{name_eng}</h3>
@@ -139,52 +142,50 @@ export default class PoseFullCard extends React.Component {
                     <br />
                 </div>
                 <div className='iframe-container'>
-                <iframe className='resp-iframe' src={video} frameBorder="0" title='yoga film'
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen>
-                </iframe>
+                    <iframe className='resp-iframe' src={video} frameBorder="0" title='yoga film'
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen>
+                    </iframe>
                 </div>
                 <form onSubmit={this.handleSubmit}>
                     <h3 className='title' >Pick attributes:</h3>
                     <div className='attributes-container'>
                         <div className='row1'>
-                            <label>Grounding pose</label>
                             <input className='input' type='checkbox' name='grounding-pose' onClick={this.handleAddAttribute} />
-
+                            <label>Grounding pose</label>
                             <br />
-                            <label>Cooling pose</label>
+
                             <input className='input' type='checkbox' name='cooling-pose' onClick={this.handleAddAttribute} />
-                            
+                            <label>Cooling pose</label>
+
                             <br />
-                            <label>Heat rising pose</label>
                             <input className='input' type='checkbox' name='heat-rising-pose' onClick={this.handleAddAttribute} />
+                            <label>Heat rising pose</label>
 
                             <br />
-                            <label>Energizing pose</label>
                             <input className='input' type='checkbox' name='energizing-pose' onClick={this.handleAddAttribute} />
+                            <label>Energizing pose</label>
 
                             <br />
-                            <label>Strengthening pose</label>
                             <input className='input' type='checkbox' name='strengthening-pose' onClick={this.handleAddAttribute} />
-                           
+                            <label>Strengthening pose</label>
+
                         </div>
                         <div className='row2'>
-                            <label>Relaxing pose</label>
                             <input className='input' type='checkbox' name='relaxing-pose' onClick={this.handleAddAttribute} />
+                            <label>Relaxing pose</label>
 
                             <br />
-                            <label>Releasing preassure pose</label>
                             <input className='input' type='checkbox' name='releasing-pose' onClick={this.handleAddAttribute} />
+                            <label>Releasing preassure pose</label>
 
                             <br />
-                            <label>Stabilizing pose</label>
                             <input className='input' type='checkbox' name='stabilizing-pose' onClick={this.handleAddAttribute} />
+                            <label>Stabilizing pose</label>
 
                             <br />
-
-                            <label>Flexcibility building pose</label>
                             <input className='input' type='checkbox' name='flexibility-pose' onClick={this.handleAddAttribute} />
-                    
+                            <label>Flexcibility building pose</label>
                         </div>
                     </div>
                     <div className='note-container'>
@@ -197,22 +198,14 @@ export default class PoseFullCard extends React.Component {
                             <option value='1'>warm up pose</option>
                             <option value='3' >break pose</option>
                             <option value='4'>peak pose</option>
-                            <option value='2'> mid-flow pose</option> 
+                            <option value='2'> mid-flow pose</option>
                             <option value='5' > after-peak stabilizing pose</option>
                         </select>
-                        {this.state.flowSection !== '' ?  <button type='submit' >Add to flow</button> : null }
-                        
-                        
+                        {this.state.flowSection !== '' ? <button type='submit' >Add to flow</button> : null}
+                        <button onClick={this.handleBackButton} >Back</button>
                     </div>
-
-
-
                 </form>
-
-
             </div>
-
         )
     }
-
 }

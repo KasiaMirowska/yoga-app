@@ -2,7 +2,7 @@ import React from 'react';
 import YogaContext, { YogaContextProvider } from '../Context';
 import APIPoseCalls from '../services/API_Pose_service';
 import './FlowFullYogaCard.css';
-
+import { animateScroll as scroll } from 'react-scroll';
 
 export default class FlowFullYogaCard extends React.Component {
     static contextType = YogaContext;
@@ -43,6 +43,7 @@ export default class FlowFullYogaCard extends React.Component {
     }
 
     handleBackButton = () => {
+        scroll.scrollToTop();
         this.props.history.push('/flow')
     }
 

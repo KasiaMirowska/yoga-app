@@ -3,12 +3,13 @@ import TokenService from '../services/token-service';
 import config from '../config';
 import { withRouter } from 'react-router-dom';
 import './PoseListItem.css';
-
+import { animateScroll as scroll } from 'react-scroll'
 
 function PoseListItem(props) {
 
     const handleClick = () => {
         const token = TokenService.hasAuthToken(config.TOKEN_KEY)
+        scroll.scrollToTop();
         if (!token) {
             console.log('NO TOKEN')
             props.history.push(`/login`)

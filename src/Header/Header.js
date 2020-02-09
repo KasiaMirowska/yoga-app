@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header(props) {
     return (
-        <header className='header'>
+        <header className='header' >
         <Link to={'/'}>
           <h1>YOGA TRACK</h1>
         </Link>

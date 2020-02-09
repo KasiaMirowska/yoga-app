@@ -78,6 +78,11 @@ export default class OpeningForm extends React.Component {
                 <div className='error'>
                     {this.state.error ? this.state.error.message : null}
                 </div>
+                {(this.props.location.pathname === '/flowForm') ?
+                    <div>
+                        <h2>Please create a new flow or select an existing one.</h2>
+                    </div>
+                    : null}
                 <div className='opening-form'>
                     <form onSubmit={this.handleSubmit} className='flow-form'>
 
@@ -103,15 +108,8 @@ export default class OpeningForm extends React.Component {
                         </div>
                     </div>
                         : null}
-
-
-
                 </div>
-                {(this.props.location.pathname === '/flowForm') ?
-                    <div>
-                        <h2>Please select an existing flow or create a new one</h2>
-                    </div>
-                    : null}
+                
             </div>
         )
     }

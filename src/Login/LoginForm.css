@@ -1,5 +1,5 @@
   .login{
-    width: 30%;
+    width: 90%;
     background-color: rgb(233, 224, 231); 
     text-align: center; 
     padding-top: 30px; 
@@ -33,4 +33,11 @@
   } 
   .section {
       margin: 20px;
+  }
+
+  @media (min-width: 800px){
+  .login {
+    width: 30%;
+
+  }
   }

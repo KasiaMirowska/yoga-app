@@ -4,8 +4,9 @@
      margin: 0;
 }
 .attributes-container{
-    width: 75%;
-    text-align: right;
+     width: 75%; 
+     margin-left:20%;
+    text-align: left;
 }
 .text-container{
     width: 75%;
@@ -28,7 +29,7 @@
 
 .options-container {
     display: flex;
-    width: 35%;
+    width: 90%;
     justify-content: space-evenly;
     padding: 20px;
     margin: auto;
@@ -51,7 +52,7 @@ textarea {
     background-color: rgb(237, 252, 253);
 }
 
-@media (min-width: 800px) {
+@media (min-width: 600px) {
     .text-container{
         width: 35%;
         text-align: left;
@@ -74,13 +75,19 @@ textarea {
         justify-content: space-evenly; 
         
     }
+    .options-container {
+        display: flex;
+        width: 50%;
+        padding: 20px;
+        justify-content: space-evenly;
+    }
     .row1 {
         min-width: 220px;
-        text-align: right;
+        text-align: left;
    }
    .row2 {
         min-width: 220px;
-        text-align: right; 
+        text-align: left; 
        
    }
     

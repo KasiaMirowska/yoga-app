@@ -1,6 +1,7 @@
 {
     "version": 2,
-    "name": "yogi-track",
+    "name": "yogitrack",
+    "alias": "kasia",
     "routes": [
         {
           "src": "^/static/(.*)",
