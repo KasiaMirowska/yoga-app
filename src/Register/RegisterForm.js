@@ -17,7 +17,7 @@ export default class RegisterForm extends React.Component {
             username: user_name.value,
             password: password.value,
         }
-        console.log(newUser)
+        
         AuthCalls.postUser(newUser)
             .then(user => {
                 full_name.value = '';
@@ -43,9 +43,7 @@ export default class RegisterForm extends React.Component {
         e.preventDefault();
         let full_name = e.target;
         if (full_name.value !== null) {
-            console.log(full_name.value)
                 full_name.value = '';
-                console.log(full_name.value)
                 this.setState({
                     error: null
                 })
@@ -66,16 +64,13 @@ export default class RegisterForm extends React.Component {
         e.preventDefault();
         let password = e.target;
         if (password.value !== null) {
-            console.log(password.value)
                 password.value = '';
-                console.log(password.value)
                 this.setState({
                     error: null
                 })
         }
     }
     render() {
-        console.log(this.state.error)
         return (
             <div className='login'>
                 <div className='error'>

@@ -23,7 +23,6 @@ export default class LoginForm extends React.Component {
 
         AuthCalls.postLogin(credentials)
             .then(res => {
-                console.log(res, 'HRES')
                 userName.value = ''
                 password.value = ''
                 TokenService.saveAuthToken(res.authToken)

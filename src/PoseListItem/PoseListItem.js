@@ -11,7 +11,6 @@ function PoseListItem(props) {
         const token = TokenService.hasAuthToken(config.TOKEN_KEY)
         scroll.scrollToTop();
         if (!token) {
-            console.log('NO TOKEN')
             props.history.push(`/login`)
         }
         else if (props.location.pathname === '/') {

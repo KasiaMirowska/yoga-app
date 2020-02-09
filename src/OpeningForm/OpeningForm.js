@@ -31,7 +31,6 @@ export default class OpeningForm extends React.Component {
 
         const token = TokenService.hasAuthToken(config.TOKEN_KEY)
         if (!token) {
-            console.log('NO TOKEN')
             this.props.history.push(`/login`)
         }
         else {
@@ -59,7 +58,6 @@ export default class OpeningForm extends React.Component {
         })
     }
     enterFlow = () => {
-        console.log(this.props)
         const flow = this.context.flows.find(flow => flow.title === this.state.selection)
         this.context.enterFlow(flow)
         this.props.history.push(`/flow`)

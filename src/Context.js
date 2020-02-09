@@ -126,7 +126,7 @@ export class YogaContextProvider extends React.Component {
         const newAssignedPoses = this.state.currentFlow.assignedPoses.map(posesArr => {
             return posesArr.filter(pose => pose !== id)
         })
-        console.log(newAssignedPoses)
+
         this.setState({
             currentFlow: {
                 ...this.state.currentFlow,
