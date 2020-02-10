@@ -62,7 +62,7 @@ export default class PoseFullCard extends React.Component {
         savedPoseAttributes = {
             assigned_flow_id: currentFlowId,
             pose_id: poseId,
-            attributes: attributesList,
+            attribute: attributesList,
         }
 
         APIPoseCalls.insertPoseAttributes(savedPoseAttributes)
@@ -82,7 +82,7 @@ export default class PoseFullCard extends React.Component {
             .catch(err => {
                 this.context.setError(err)
             })
-
+        scroll.scrollToTop();
         this.props.history.push('/flow')
     }
 

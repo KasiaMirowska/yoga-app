@@ -48,7 +48,7 @@ export default class FlowPosesList extends React.Component {
                 />
             );
         }));
-
+        
         return (
             <div >
                  <div className='error'>

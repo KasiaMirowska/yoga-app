@@ -1,12 +1,10 @@
 import config from '../config';
 import TokenService from './token-service';
-console.log('config', config.API_ENDPOINT, "PROCESS")
 
 const APIFlowCalls = {
 
     getAllUserFlows: () => {
         const URL = config.API_ENDPOINT + '/flows'
-        console.log(URL, 'URL')
         return fetch(URL, {
             headers: {
                 'Authorization': `bearer ${TokenService.getAuthToken()}`
