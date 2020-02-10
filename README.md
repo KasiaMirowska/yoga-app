@@ -1,68 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Yogi Track 
 
-## Available Scripts
+Check it out at [yogi-track](https://yoga-capstone.now.sh/).
 
-In the project directory, you can run:
+Yogi Track is a Full-Stack mobile first responsive web application for yoga teachers and enthusiasts helping a user to explore and learn avariety of poses, providing an english and sanskrit name for each pose with alphabetic sort based on either. The user can then create an account where he/she can save poses into yoga-flows as inspirations for a class or record of personal practice with notes and personal rating system.
 
-### `npm start`
+## WHY MAKE THIS APP?
+As a yoga teacher I find myself constatly googling the correct asana's names in sanskrit (there is way over 200 poses in yoga and to learn their complex sanskrit names takes time) and making lists of poses as part of my preperation before teaching a class. This app is meant to be a tool to help memorize sanskrit names, streamline class planning process and help teachers advance their skills.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+|<img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/home.png' width ='200' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/flow-pick.png' width ='200' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/flow-pose.png' width='200' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/pose-card2.png' width='200' > |
 
-### `npm test`
+## TECH STACK
+#### FRONT-END
+* HTML5
+* CSS3
+* JavaScript
+* React.js front end framework
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### BACK-END
+* Node.js backend run-time environment
+* Express.js backend framework and architecture
+* SQL for database
+* Postgres - relational database management system
+* JWTs for authentication
 
-### `npm run build`
+#### TESTING and DEPOLYMENT
+* Mocha - back-end testing framework
+* Chai - assertion library backend testing
+* Enzyme - React.js testing utility
+* Zeit - cloud platform for static sites
+* Heroku - cloud application platform
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## FUTURE IMPROVEMENTS
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### UI IMPROVEMENTS
+* significatly bigger poses library
+* way to narrow poses display by anatomy, level of dificulty and saved attributes like 'energizing poses'
+* search bar for certain pose by name or anatomy
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### UX IMPROVEMENTS
+* drag&drop functionality to edit a flow
+* abitlity to share flows between users or to social media
 
-### `npm run eject`
+### OTHER FRONT-END IMPROVEMENTS
+* Google and facebook login
+* Full scale React unit testing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### SERVER-SIDE IMPROVEMENTS
+* login timeout
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
