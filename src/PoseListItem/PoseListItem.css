@@ -7,10 +7,8 @@
     filter: drop-shadow(0 0 0.75rem rgb(151, 132, 136));
 }
 
-
 @media (min-width: 600px) {
     .item {
         width: 33%; 
-    }
-    
-  }  
+    }    
+}  

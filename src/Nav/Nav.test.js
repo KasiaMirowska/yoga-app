@@ -10,8 +10,9 @@ describe('Nav component', () => {
          ReactDom.render(<BR><Nav /></BR>, div);
          ReactDom.unmountComponentAtNode(div);
     });
+
     it('renders UI as expected', () => {
-        const nav = renderer.create(<BR><Nav /></BR>)
+        const nav = renderer.create(<BR><Nav /></BR>);
         expect(nav.toJSON()).toMatchSnapshot();
-    })
-})
+    });
+});

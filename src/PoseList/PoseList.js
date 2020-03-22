@@ -18,8 +18,8 @@ export default class PoseList extends React.Component {
             .catch(res => {
                 this.setState({
                     error: res
-                })
-            })
+                });
+            });
     }
 
     render() {
@@ -30,9 +30,9 @@ export default class PoseList extends React.Component {
                 name={pose.name_eng}
                 sanskrit={pose.name_san}
                 img={pose.img}
-            />
+            />;
+        });
 
-        })
         return (
             <div className='pose-list'>
                 <div className='error'>
@@ -42,8 +42,7 @@ export default class PoseList extends React.Component {
                 <ul className='poses-container'>
                     {poses}
                 </ul>
-
             </div>
-        )
+        );
     }
 }

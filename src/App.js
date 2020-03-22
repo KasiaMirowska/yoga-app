@@ -13,7 +13,6 @@ import LoginPage from './Login/LoginPage';
 import RegisterPage from './Register/RegisterPage';
 import LandingPage from './LandingPage/LandingPage';
 
-
 export default class App extends React.Component {
   render() {
     return (
@@ -26,11 +25,7 @@ export default class App extends React.Component {
           <Route exact path='/landing' component={LandingPage} />
           <Route exact path='/' component={OpeningForm} />
         </header>
-
-
         <main>
-
-         
           <Route exact path='/' component={PoseList} />
       
           <Route exact path='/login' component={LoginPage} />
@@ -56,11 +51,7 @@ export default class App extends React.Component {
           <Route exact path='/flow/:flowId/pose/:pose_id' component={FlowFullYogaCard} />
           <Route exact path='/flow/:flowId/pose/:pose_id' component={PoseList} />
         </main>
-
       </div>
     );
   }
-
 }
-
-

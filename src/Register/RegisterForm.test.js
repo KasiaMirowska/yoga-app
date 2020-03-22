@@ -5,7 +5,7 @@ import RegisterForm from './RegisterForm';
 import {BrowserRouter as BR} from 'react-router-dom';
 
 describe('RegisterForm component', () => {
-    const props = {match: {params: {path: '/register'}}}
+    const props = {match: {params: {path: '/register'}}};
     
     it ('renders without crashing',() => {
         const div = document.createElement('div');
@@ -15,6 +15,5 @@ describe('RegisterForm component', () => {
     it('renders UI as expected', () => {
         const register = renderer.create(<BR><RegisterForm /></BR>);
         expect(register.toJSON()).toMatchSnapshot();
-    })
-
-})
+    });
+});

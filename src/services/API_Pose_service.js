@@ -5,20 +5,20 @@ import TokenService from './token-service';
 const APIPoseCalls = {
 
     getAllPosesData: () => {
-        const URL = config.API_ENDPOINT + '/poses'
+        const URL = config.API_ENDPOINT + '/poses';
 
         return fetch(URL)
             .then(res => {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
-                            throw new Error(err.error.message)
-                        })
+                            console.log(err);
+                            throw new Error(err.error.message);
+                        });
                 }
                 return res;
             })
-            .then(res => res.json())
+            .then(res => res.json());
     },
 
     insertPoseAttributes: (element) => {
@@ -36,13 +36,13 @@ const APIPoseCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
-                            throw new Error(err.error.message)
-                        })
+                            console.log(err);
+                            throw new Error(err.error.message);
+                        });
                 }
                 return res;
             })
-            .then(res => res.json())
+            .then(res => res.json());
     },
 
     insertPoseNotes: (note) => {
@@ -60,13 +60,13 @@ const APIPoseCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
-                            throw new Error(err.error.message)
-                        })
+                            console.log(err);
+                            throw new Error(err.error.message);
+                        });
                 }
                 return res;
             })
-            .then(res => res.json())
+            .then(res => res.json());
     },
 
     getFullPoseData: (flowId, poseId) => {
@@ -81,15 +81,14 @@ const APIPoseCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
-                            throw new Error(err.error.message)
+                            console.log(err);
+                            throw new Error(err.error.message);
                         })
                 }
                 return res;
             })
-            .then(res => res.json())
+            .then(res => res.json());
     }
-
 }
 
 export default APIPoseCalls;

@@ -3,7 +3,7 @@ import YogaContext from '../Context';
 import APIPoseCalls from '../services/API_Pose_service';
 import APIFlowCalls from '../services/API_Flow_service';
 import './PoseFullCard.css';
-import { animateScroll as scroll } from 'react-scroll'
+import { animateScroll as scroll } from 'react-scroll';
 
 export default class PoseFullCard extends React.Component {
     static contextType = YogaContext;
@@ -28,12 +28,11 @@ export default class PoseFullCard extends React.Component {
 
         APIPoseCalls.getFullPoseData(flowId, pose_id)
             .then(data => {
-                this.context.setOpenPoseCard(data)
+                this.context.setOpenPoseCard(data);
             })
             .catch(err => {
-                this.context.setError(err)
+                this.context.setError(err);
             })
-
     }
 
     handleSubmit = (e) => {
@@ -47,28 +46,35 @@ export default class PoseFullCard extends React.Component {
             main_flow_id: currentFlowId,
             pose_id: poseId,
             section_flow_id: Number(flowSection),
-        }
+        };
+
         APIFlowCalls.insertPoseIntoFlows(flowsPose)
-            .then(console.log('pose saved into flow'))
-            .catch(err => {
-                this.context.setError(err)
+            .then(() => {
+                console.log('pose saved into flow');
             })
+            .catch(err => {
+                this.context.setError(err);
+            });
 
         let savedPoseAttributes = {
             assigned_flow_id: currentFlowId,
             pose_id: poseId,
-        }
+        };
+
         const attributesList = this.makeAttributesList();
+        
         savedPoseAttributes = {
             assigned_flow_id: currentFlowId,
             pose_id: poseId,
             attribute: attributesList,
-        }
+        };
 
         APIPoseCalls.insertPoseAttributes(savedPoseAttributes)
-            .then(console.log('attributes saved'))
+            .then(() => {
+                console.log('attributes saved');
+            })
             .catch(err => {
-                this.context.setError(err)
+                this.context.setError(err);
             })
 
         const note = {
@@ -78,24 +84,27 @@ export default class PoseFullCard extends React.Component {
         };
 
         APIPoseCalls.insertPoseNotes(note)
-            .then(console.log('note saved'))
-            .catch(err => {
-                this.context.setError(err)
+            .then(() => {
+                console.log('note saved');
             })
+            .catch(err => {
+                this.context.setError(err);
+            });
+
         scroll.scrollToTop();
-        this.props.history.push('/flow')
+        this.props.history.push('/flow');
     }
 
     handleSavePoseAs = (e) => {
         const flowSectionid = e.target.value;
         this.setState({
             flowSection: flowSectionid,
-        })
-    };
+        });
+    }
 
     handleAddAttribute = (e) => {
         const attribute = e.target.name;
-        const clickedAttribute = this.state[attribute]
+        const clickedAttribute = this.state[attribute];
         this.setState({
             [attribute]: !clickedAttribute,
         });
@@ -105,7 +114,7 @@ export default class PoseFullCard extends React.Component {
         let attributesList = [];
         for (let [key, value] of Object.entries(this.state)) {
             if (value === true) {
-                attributesList = [...attributesList, key]
+                attributesList = [...attributesList, key];
             }
         }
         return attributesList;
@@ -114,16 +123,16 @@ export default class PoseFullCard extends React.Component {
     handleNotes = (e) => {
         this.setState({
             notes: e.target.value
-        })
+        });
     }
 
     handleBackButton = () => {
         scroll.scrollToTop();
-        this.props.history.push('/flow')
+        this.props.history.push('/flow');
     }
 
     render() {
-        const { name_eng, alias, name_san, benefits, pose_type, pose_level, img, video } = this.context.openPoseCard;
+        const { name_eng, alias, name_san, benefits, pose_type, pose_level, video } = this.context.openPoseCard;
 
         return (
             <div className='pose-info'>
@@ -206,6 +215,6 @@ export default class PoseFullCard extends React.Component {
                     </div>
                 </form>
             </div>
-        )
+        );
     }
 }

@@ -1,12 +1,13 @@
 .landing {
     text-align: left; 
     padding:20px;
-   
 }
+
 .land-container {
     margin: auto;
     width: 80%;
 }
+
 @media (min-width: 800px){
     .landing {
         text-align: center;  

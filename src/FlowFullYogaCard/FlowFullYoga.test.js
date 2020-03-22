@@ -9,7 +9,7 @@ describe('FlowFullYogaCard component', () => {
         location: { pathname: '/flow'},
         history: {location: {pathname: '/flow'}},
         match: {params: {pose_id: 1}}
-    }
+    };
    
     it ('renders without crashing',() => {
         const div = document.createElement('div');
@@ -20,6 +20,5 @@ describe('FlowFullYogaCard component', () => {
     it('renders UI as expected', () => {
         const fullCard = renderer.create(<BR><FlowFullYogaCard {...props} /></BR>);
         expect(fullCard.toJSON()).toMatchSnapshot();
-    })
-
-})
+    });
+});

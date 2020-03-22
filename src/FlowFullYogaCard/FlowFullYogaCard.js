@@ -1,5 +1,5 @@
 import React from 'react';
-import YogaContext, { YogaContextProvider } from '../Context';
+import YogaContext from '../Context';
 import APIPoseCalls from '../services/API_Pose_service';
 import './FlowFullYogaCard.css';
 import { animateScroll as scroll } from 'react-scroll';
@@ -13,54 +13,54 @@ export default class FlowFullYogaCard extends React.Component {
 
     componentDidUpdate = () => {
         if (this.props.history.location.pathname !== this.state.clickedPose) {
-            this.getFullPoseInfo()
+            this.getFullPoseInfo();
         }
     }
-    getFullPoseInfo = () => {
 
+    getFullPoseInfo = () => {
         const flowId = this.context.currentFlowId;
         const clickedPoseId = Number(this.props.match.params.pose_id);
         const clickedPosePath = this.props.location.pathname;
 
         this.setState({
             clickedPose: clickedPosePath,
-        })
-
+        });
 
         APIPoseCalls.getFullPoseData(flowId, clickedPoseId)
             .then(data => {
-                this.context.setOpenPoseCard(data)
+                this.context.setOpenPoseCard(data);
             })
             .catch(res => {
                 this.setState({
                     error: res,
-                })
-            })
+                });
+            });
     }
 
     componentDidMount = () => {
-        this.getFullPoseInfo()
+        this.getFullPoseInfo();
     }
 
     handleBackButton = () => {
         scroll.scrollToTop();
-        this.props.history.push('/flow')
+        this.props.history.push('/flow');
     }
 
     render() {
-        const { name_eng, name_san, benefits, pose_type, pose_level, img, video, attributesList, notes } = this.context.openPoseCard;
+        const { name_eng, name_san, benefits, pose_type, pose_level, video, attributesList, notes } = this.context.openPoseCard;
 
         if (attributesList || notes) {
             const list = attributesList.map((att, index) => {
                 return (
                     <li key={index}>{att}</li>
-                )
+                );
             });
             const poseNotes = notes.map((n, index) => {
                 return (
                     <li key={index}>{n}</li>
-                )
-            })
+                );
+            });
+
             return (
                 <div className='pose-info'>
                     <div className='error'>
@@ -96,13 +96,11 @@ export default class FlowFullYogaCard extends React.Component {
                         </ul>
                     </div>
                     <button className='bt-container' onClick={this.handleBackButton} >Back</button>
-
                 </div >
-            )
-
+            );
         }
-        return (
 
+        return (
             <div className='pose-info'>
                 <h3 className='title' >{name_eng}</h3>
                 <h3 className='title'>{name_san}</h3>
@@ -123,11 +121,7 @@ export default class FlowFullYogaCard extends React.Component {
                 <div className='bt-container'>
                     <button onClick={this.handleBackButton} >Back</button>
                 </div>
-
             </div>
         );
-
-
-
     }
 }

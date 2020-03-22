@@ -11,14 +11,16 @@ describe('PoseListItem component', () => {
         img: '',
         location: {pathname: '/'},
         history: {push : '/'}
-    }
+    };
+
     it('renders without crashing', () => {
          const div = document.createElement('div');
          ReactDom.render(<BR><PoseListItem {...props} /></BR>, div);
          ReactDom.unmountComponentAtNode(div);
     });
+
     it('renders UI as expected', () => {
         const item = renderer.create(<BR><PoseListItem {...props}/></BR>)
         expect(item.toJSON()).toMatchSnapshot();
-    })
-})
+    });
+});

@@ -11,17 +11,15 @@ export default class Nav extends React.Component {
 
   render() {
 
-    const token = TokenService.hasAuthToken(config.TOKEN_KEY)
+    const token = TokenService.hasAuthToken(config.TOKEN_KEY);
     if (token) {
       return (
         <div className='logged-in'>
-          <Link
-            onClick={this.handleLogoutClick}
-            to='/'>
+          <Link onClick={this.handleLogoutClick} to='/'>
             Logout
-        </Link>
+          </Link>
         </div>
-      )
+      );
     } else {
       return (
         <div className='nav'>
@@ -32,9 +30,7 @@ export default class Nav extends React.Component {
             Register
            </Link>
         </div>
-      )
+      );
     }
-
   }
-
 }
