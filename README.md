@@ -121,7 +121,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
         pose_level: level of pose,
         pose_type: body position when in pose
         benefits: benefits pose is known for,
-        
+
     }
 
   }
@@ -161,6 +161,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
   method: POST
 
   input: {
+    
     body: [
 
       {
@@ -238,6 +239,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
   output: {
 
     body: [
+
       status: 200,
 
       {
