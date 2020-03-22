@@ -18,7 +18,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   method: POST
 
-  input: {
+  input: 
 
     body: {
 
@@ -29,10 +29,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
     }
 
-  }
-
-
-  output: {
+  output: 
 
     status: 201,
 
@@ -44,8 +41,6 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
     }
 
-  }
-
 ### Auth Login Endpoint
 #### /api/login
 
@@ -53,7 +48,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
   
   method: POST
 
-  input: {
+  input:
 
     body: {
 
@@ -63,15 +58,13 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
     }
 
 
-  output: {
+  output:
 
     body: {
 
       authToken: jwt (javascript web token)
 
     }
-
-  }
 
 ### POSES - Yoga Poses Endpoints
 #### /api/poses
@@ -80,7 +73,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   method: GET
 
-  output: {
+  output: 
     
     status: 200,
 
@@ -98,17 +91,17 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
     ]
 
-  }
-
 #### /api/flow/:pose_id
 
   description: gets pose object
 
   method: GET
 
-  params: pose_id = number
+  input: 
+    
+    params: pose_id = number
 
-  output: {
+  output: 
 
     status: 200,
 
@@ -124,17 +117,17 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
     }
 
-  }
-
 #### /api/flow/:flow_id/:pose_id
 
   description: gets pose from user flow
 
   method: GET
 
-  params: /flow_id /pose_id
+  input: 
+
+    params: /flow_id /pose_id
   
-  output: {
+  output:
     
     status: 200,
 
@@ -152,7 +145,6 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
     }
 
-  }
 
 #### /api/flowatt/:pose_id
 
@@ -160,8 +152,8 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   method: POST
 
-  input: {
-    
+  input:
+
     body: [
 
       {
@@ -175,9 +167,9 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
         ]
       }
     ]
-  }
+  
 
-  output: {
+  output: 
 
     status: 201,
 
@@ -193,7 +185,6 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
     ]
 
-  }
 
 #### /api/flownote/:pose_id
 
@@ -201,7 +192,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   method: POST
   
-  input: {
+  input: 
 
     body: {
 
@@ -211,9 +202,8 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
       
     }
 
-  }
 
-  output: {
+  output: 
 
     status: 201,
     
@@ -227,7 +217,6 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
     }
 
-  }
 
 ### FLOWS - Yoga Flows Endpoints
 #### /api/flows
@@ -236,7 +225,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   method: GET
 
-  output: {
+  output: 
 
     body: [
 
@@ -252,7 +241,6 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
     ]
 
-  }
   
 #### /api/flows
 
@@ -260,7 +248,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   method: POST
 
-  input: {
+  input:
 
     body: {
 
@@ -274,13 +262,9 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
       title: string,
       warmUp: []
 
-      },
+    },
 
-    }
-
-  }
-
-  output: {
+  output:
     
     status: 201,
 
@@ -297,7 +281,6 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
       warmUp: []
 
     }
-  }
 
 #### /api/flow-pose
 
@@ -305,7 +288,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   method: POST
 
-  input: {
+  input: 
 
     user: {
 
@@ -321,9 +304,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
     }
 
-  }
-
-  output: {
+  output: 
 
     status: 201,
 
@@ -335,7 +316,7 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
       section_flow_id: number
 
     }
-  }
+
 
 #### /api/flows/:flow_id
 
@@ -343,9 +324,11 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   method: GET
 
-  params: flow_id (id of flow to get from db)
+  input: 
 
-  output: {
+    params: flow_id (id of flow to get from db)
+
+  output: 
 
     status: 200,
 
@@ -355,7 +338,6 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
     }
 
-  }
 
 #### /api/delete/:flow_id/:pose_id
 
@@ -363,14 +345,15 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   method: DELETE
 
-  params: flow_id, pose_id
+  input: 
+    
+    params: flow_id, pose_id
 
-  output: {
+  output: 
 
     status: 204,
     message: 'pose deleted from flow'
 
-  }
 
 ## TECH STACK
 #### FRONT-END
