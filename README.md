@@ -11,51 +11,71 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 |<img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/home.png' width ='200' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/flow-pick.png' width ='200' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/flow-pose.png' width='200' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/pose-card2.png' width='200' > |
 
 ## ENDPOINTS AND EXPECTED DATA
-### USERS
-  #### User Registration
-  /api/register
+### User Registration
+#### /api/register
 
   method: POST
+
   input: {
+
     body: {
+
       fullname: string,
       username: string,
       password: string,
       id: number
+
     }
+
   }
 
+
   output: {
+
     status: 201,
+
     body: {
+
       fullname: string,
       username: string,
       password: encrypted, 
+
     }
+
   }
 
-### AUTH 
-  #### Login Enpoint
-  /api/login
+### Auth Login Endpoint
+#### /api/login
   
   method: POST
+
   input: {
+
     body: {
+
       userName: string, 
       password: string
+
     }
 
+
   output: {
+
     body: {
+
       authToken: jwt (javascript web token)
+
     }
+
   }
 
-### POSES
-  #### Yoga Poses Endpoints
-  /api/poses
+### POSES - Yoga Poses Endpoints
+#### /api/poses
+
   description: get all yoga poses in DB
+
   method: GET
+
   input: {
 
   }
@@ -64,9 +84,12 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   }
 
-  /api/flow/:pose_id
+#### /api/flow/:pose_id
+
   description: 
+
   method: GET
+
   input: {
 
   }
@@ -75,9 +98,12 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   }
 
-  /api/flow/:flow_id/:pose_id
+#### /api/flow/:flow_id/:pose_id
+
   description: 
+
   method: GET
+
   input: {
 
   }
@@ -86,9 +112,12 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   }
 
-  /api/flowatt/:pose_id
+#### /api/flowatt/:pose_id
+
   description: 
+
   method: POST
+
   input: {
 
   }
@@ -97,9 +126,12 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   }
 
-  /api/flownote/:pose_id
+#### /api/flownote/:pose_id
+
   description:
+
   method: POST
+  
   input: {
 
   }
@@ -107,12 +139,14 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
   output: {
 
   }
-### FLOWS
-  #### Yoga Flows Endpoints
 
-  /api/flows
+### FLOWS - Yoga Flows Endpoints
+#### /api/flows
+
   description:
+
   method: GET
+
   input: {
 
   }
@@ -121,60 +155,93 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   }
   
-  /api/flows
+#### /api/flows
+
   description:
+
   method: POST
+
   input: {
+
     body: {
+
       user: {
+
         id: number
-      }
+
+      },
+
       title: string
+
     }
+
   }
 
   output: {
 
   }
 
-  /api/flow-pose
+#### /api/flow-pose
+
   description: add pose into flow
+
   method: POST
+
   input: {
+
     user: {
+
       id: number
+
     },
+
     body: {
+
       main_flow_id: number,
       pose_id: number,
       section_flow_id: number
+
     }
+
   }
 
   output: {
 
   }
 
-  /api/flows/:flow_id
+#### /api/flows/:flow_id
+
   description: get flow object
+
   method: GET
+
   params: flow_id (id of flow to get from db)
 
   output: {
+
     status: 200,
+
     body: {
+
       flow: flow object
+
     }
+
   }
 
-  /api/delete/:flow_id/:pose_id
+#### /api/delete/:flow_id/:pose_id
+
   description: delete pose from flow
+
   method: DELETE
+
   params: flow_id, pose_id
 
   output: {
+
     status: 204,
     message: 'pose deleted from flow'
+
   }
 
 ## TECH STACK
