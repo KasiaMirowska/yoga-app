@@ -14,6 +14,8 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 ### User Registration
 #### /api/register
 
+  description: registration endpoint
+
   method: POST
 
   input: {
@@ -46,6 +48,8 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
 ### Auth Login Endpoint
 #### /api/login
+
+  description: user login endpoint
   
   method: POST
 
@@ -76,88 +80,181 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   method: GET
 
-  input: {
-
-  }
-
   output: {
+    
+    status: 200,
+
+    body: [
+
+      {
+        id: number,
+        img: image url,
+        name_eng: pose name in english,
+        name_san: pose name in sanskrit
+        pose_level: level of pose,
+        pose_type: body position when in pose
+        benefits: benefits pose is known for,
+      }
+
+    ]
 
   }
 
 #### /api/flow/:pose_id
 
-  description: 
+  description: gets pose object
 
   method: GET
 
-  input: {
-
-  }
+  params: pose_id = number
 
   output: {
+
+    status: 200,
+
+    body: {
+
+        id: number,
+        img: image url,
+        name_eng: pose name in english,
+        name_san: pose name in sanskrit
+        pose_level: level of pose,
+        pose_type: body position when in pose
+        benefits: benefits pose is known for,
+        
+    }
 
   }
 
 #### /api/flow/:flow_id/:pose_id
 
-  description: 
+  description: gets pose from user flow
 
   method: GET
 
-  input: {
-
-  }
-
+  params: /flow_id /pose_id
+  
   output: {
+    
+    status: 200,
+
+    body: {
+
+      id: number,
+      img: image url,
+      alias: alias name of pose,
+      name_eng: pose name in english,
+      name_san: pose name in sanskrit,
+      pose_level: level of pose,
+      pose_type: boy position when in pose,
+      video: video url for page,
+      benefits: physical benefits resulting from pose
+
+    }
 
   }
 
 #### /api/flowatt/:pose_id
 
-  description: 
+  description: takes attributes chosen for yoga pose and saves to db
 
   method: POST
 
   input: {
+    body: [
 
+      {
+        
+        pose_id: number, 
+        assigned_flow_id: number,
+        attribute: [
+          
+          string - attribute
+
+        ]
+      }
+    ]
   }
 
   output: {
+
+    status: 201,
+
+    body: [
+
+      {
+
+        author: number,
+        assigned_flow_id: number,
+        pose_id: number, 
+        attribute: string of attribute name
+      }
+
+    ]
 
   }
 
 #### /api/flownote/:pose_id
 
-  description:
+  description: takes notes written about yoga pose and saves to db
 
   method: POST
   
   input: {
 
+    body: {
+
+      pose_id: number of pose,
+      assigned_flow_id: number,
+      notes: string - notes to save in db about pose,
+      
+    }
+
   }
 
   output: {
+
+    status: 201,
+    
+    body: {
+
+      assigned_flow_id: number
+      author: number
+      id: number
+      notes: note saved to db
+      pose_id: number
+
+    }
 
   }
 
 ### FLOWS - Yoga Flows Endpoints
 #### /api/flows
 
-  description:
+  description: gets all user flows in database
 
   method: GET
 
-  input: {
-
-  }
-
   output: {
+
+    body: [
+      status: 200,
+
+      {
+
+        id: number,
+        title: string,
+        author: number
+
+      }
+
+    ]
 
   }
   
 #### /api/flows
 
-  description:
+  description: returns flow object
 
   method: POST
 
@@ -165,20 +262,39 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
     body: {
 
-      user: {
-
-        id: number
+      afterPeak [],
+      assignedPoses: [],
+      author: number,
+      breakPoses: [],
+      id: number,
+      midFlow: [],
+      peakPose: [],
+      title: string,
+      warmUp: []
 
       },
-
-      title: string
 
     }
 
   }
 
   output: {
+    
+    status: 201,
 
+    body: {
+      
+      afterPeak [],
+      assignedPoses: [],
+      author: number,
+      breakPoses: [],
+      id: number,
+      midFlow: [],
+      peakPose: [],
+      title: string,
+      warmUp: []
+
+    }
   }
 
 #### /api/flow-pose
@@ -207,6 +323,16 @@ As a yoga teacher I find myself constatly googling the correct asana's names in 
 
   output: {
 
+    status: 201,
+
+    body: {
+
+      author: number
+      main_flow_id: number,
+      pose_id: number,
+      section_flow_id: number
+
+    }
   }
 
 #### /api/flows/:flow_id
