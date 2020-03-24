@@ -1,7 +1,6 @@
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import config from '../config';
 import TokenService from '../services/token-service';
 
@@ -31,15 +30,4 @@ export default function Header(props) {
       }
     </div>
   )
-=======
-
-export default function Header(props) {
-  return ( 
-    <header className='header' >
-      <Link to={'/'} >
-        <h1> YOGI TRACK </h1> 
-      </Link> 
-    </header>
-  );
->>>>>>> 1f09bd599c76b1a050a89c676a07800367a58ade
 }

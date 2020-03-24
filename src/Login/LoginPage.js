@@ -15,12 +15,6 @@ export default class LoginPage extends React.Component {
           <h2 className='title' >LOGIN</h2>
           <LoginForm onLoginSuccess={this.handleLoginSuccess} />
        </div>
-<<<<<<< HEAD
-      )
-    };
-  };
-=======
       );
     }
   }
->>>>>>> 1f09bd599c76b1a050a89c676a07800367a58ade

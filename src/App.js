@@ -52,13 +52,8 @@ export default class App extends React.Component {
         </main>
       </div>
     );
-<<<<<<< HEAD
   };
 
 };
 
 
-=======
-  }
-}
->>>>>>> 1f09bd599c76b1a050a89c676a07800367a58ade
