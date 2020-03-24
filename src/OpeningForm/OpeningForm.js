@@ -53,10 +53,11 @@ export default class OpeningForm extends React.Component {
         this.setState({
             selection: e.target.value
         });
+        this.context.saveFlowSelection(e.target.value)
     }
 
     enterFlow = () => {
-        const flow = this.context.flows.find(flow => flow.title === this.state.selection);
+        const flow = this.context.flows.find(flow => flow.title === this.context.flowSelection);
         this.context.enterFlow(flow);
         this.props.history.push(`/flow`);
     }

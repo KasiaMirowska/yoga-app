@@ -8,6 +8,7 @@ const YogaContext = React.createContext({
     poses: [],
     flows: [],
     openPoseCard: {},
+    flowSelection: '',
     setPosesList: () => { },
     setFlowsList: () => { },
     setOpenPoseCard: () => { },
@@ -18,6 +19,7 @@ const YogaContext = React.createContext({
     truncateCurrentFlow: () => { },
     addFlow: () => { },
     enterFlow: () => { },
+    saveFlowSelection: () => {},
     deletePoseFromFlow: () => {},
     poseAttributes: [],
 });
@@ -57,6 +59,7 @@ export class YogaContextProvider extends React.Component {
             poses: [],
             flows: [],
             poseAttributes: [],
+            flowSelection: null,
             error: null,
         };
     }
@@ -83,7 +86,11 @@ export class YogaContextProvider extends React.Component {
             }
         });
     }
-    
+    saveFlowSelection = (flow) => {
+        this.setState({
+            flowSelection: flow,
+        })
+    }
 
     setCurrentFlow = (flow) => {
         this.setState({
@@ -157,6 +164,7 @@ export class YogaContextProvider extends React.Component {
             currentFlow: this.state.currentFlow,
             poses: this.state.poses,
             flows: this.state.flows,
+            flowSelection: this.state.flowSelection,
             setError: this.setError,
             truncateCurrentFlow: this.truncateCurrentFlow,
             setCurrentFlow: this.setCurrentFlow,
@@ -168,6 +176,7 @@ export class YogaContextProvider extends React.Component {
             setCurrentNewFlow: this.setCurrentNewFlow,
             addFlow: this.addFlow,
             enterFlow: this.enterFlow,
+            saveFlowSelection: this.saveFlowSelection,
             deletePoseFromFlow: this.deletePoseFromFlow,
             poseAttributes: this.state.poseAttributes,
         };

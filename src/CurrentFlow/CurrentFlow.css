@@ -1,4 +1,21 @@
 .current-flow {
+    
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+
+
+
+@media(min-width: 600px) {
+    .current-flow {
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    #flow-button {
+        margin-left: 40px;
+    }
 }

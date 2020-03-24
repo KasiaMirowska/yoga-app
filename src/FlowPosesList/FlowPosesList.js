@@ -18,10 +18,9 @@ export default class FlowPosesList extends React.Component {
             .then(data => {
                 this.context.setCurrentFlow(data);
             })
-            .catch(res => {
-                console.log(res);
+            .catch(err => {
                 this.setState({
-                    error: res
+                    error: err
                 });
             });
     }

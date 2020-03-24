@@ -22,9 +22,10 @@ export default class App extends React.Component {
         </nav>
         <header>
           <Route path='/' component={Header} />
-          <Route exact path='/' component={OpeningForm} />
+          
         </header>
         <main>
+        <Route exact path='/' component={OpeningForm} />
           <Route exact path='/' component={PoseList} />
       
           <Route exact path='/login' component={LoginPage} />
