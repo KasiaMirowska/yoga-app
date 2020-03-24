@@ -4,9 +4,9 @@ import LoginForm from './LoginForm';
 export default class LoginPage extends React.Component {
   
     handleLoginSuccess = () => {
-      const { location, history } = this.props
-      const destination = (location.state || {}).from || '/'
-      history.push(destination)
+      const { location, history } = this.props;
+      const destination = (location.state || {}).from || '/';
+      history.push(destination);
     }
   
     render() {
@@ -18,5 +18,5 @@ export default class LoginPage extends React.Component {
           />
        </div>
       )
-    }
-  }
+    };
+  };
