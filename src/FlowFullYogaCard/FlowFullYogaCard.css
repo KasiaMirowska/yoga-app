@@ -1,6 +1,7 @@
 .bt-container {
     margin: 20px;
 }
+
 .pose-info {
     background-color: rgb(233, 224, 231); 
     text-align: center; 
@@ -17,6 +18,7 @@
     margin: auto;
     padding: 20px;
 }
+
 @media (min-width: 800px) {
     .pose-info {
         max-width: 75%;
@@ -27,5 +29,4 @@
         margin-bottom: 40px;
         filter: drop-shadow(0 0 0.75rem rgb(151, 132, 136));
     }
-    
-  }  
+}  

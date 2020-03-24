@@ -13,10 +13,14 @@ export default class LoginPage extends React.Component {
       return (
        <div className='current-flow'>
           <h2 className='title' >LOGIN</h2>
-          <LoginForm
-            onLoginSuccess={this.handleLoginSuccess}
-          />
+          <LoginForm onLoginSuccess={this.handleLoginSuccess} />
        </div>
+<<<<<<< HEAD
       )
     };
   };
+=======
+      );
+    }
+  }
+>>>>>>> 1f09bd599c76b1a050a89c676a07800367a58ade

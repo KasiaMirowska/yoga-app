@@ -8,9 +8,8 @@ describe('FlowItem component', () => {
     let props = {
         flowId: 1,
         poseId: 1,
-        history: {location: {pathname: `/flow/1/pose/1}`}},
-        
-    }
+        history: {location: {pathname: `/flow/1/pose/1}`}},   
+    };
    
     it ('renders without crashing',() => {
         const div = document.createElement('div');
@@ -21,6 +20,5 @@ describe('FlowItem component', () => {
     it('renders UI as expected', () => {
         const item= renderer.create(<BR><FlowItem {...props} /></BR>);
         expect(item.toJSON()).toMatchSnapshot();
-    })
-
-})
+    });
+});

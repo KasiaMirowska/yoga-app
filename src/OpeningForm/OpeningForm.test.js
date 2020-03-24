@@ -10,14 +10,16 @@ describe('OpeningForm component', () => {
         location: {
             pathname: '/',
         }
-    }
+    };
+
     it ('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDom.render(<BR><OpeningForm {...props}/></BR>, div);
         ReactDom.unmountComponentAtNode(div);
     });
+
     it('renders UI as expected', () => {
         const form = renderer.create(<BR><OpeningForm {...props}/></BR>);
         expect(form.toJSON()).toMatchSnapshot();
-    })
-})
+    });
+});

@@ -12,11 +12,7 @@ export default function CurrentFlow() {
                         <h2 className='title'>Current flow: {`${value.currentFlow.title}`.toUpperCase()}</h2>
                     </div>
                 )
-            }}    
-               
-                
-        
-    
-               </YogaContext.Consumer>
-    )
+            }}       
+        </YogaContext.Consumer>
+    );
 }

@@ -13,7 +13,6 @@ import LoginPage from './Login/LoginPage';
 import RegisterPage from './Register/RegisterPage';
 
 
-
 export default class App extends React.Component {
   render() {
     return (
@@ -25,11 +24,7 @@ export default class App extends React.Component {
           <Route path='/' component={Header} />
           <Route exact path='/' component={OpeningForm} />
         </header>
-
-
         <main>
-
-         
           <Route exact path='/' component={PoseList} />
       
           <Route exact path='/login' component={LoginPage} />
@@ -55,11 +50,15 @@ export default class App extends React.Component {
           <Route exact path='/flow/:flowId/pose/:pose_id' component={FlowFullYogaCard} />
           <Route exact path='/flow/:flowId/pose/:pose_id' component={PoseList} />
         </main>
-
       </div>
     );
+<<<<<<< HEAD
   };
 
 };
 
 
+=======
+  }
+}
+>>>>>>> 1f09bd599c76b1a050a89c676a07800367a58ade

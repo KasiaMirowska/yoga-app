@@ -8,7 +8,6 @@ export default class RegisterForm extends React.Component {
         error: null,
     }
 
-
     handleSubmit = (e) => {
         e.preventDefault();
         const { full_name, user_name, password } = e.target;
@@ -16,47 +15,48 @@ export default class RegisterForm extends React.Component {
             fullname: full_name.value,
             username: user_name.value,
             password: password.value,
-        }
+        };
         
         AuthCalls.postUser(newUser)
-            .then(user => {
+            .then(() => {
                 full_name.value = '';
                 user_name.value = '';
                 password.value = '';
-                this.props.onRegisterSuccess()
+                this.props.onRegisterSuccess();
             })
             .catch(res => {
-                console.log(res)
+                console.log(res);
                 this.setState({
                     error: res
-                })
-            })
+                });
+            });
     }
 
     handleAfterErrorDisplay = () => {
         this.setState({
             error: null
-        })
+        });
     }
 
     handleFullNameCleanUp = (e) => {
         e.preventDefault();
         let full_name = e.target;
         if (full_name.value !== null) {
-                full_name.value = '';
-                this.setState({
-                    error: null
-                })
+            full_name.value = '';
+            this.setState({
+                error: null
+            });
         }
     }
+
     handleUserNameCleanUp = (e) => {
         e.preventDefault();
         let user_name = e.target;
         if (user_name.value !== null) {
-                user_name.value = '';
-                this.setState({
-                    error: null
-                })
+            user_name.value = '';
+            this.setState({
+                error: null
+            });
         }
     }
 
@@ -64,12 +64,13 @@ export default class RegisterForm extends React.Component {
         e.preventDefault();
         let password = e.target;
         if (password.value !== null) {
-                password.value = '';
-                this.setState({
-                    error: null
-                })
+            password.value = '';
+            this.setState({
+                error: null
+            });
         }
     }
+
     render() {
         return (
             <div className='login'>
@@ -97,6 +98,6 @@ export default class RegisterForm extends React.Component {
                     </button>
                 </form>
             </div>
-        )
+        );
     }
 }

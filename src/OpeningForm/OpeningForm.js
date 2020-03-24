@@ -15,25 +15,24 @@ export default class OpeningForm extends React.Component {
     componentDidMount = () => {
         APIFlowCalls.getAllUserFlows()
             .then(data => {
-                this.context.setFlowsList(data)
+                this.context.setFlowsList(data);
             })
             .catch(err => {
-                this.context.setError(err)
-            })
+                this.context.setError(err);
+            });
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { newFlowName } = e.target
+        const { newFlowName } = e.target;
         const newFlow = {
             title: newFlowName.value,
-        }
+        };
 
-        const token = TokenService.hasAuthToken(config.TOKEN_KEY)
+        const token = TokenService.hasAuthToken(config.TOKEN_KEY);
         if (!token) {
-            this.props.history.push(`/login`)
-        }
-        else {
+            this.props.history.push(`/login`);
+        } else {
             APIFlowCalls.postNewFlow(newFlow)
                 .then(data => {
                     newFlowName.value = '';
@@ -41,35 +40,33 @@ export default class OpeningForm extends React.Component {
                     this.props.history.push('/flow');
                 })
                 .catch(res => {
-                    console.log(res)
+                    console.log(res);
                     this.setState({
                         error: res,
-                    })
-                })
+                    });
+                });
         }
-
-
-    };
+    }
 
     onSelectFlow = (e) => {
         e.preventDefault();
         this.setState({
             selection: e.target.value
-        })
+        });
     }
+
     enterFlow = () => {
-        const flow = this.context.flows.find(flow => flow.title === this.state.selection)
-        this.context.enterFlow(flow)
-        this.props.history.push(`/flow`)
+        const flow = this.context.flows.find(flow => flow.title === this.state.selection);
+        this.context.enterFlow(flow);
+        this.props.history.push(`/flow`);
     }
 
     render() {
         const flowListName = this.context.flows.map((flow, key) => {
             return (
                 <option key={key} value={flow.title}>{flow.title}</option>
-            )
-        })
-
+            );
+        });
 
         return (
             <div className='form-container'>
@@ -84,7 +81,7 @@ export default class OpeningForm extends React.Component {
                 <div className='opening-form'>
                     <form onSubmit={this.handleSubmit} className='flow-form'>
 
-                        <div className="form__group field" className='form-small-container'>
+                        <div className='form__group field form-small-container'>
                             <h3 className='flow-choice'>Create a new flow:</h3>
                             <input type="input" className="form__field" placeholder="flow name" name="name" id='newFlowName'  />
                         </div>
@@ -106,9 +103,8 @@ export default class OpeningForm extends React.Component {
                         </div>
                     </div>
                         : null}
-                </div>
-                
+                </div>   
             </div>
-        )
+        );
     }
 }

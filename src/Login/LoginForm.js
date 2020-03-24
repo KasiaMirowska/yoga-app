@@ -13,55 +13,56 @@ export default class LoginForm extends React.Component {
 
     handleLogin = (e) => {
         e.preventDefault();
-        const { userName, password } = e.target
+        const { userName, password } = e.target;
 
         const credentials = {
             userName: userName.value,
             password: password.value,
-        }
-
+        };
 
         AuthCalls.postLogin(credentials)
             .then(res => {
-                userName.value = ''
-                password.value = ''
-                TokenService.saveAuthToken(res.authToken)
-                this.props.onLoginSuccess()
+                userName.value = '';
+                password.value = '';
+                TokenService.saveAuthToken(res.authToken);
+                this.props.onLoginSuccess();
             })
             .catch(res => {
-                console.log(res)
+                console.log(res);
                 this.setState({
                     error: res
-                })
-            })
+                });
+            });
     }
 
     handleAfterErrorDisplay = ()=> {
         this.setState({
             error: null
-        })
+        });
     }
+
     handleUsenNameCleanUp = (e) => {
         e.preventDefault();
         let userName = e.target;
-        if(userName.value !== null) {
+        if (userName.value !== null) {
             userName.value = '';
             this.setState({
                 error: null
-            })
+            });
         } 
     }
 
     handlePasswordCleanUp = (e) => {
         e.preventDefault();
         let password = e.target;
-        if(password.value !== null) {
-           password.value = '';
-           this.setState({
-            error: null
-        })
+        if (password.value !== null) {
+            password.value = '';
+            this.setState({
+                error: null
+            });
         }  
     }
+
     render() {
         return (
             <div className='login'>
@@ -81,6 +82,6 @@ export default class LoginForm extends React.Component {
                     <button className='login-button' type='submit'>Login</button>
                 </form>
             </div>
-        )
+        );
     }
 }

@@ -19,11 +19,11 @@ export default class FlowPosesList extends React.Component {
                 this.context.setCurrentFlow(data);
             })
             .catch(res => {
-                console.log(res)
+                console.log(res);
                 this.setState({
                     error: res
-                })
-            })
+                });
+            });
     }
 
     render() {
@@ -34,7 +34,7 @@ export default class FlowPosesList extends React.Component {
             return element.map(id => {
                 return poses.find(pose => pose.id === id);
             });
-        })
+        });
            
         
         const flowPoses = orderedIds.map(element => element.map((pose, index) => {

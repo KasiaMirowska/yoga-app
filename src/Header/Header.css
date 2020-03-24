@@ -1,4 +1,5 @@
 .header {
+<<<<<<< HEAD
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 2em;
@@ -15,4 +16,11 @@
     .landing {
        width: 30%
     }
+=======
+    background-image: url(https://www.dropbox.com/h?preview=lotus.jpg);
+    background-repeat: no-repeat;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+>>>>>>> 1f09bd599c76b1a050a89c676a07800367a58ade
 }

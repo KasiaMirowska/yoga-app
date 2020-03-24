@@ -5,7 +5,7 @@ import RegisterPage from './RegisterPage';
 import {BrowserRouter as BR} from 'react-router-dom';
 
 describe('RegisterPage component', () => {
-    const props = {match: {params: {path: '/register'}}}
+    const props = {match: {params: {path: '/register'}}};
     
     it ('renders without crashing',() => {
         const div = document.createElement('div');
@@ -15,6 +15,5 @@ describe('RegisterPage component', () => {
     it('renders UI as expected', () => {
         const registerPage = renderer.create(<BR><RegisterPage /></BR>);
         expect(registerPage.toJSON()).toMatchSnapshot();
-    })
-
-})
+    });
+});

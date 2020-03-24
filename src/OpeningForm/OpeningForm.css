@@ -1,12 +1,9 @@
 .form-container {
     background-color:rgb(243, 240, 239); 
-     /* background-color:rgb(245, 243, 227);   */
-  
-
 }
+
 .opening-form {
-    padding: 10px;
-    
+    padding: 10px;    
 }
 
 .form__group {
@@ -28,9 +25,10 @@
   transition: border-color 0.2s;
   margin: 5px;
 }
+
 placeholder {
     color: transparent; 
-  }
+}
 
 .flow-form {
     display:flex;
@@ -38,24 +36,24 @@ placeholder {
     margin: auto;
     margin-left: 5%;
 }
+
 .flow-selection {
     display:flex;
     justify-content: space-between;
     margin: auto; 
     margin-left: 5%;
 }
+
 .form-small-container {
     flex:3;
     display: inline;
 }
+
 .button-container {
     flex:1;
     display: inline;
     vertical-align: bottom;
 }
-
-
-
 
 @media (min-width: 800px) {
     .opening-form {
@@ -65,6 +63,7 @@ placeholder {
         justify-content: space-around; 
         display: flex;
     }
+
     .flow-form {
         margin: 10px;
         flex: 1;
@@ -72,6 +71,7 @@ placeholder {
         display: flex;
         margin-left: 5%;
     }
+
     .flow-selection {
         margin: 10px;
         flex:1;
@@ -82,9 +82,9 @@ placeholder {
    
     .form-small-container {
         flex:3;
-        }
+    }
     
     .button-container {
         flex: 1;
     }
-    }
+}

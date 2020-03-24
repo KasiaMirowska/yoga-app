@@ -7,7 +7,7 @@ exports[`RegisterPage component renders UI as expected 1`] = `
   <h2
     className="title"
   >
-    Register
+     Register 
   </h2>
   <div
     className="login"

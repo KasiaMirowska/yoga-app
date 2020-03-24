@@ -1,10 +1,8 @@
 import config from '../config';
 
-
 const AuthCalls = {
     postLogin: (credentials) => {
-        const URL = config.API_ENDPOINT + '/login'
-        console.log(URL,'<== FETCH URL')
+        const URL = config.API_ENDPOINT + '/login';
         return fetch(URL, {
             method: 'POST',
             headers: {
@@ -16,14 +14,13 @@ const AuthCalls = {
             if (!res.ok) {
                 return res.json()
                 .then(err => {
-                    console.log(err)
-                    throw new Error(err.error.message)
-                })
+                    console.log(err);
+                    throw new Error(err.error.message);
+                });
             }
             return res;
         })
-        .then(res => res.json())
-        
+        .then(res => res.json());
     },
 
     postUser: (user) => {
@@ -40,11 +37,12 @@ const AuthCalls = {
             if(!res.ok) {
                 return res.json()
                 .then(err=> {
-                    console.log(err)
-                    throw new Error(err.error.message)
-            })}
+                    console.log(err);
+                    throw new Error(err.error.message);
+                });
+            }
             res.json();
-        })
+        });
     }
 }
 export default AuthCalls;

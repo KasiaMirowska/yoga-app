@@ -11,9 +11,9 @@ describe('CurrentFlow component', () => {
         ReactDom.render(<BR><CurrentFlow /></BR>, div);
         ReactDom.unmountComponentAtNode(div);
     });
+    
     it('renders UI as expected', () => {
         const loginPage = renderer.create(<BR><CurrentFlow /></BR>);
         expect(loginPage.toJSON()).toMatchSnapshot();
-    })
-
-})
+    });
+});
