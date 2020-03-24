@@ -6,7 +6,10 @@ import {BrowserRouter as BR} from 'react-router-dom';
 import { YogaContextProvider as YCP } from '../Context';
 
 describe('FlowPosesList component', () => {
-    const props = {match: {params: {path: '/flow'}}};
+    const props = {
+        match: {params: {path: '/flow'}},
+        history: {push: () => {}}
+    };
     
     it ('renders without crashing',() => {
         const div = document.createElement('div');

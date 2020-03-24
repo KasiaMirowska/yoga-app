@@ -13,8 +13,11 @@ export default class FlowPosesList extends React.Component {
 
     componentDidMount = () => {
         let flowId = this.context.currentFlowId;
-        
-        APIFlowCalls.getAllPosesInFlow(flowId)
+      
+        if(!flowId) {
+            this.props.history.push('/')
+        } else {
+            APIFlowCalls.getAllPosesInFlow(flowId)
             .then(data => {
                 this.context.setCurrentFlow(data);
             })
@@ -23,6 +26,8 @@ export default class FlowPosesList extends React.Component {
                     error: err
                 });
             });
+        }
+        
     }
 
     render() {

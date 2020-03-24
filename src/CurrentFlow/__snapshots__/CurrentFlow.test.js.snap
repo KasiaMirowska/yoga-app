@@ -10,5 +10,12 @@ exports[`CurrentFlow component renders UI as expected 1`] = `
     Current flow: 
     UNDEFINED
   </h2>
+  <button
+    id="flow-button"
+    onClick={[Function]}
+    type="button"
+  >
+    Back
+  </button>
 </div>
 `;

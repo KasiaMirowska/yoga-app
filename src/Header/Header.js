@@ -22,8 +22,8 @@ export default function Header(props) {
             <div className='landing'>
               <h3 className='title'>Welcome to Yoga Track!</h3>
               <p>An app built to help yoga teachers and enthusiasts planing their next practice or class! Login with 'demo' and 'password' to access information about each pose, add your own description and notes and save it to your flow. Enjoy!
-            <h3 className='title'>Namaste</h3>
               </p>
+              <h3 className='title'>Namaste</h3>
             </div>
         </div>
         
