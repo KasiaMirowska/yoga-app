@@ -15,7 +15,7 @@ exports[`OpeningForm component renders UI as expected 1`] = `
       onSubmit={[Function]}
     >
       <div
-        className="form__group field form-small-container"
+        className="form__group1 field form-small-container"
       >
         <h3
           className="flow-choice"

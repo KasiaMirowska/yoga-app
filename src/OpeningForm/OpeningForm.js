@@ -58,7 +58,7 @@ export default class OpeningForm extends React.Component {
     enterFlow = () => {
         
         const flow = this.context.flows.find(flow => flow.title === this.state.selection);
-       
+       console.log('here')
         this.context.setCurrentFlow(flow)
         this.context.enterFlow(flow);
        
@@ -85,7 +85,7 @@ export default class OpeningForm extends React.Component {
                 <div className='opening-form'>
                     <form onSubmit={this.handleSubmit} className='flow-form'>
 
-                        <div className='form__group field form-small-container'>
+                        <div className='form__group1 field form-small-container'>
                             <h3 className='flow-choice'>Create a new flow:</h3>
                             <input type="input" className="form__field" placeholder="flow name" name="name" id='newFlowName'  />
                         </div>
